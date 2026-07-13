@@ -14,7 +14,11 @@ import { mkdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 
 const ENDPOINT = 'https://api.runpod.ai/v2/z-image-turbo';
-const API_KEY = process.env.RUNPOD_KEY_ZIMAGE ?? 'RUNPOD_KEY_AUS_ENV';
+const API_KEY = process.env.RUNPOD_KEY_ZIMAGE;
+if (!API_KEY) {
+  console.error('RUNPOD_KEY_ZIMAGE fehlt (export RUNPOD_KEY_ZIMAGE=rpa_…)');
+  process.exit(1);
+}
 
 const LOOK = `editorial luxury beauty photography, warm ivory cream palette (#f5f0e8 background, #e8dcc8 midtones, #bf885a gold accents), soft diffused warm morning light (~4800K), gentle golden backlight, lifted shadows, creamy soft highlights, subtle fine film grain (Fuji Pro 400H pastel emulation), airy negative space, high-key brightness, shot on medium format 80mm — no text, no logos, no watermark, no harsh contrast, no cool or blue tones, no purple, no distorted anatomy`;
 

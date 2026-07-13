@@ -11,7 +11,11 @@ import { mkdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 
 const ENDPOINT = 'https://api.runpod.ai/v2/seedance-v1-5-pro-i2v';
-const API_KEY = process.env.RUNPOD_KEY_SEEDANCE ?? 'RUNPOD_KEY_AUS_ENV';
+const API_KEY = process.env.RUNPOD_KEY_SEEDANCE;
+if (!API_KEY) {
+  console.error('RUNPOD_KEY_SEEDANCE fehlt (export RUNPOD_KEY_SEEDANCE=rpa_…)');
+  process.exit(1);
+}
 
 function arg(name, fallback = undefined) {
   const i = process.argv.indexOf(`--${name}`);
