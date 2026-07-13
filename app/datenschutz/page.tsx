@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import { kontakt } from '@/content/copy.de';
 import { Footer } from '@/components/layout/footer';
 
@@ -22,11 +23,14 @@ export default function DatenschutzPage() {
   return (
     <main className="min-h-screen bg-ivory">
       <div className="mx-auto max-w-3xl px-6 pb-24 pt-28 md:px-10">
-        <Link href="/" className="flex w-fit items-baseline gap-1.5 whitespace-nowrap">
-          <span className="font-display text-[1.05rem] uppercase tracking-[0.18em] text-umber-soft">
-            Permanent
-          </span>
-          <span className="font-script text-[1.7rem] leading-none text-gold">Reich</span>
+        <Link href="/" aria-label={`${kontakt.name} — zur Startseite`} className="block w-fit">
+          <Image
+            src="/logo-wortmarke.png"
+            alt={kontakt.name}
+            width={105}
+            height={48}
+            className="h-12 w-auto"
+          />
         </Link>
         <Link
           href="/"

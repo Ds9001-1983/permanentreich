@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import Image from 'next/image';
 import { gsap, prefersReducedMotion } from '@/lib/gsap';
 import { preloader } from '@/content/copy.de';
 import { media } from '@/lib/media';
@@ -30,11 +31,6 @@ export function Preloader() {
   const rootRef = useRef<HTMLDivElement>(null);
   const inhaltRef = useRef<HTMLDivElement>(null);
 
-  // Wort-Split: Script-Akzent auf „Reich“ — Quelle bleibt copy.de
-  const wort = preloader.wort;
-  const scriptIndex = wort.lastIndexOf('Reich');
-  const displayTeil = scriptIndex > 0 ? wort.slice(0, scriptIndex) : wort;
-  const scriptTeil = scriptIndex > 0 ? wort.slice(scriptIndex) : '';
 
   useEffect(() => {
     const root = rootRef.current;
@@ -158,10 +154,15 @@ export function Preloader() {
       className="fixed inset-0 z-[200] flex items-center justify-center bg-ivory select-none"
     >
       <div ref={inhaltRef} className="flex flex-col items-center gap-8 px-6 text-center">
-        <p className="font-display text-umber text-[clamp(2.5rem,7vw,6rem)]">
-          {displayTeil}
-          {scriptTeil && <span className="font-script text-gold pl-[0.06em]">{scriptTeil}</span>}
-        </p>
+        {/* Original-Wortmarke aus dem Logo (CI) */}
+        <Image
+          src={media.logoWortmarke}
+          alt={preloader.wort}
+          width={306}
+          height={140}
+          priority
+          className="h-[clamp(5rem,18vw,8.75rem)] w-auto"
+        />
 
         <div className="h-px w-40 overflow-hidden bg-champagne">
           <div

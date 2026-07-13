@@ -40,6 +40,8 @@ export const media = {
     interior: '/media/textures/interior.jpg',
   },
   logo: '/logo.svg',
+  /** Kern-Wortmarke (PERMANENT + Reich-Script), farbsepariert aus dem Logo-Vektor */
+  logoWortmarke: '/logo-wortmarke.png',
 } as const;
 
 /** Hover-Videos + Hero-Videos sind generiert, komprimiert und farb-geprüft */

@@ -35,3 +35,5 @@ Originale bleiben unangetastet. Verarbeitete Versionen → `assets/graded/`, Web
 | Datei | Inhalt | Slot | Behandlung |
 |---|---|---|---|
 | `IMG_6698.mov` | Studio-Rundgang (iPhone, HLG/HDR, 2160×3840@60, 6,3 s): Liege → Sitzecke → Gold-Sessel | Mobiler Scrollytelling-Hero | `scripts/build-scrub.sh`: eq-Kompensation + Brand-LUT + 76 WebP-Frames → `public/media/hero/scrub/` ✓ Gate |
+| *(Logo-Derivat)* | Kern-Wortmarke „PERMANENT Reich" — farbsepariert aus dem Vektor (graue Subline entfernt, PDF-Rahmenlinie beschnitten) | Header, Preloader, Footer, Rechtsseiten, OG-Bild | `public/logo-wortmarke.png` |
+| *(Logo-Derivat)* | Gold-Script-„R" als Favicon/App-Icon | Browser-Tab, iOS-Homescreen | `app/icon.png`, `app/apple-icon.png` |
