@@ -1,9 +1,10 @@
 'use client';
 
 import { Canvas, useFrame } from '@react-three/fiber';
-import { useEffect, useMemo, useRef } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import * as THREE from 'three';
 import { useWebglCapable, useInView } from './use-webgl-capable';
+import { GlErrorBoundary } from './gl-guard';
 
 /**
  * SM-09 „Liquid Gold Silk" — domain-warped FBM in der Marken-Farb-Ramp
@@ -139,8 +140,11 @@ export function SilkCanvas({
   const capable = useWebglCapable();
   const wrap = useRef<HTMLDivElement>(null);
   const inView = useInView(wrap, capable);
+  // Safari: verlorener WebGL-Kontext → Canvas dauerhaft abbauen statt
+  // pro Frame in Three.js-Fehler zu laufen (friert sonst Lenis/GSAP ein).
+  const [lost, setLost] = useState(false);
 
-  if (!capable) return null;
+  if (!capable || lost) return null;
 
   return (
     <div
@@ -149,14 +153,23 @@ export function SilkCanvas({
       className={`pointer-events-none absolute inset-0 ${className}`}
       style={blend === 'soft-light' ? { mixBlendMode: 'soft-light' } : undefined}
     >
-      <Canvas
-        dpr={[1, 1.5]}
-        frameloop={inView ? 'always' : 'never'}
-        gl={{ antialias: false, alpha: true, powerPreference: 'low-power' }}
-        camera={{ position: [0, 0, 1] }}
-      >
-        <SilkPlane intensity={intensity} />
-      </Canvas>
+      <GlErrorBoundary>
+        <Canvas
+          dpr={[1, 1.5]}
+          frameloop={inView ? 'always' : 'never'}
+          gl={{ antialias: false, alpha: true, powerPreference: 'low-power' }}
+          camera={{ position: [0, 0, 1] }}
+          onCreated={({ gl }) => {
+            gl.domElement.addEventListener(
+              'webglcontextlost',
+              () => setLost(true),
+              { once: true },
+            );
+          }}
+        >
+          <SilkPlane intensity={intensity} />
+        </Canvas>
+      </GlErrorBoundary>
     </div>
   );
 }

@@ -24,7 +24,15 @@ export function SmoothScrollProvider({ children }: { children: React.ReactNode }
     });
 
     instance.on('scroll', ScrollTrigger.update);
-    const raf = (time: number) => instance.raf(time * 1000);
+    // Abgesichert: Ein Fehler aus einem einzelnen Frame (z. B. WebGL-Context-
+    // Loss in Safari) darf niemals das Scrolling dauerhaft einfrieren.
+    const raf = (time: number) => {
+      try {
+        instance.raf(time * 1000);
+      } catch (err) {
+        if (process.env.NODE_ENV !== 'production') console.error(err);
+      }
+    };
     gsap.ticker.add(raf);
     gsap.ticker.lagSmoothing(0);
     setLenis(instance);

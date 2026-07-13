@@ -1,9 +1,10 @@
 'use client';
 
 import { Canvas, useFrame } from '@react-three/fiber';
-import { useEffect, useMemo, useRef } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import * as THREE from 'three';
 import { useWebglCapable, useInView } from './use-webgl-capable';
+import { GlErrorBoundary } from './gl-guard';
 
 /**
  * „Gold Dust" — Staub im Sonnenlicht um den Sessel (Wellness-Pin-Section).
@@ -103,21 +104,32 @@ export function GoldParticles({ className = '' }: { className?: string }) {
   const capable = useWebglCapable();
   const wrap = useRef<HTMLDivElement>(null);
   const inView = useInView(wrap, capable);
+  // Safari: verlorener WebGL-Kontext → Canvas dauerhaft abbauen (s. SilkCanvas)
+  const [lost, setLost] = useState(false);
   const count =
     typeof window !== 'undefined' && window.innerWidth < 768 ? 280 : 600;
 
-  if (!capable) return null;
+  if (!capable || lost) return null;
 
   return (
     <div ref={wrap} aria-hidden className={`pointer-events-none absolute inset-0 ${className}`}>
-      <Canvas
-        dpr={[1, 1.5]}
-        frameloop={inView ? 'always' : 'never'}
-        gl={{ antialias: false, alpha: true, powerPreference: 'low-power' }}
-        camera={{ position: [0, 0, 1.6], fov: 60 }}
-      >
-        <DustField count={count} />
-      </Canvas>
+      <GlErrorBoundary>
+        <Canvas
+          dpr={[1, 1.5]}
+          frameloop={inView ? 'always' : 'never'}
+          gl={{ antialias: false, alpha: true, powerPreference: 'low-power' }}
+          camera={{ position: [0, 0, 1.6], fov: 60 }}
+          onCreated={({ gl }) => {
+            gl.domElement.addEventListener(
+              'webglcontextlost',
+              () => setLost(true),
+              { once: true },
+            );
+          }}
+        >
+          <DustField count={count} />
+        </Canvas>
+      </GlErrorBoundary>
     </div>
   );
 }

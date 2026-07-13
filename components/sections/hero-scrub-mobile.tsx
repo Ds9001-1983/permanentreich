@@ -125,6 +125,10 @@ export function HeroScrubMobile({ children }: { children: React.ReactNode }) {
       }
     }, wrap);
 
+    // Die Aktivierung hat die Seite um 150vh verlängert — alle zuvor
+    // berechneten Trigger-Positionen (Sektionen, Footer) sind sonst stale.
+    ScrollTrigger.refresh();
+
     return () => {
       window.removeEventListener('resize', resize);
       gctx.revert();
