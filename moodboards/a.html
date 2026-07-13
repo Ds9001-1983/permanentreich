@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Moodboard A — Goldenes Atelier · PermanentReich</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:ital,wght@0,300;0,400;0,500;1,400&family=Pinyon+Script&display=swap');
+
+/* ============ TOKENS ============ */
+:root{
+  --light:#faf6ee;
+  --ivory:#f5f0e8;
+  --champagne:#e8dcc8;
+  --gold:#bf885a;
+  --gold-deep:#a8743f;
+  --umber-soft:#6b6560;
+  --umber:#2e2620;
+  --hairline:rgba(191,136,90,.38);
+  --hairline-soft:rgba(191,136,90,.22);
+  --display:'Cormorant Garamond',Georgia,serif;
+  --script:'Pinyon Script',cursive;
+  --body:'Jost',system-ui,sans-serif;
+  --ease:cubic-bezier(.22,.8,.28,1);
+}
+
+/* ============ BASE ============ */
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--body);
+  font-weight:300;
+  color:var(--umber);
+  background:
+    radial-gradient(120% 90% at 50% 0%, var(--light) 0%, var(--ivory) 55%, #f1ebe0 100%);
+  background-attachment:fixed;
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+/* Papierkorn — Ivory-Textur wie auf dem Flyer */
+body::before{
+  content:"";
+  position:fixed;inset:0;
+  pointer-events:none;z-index:2;
+  opacity:.045;
+  background-image:url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E");
+  mix-blend-mode:multiply;
+}
+img{max-width:100%;display:block}
+.wrap{max-width:1180px;margin:0 auto;padding:0 clamp(20px,4vw,56px)}
+.wrap-narrow{max-width:880px;margin:0 auto;padding:0 clamp(20px,4vw,56px)}
+
+/* ============ TYPO-HELFER ============ */
+.eyebrow{
+  font-family:var(--body);font-weight:400;
+  font-size:.68rem;letter-spacing:.42em;text-transform:uppercase;
+  color:var(--gold-deep);
+}
+.script{font-family:var(--script);font-weight:400;color:var(--gold);line-height:1.15}
+.display{font-family:var(--display);font-weight:300;letter-spacing:.14em;text-transform:uppercase;line-height:1.22}
+
+/* ============ SEKTIONS-KOPF ============ */
+.sec-head{display:flex;align-items:center;gap:1.4rem;margin:clamp(4rem,9vw,7.5rem) 0 clamp(1.8rem,4vw,3rem)}
+.sec-head::before,.sec-head::after{content:"";height:1px;flex:1;background:linear-gradient(90deg,transparent,var(--hairline))}
+.sec-head::after{background:linear-gradient(90deg,var(--hairline),transparent)}
+.sec-head .no{font-family:var(--display);font-size:1rem;letter-spacing:.2em;color:var(--gold)}
+.sec-head .t{font-family:var(--body);font-weight:400;font-size:.72rem;letter-spacing:.4em;text-transform:uppercase;color:var(--umber-soft);white-space:nowrap}
+
+/* ============ ORNAMENTE ============ */
+.raute{color:var(--gold);font-size:.8em}
+.divider{display:flex;align-items:center;gap:1.1rem;justify-content:center;margin:1.6rem 0}
+.divider::before,.divider::after{content:"";height:1px;width:min(140px,26vw);background:var(--hairline)}
+.corners{
+  position:relative;
+  background-image:
+    linear-gradient(var(--gold),var(--gold)),linear-gradient(var(--gold),var(--gold)),
+    linear-gradient(var(--gold),var(--gold)),linear-gradient(var(--gold),var(--gold)),
+    linear-gradient(var(--gold),var(--gold)),linear-gradient(var(--gold),var(--gold)),
+    linear-gradient(var(--gold),var(--gold)),linear-gradient(var(--gold),var(--gold));
+  background-position:top left,top left,top right,top right,bottom left,bottom left,bottom right,bottom right;
+  background-size:26px 1px,1px 26px,26px 1px,1px 26px,26px 1px,1px 26px,26px 1px,1px 26px;
+  background-repeat:no-repeat;
+}
+
+/* ============ BUTTONS ============ */
+.btn{
+  display:inline-block;padding:1.05em 2.6em;
+  font-family:var(--body);font-weight:400;font-size:.7rem;
+  letter-spacing:.3em;text-transform:uppercase;text-decoration:none;
+  border:1px solid var(--gold);color:var(--umber);
+  background:transparent;cursor:pointer;
+  transition:background .7s var(--ease),color .7s var(--ease);
+}
+.btn:hover{background:var(--gold);color:var(--light)}
+.btn-solid{background:var(--gold);color:var(--light)}
+.btn-solid:hover{background:var(--gold-deep)}
+.btn-light{border-color:rgba(250,246,238,.5);color:var(--light)}
+.btn-light:hover{background:var(--light);color:var(--umber);border-color:var(--light)}
+
+/* ============ 1 · KOPF ============ */
+.head{
+  text-align:center;
+  padding:clamp(4.5rem,10vw,8rem) 0 clamp(2rem,4vw,3rem);
+  animation:fadeUp 1.4s var(--ease) both;
+}
+.head img.logo{width:clamp(76px,9vw,104px);margin:0 auto 2rem;opacity:.92}
+.head .kicker{margin-bottom:1.6rem}
+.head h1{
+  font-family:var(--display);font-weight:300;text-transform:uppercase;
+  font-size:clamp(2rem,6vw,4.2rem);letter-spacing:.22em;line-height:1.15;
+  padding-left:.22em; /* optischer Ausgleich der Sperrung */
+}
+.head h1 .gold{color:var(--gold)}
+.head .charakter{
+  max-width:620px;margin:1.8rem auto 0;
+  font-size:clamp(.95rem,1.4vw,1.08rem);color:var(--umber-soft);
+}
+.head .script-sub{font-size:clamp(1.7rem,3.4vw,2.4rem);margin-top:1.2rem}
+
+/* ============ MOCK-RAHMEN ============ */
+.mock-label{
+  display:inline-block;margin-bottom:.9rem;
+  font-size:.62rem;letter-spacing:.34em;text-transform:uppercase;
+  color:var(--umber-soft);font-weight:400;
+  border:1px solid var(--hairline-soft);padding:.5em 1.2em;border-radius:2em;
+  background:rgba(250,246,238,.6);
+}
+
+/* ============ 2 · HERO-MOCK ============ */
+.hero{
+  position:relative;overflow:hidden;
+  min-height:clamp(540px,78vh,780px);
+  display:flex;align-items:center;justify-content:center;
+  border:1px solid var(--hairline);
+  outline:1px solid var(--hairline-soft);outline-offset:6px;
+  background:linear-gradient(160deg,#f3ecdf 0%,var(--champagne) 45%,#dfd0b4 100%);
+}
+/* „Video"-Fläche: lebendiger Seiden-Schimmer als CSS-Platzhalter */
+.hero .silk{
+  position:absolute;inset:-30%;
+  background:
+    radial-gradient(55% 42% at 30% 35%, rgba(250,246,238,.85) 0%, transparent 60%),
+    radial-gradient(50% 45% at 72% 60%, rgba(191,136,90,.28) 0%, transparent 65%),
+    radial-gradient(60% 50% at 55% 20%, rgba(232,220,200,.9) 0%, transparent 70%),
+    conic-gradient(from 200deg at 50% 55%, #efe6d4, #e6d7bc, #f4eddf, #e2d2b3, #efe6d4);
+  filter:blur(34px);
+  animation:silkDrift 26s ease-in-out infinite alternate;
+}
+@keyframes silkDrift{
+  0%{transform:translate(-2.5%,-2%) rotate(0deg) scale(1)}
+  50%{transform:translate(2%,1.5%) rotate(2.4deg) scale(1.05)}
+  100%{transform:translate(-1%,2.5%) rotate(-2deg) scale(1.02)}
+}
+.hero .vignette{position:absolute;inset:0;background:radial-gradient(115% 95% at 50% 42%,transparent 55%,rgba(46,38,32,.14) 100%)}
+.hero-inner{position:relative;z-index:3;text-align:center;padding:clamp(3rem,7vw,5rem) clamp(1.4rem,5vw,4rem);max-width:900px}
+.hero-badge{
+  font-family:var(--script);font-size:clamp(1.9rem,3.6vw,2.7rem);color:var(--gold-deep);
+  display:block;animation:fadeUp 1.2s .25s var(--ease) both;
+}
+.hero-rautenzeile{display:flex;align-items:center;gap:1rem;justify-content:center;margin:1.1rem 0 1.6rem;animation:fadeUp 1.2s .4s var(--ease) both}
+.hero-rautenzeile::before,.hero-rautenzeile::after{content:"";height:1px;width:min(110px,20vw);background:var(--hairline)}
+.hero h2{
+  font-family:var(--display);font-weight:300;text-transform:uppercase;
+  font-size:clamp(1.55rem,4.6vw,3.3rem);letter-spacing:.18em;line-height:1.3;
+  padding-left:.18em;color:var(--umber);
+  animation:fadeUp 1.2s .55s var(--ease) both;
+}
+.hero h2 .gold{color:var(--gold)}
+.hero .sub{
+  margin:1.4rem auto 2.4rem;max-width:520px;
+  font-size:clamp(.85rem,1.3vw,1rem);letter-spacing:.06em;color:var(--umber-soft);
+  animation:fadeUp 1.2s .7s var(--ease) both;
+}
+.hero .cta-row{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;animation:fadeUp 1.2s .85s var(--ease) both}
+/* Play-Marke + Video-Beschriftung */
+.hero .play{
+  position:absolute;right:clamp(1rem,3vw,2.2rem);top:clamp(1rem,3vw,2.2rem);z-index:4;
+  width:54px;height:54px;border:1px solid var(--gold);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;color:var(--gold-deep);font-size:.75rem;
+  background:rgba(250,246,238,.45);backdrop-filter:blur(3px);
+}
+.hero .play::after{content:"";position:absolute;inset:-7px;border:1px solid var(--hairline-soft);border-radius:50%;animation:pulse 3.2s ease-out infinite}
+@keyframes pulse{0%{transform:scale(.9);opacity:.9}100%{transform:scale(1.35);opacity:0}}
+.video-note{
+  position:absolute;left:clamp(1rem,3vw,2.2rem);bottom:clamp(1rem,3vw,2.2rem);z-index:4;
+  max-width:min(430px,78%);
+  background:rgba(250,246,238,.82);backdrop-filter:blur(4px);
+  border:1px solid var(--hairline);padding:.85rem 1.15rem;
+  font-size:.68rem;letter-spacing:.09em;line-height:1.65;color:var(--umber-soft);text-align:left;
+}
+.video-note b{display:block;font-weight:400;letter-spacing:.3em;text-transform:uppercase;color:var(--gold-deep);font-size:.6rem;margin-bottom:.3rem}
+
+/* ============ 3 · FARBSYSTEM ============ */
+.swatches{display:grid;grid-template-columns:repeat(auto-fit,minmax(136px,1fr));gap:1rem}
+.swatch{border:1px solid var(--hairline-soft);background:rgba(250,246,238,.55)}
+.swatch .chip{height:110px;border-bottom:1px solid var(--hairline-soft)}
+.swatch .meta{padding:.85rem .9rem 1rem}
+.swatch .name{font-family:var(--display);font-size:1.02rem;letter-spacing:.12em;text-transform:uppercase}
+.swatch .hex{font-size:.68rem;letter-spacing:.16em;color:var(--umber-soft);margin:.15rem 0 .4rem;text-transform:uppercase}
+.swatch .share{font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-deep)}
+.color-rule{margin-top:1.4rem;font-size:.78rem;color:var(--umber-soft);letter-spacing:.05em;text-align:center}
+.color-rule strong{font-weight:400;color:var(--gold-deep)}
+
+/* ============ 4 · TYPOGRAFIE ============ */
+.type-stage{border:1px solid var(--hairline);background:rgba(250,246,238,.5);padding:clamp(1.6rem,4vw,3.2rem)}
+.type-row{padding:clamp(1.3rem,3vw,2rem) 0;border-bottom:1px solid var(--hairline-soft)}
+.type-row:last-child{border-bottom:none}
+.type-tag{font-size:.6rem;letter-spacing:.32em;text-transform:uppercase;color:var(--umber-soft);margin-bottom:.9rem;font-weight:400}
+.type-tag em{font-style:normal;color:var(--gold-deep)}
+.mega{
+  font-family:var(--display);font-weight:300;text-transform:uppercase;
+  font-size:clamp(2.7rem,11.5vw,9.2rem);letter-spacing:.1em;line-height:1;
+  white-space:nowrap;overflow:hidden;
+  background:linear-gradient(100deg,var(--umber) 38%,var(--gold) 50%,var(--umber) 62%);
+  background-size:220% 100%;
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  animation:sheen 9s ease-in-out infinite;
+}
+@keyframes sheen{0%,100%{background-position:110% 0}50%{background-position:-10% 0}}
+.t-d1{font-family:var(--display);font-weight:300;text-transform:uppercase;letter-spacing:.2em;font-size:clamp(1.5rem,3.6vw,2.6rem);line-height:1.3}
+.t-d2{font-family:var(--display);font-weight:400;text-transform:uppercase;letter-spacing:.26em;font-size:clamp(.95rem,1.8vw,1.25rem)}
+.t-script-xl{font-family:var(--script);font-size:clamp(2.4rem,5.4vw,4rem);color:var(--gold);line-height:1.2}
+.t-script-m{font-family:var(--script);font-size:clamp(1.5rem,2.8vw,2.1rem);color:var(--gold-deep)}
+.t-body{font-size:.98rem;max-width:560px;color:var(--umber)}
+.t-small{font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;color:var(--umber-soft);font-weight:400}
+
+/* ============ 5 · SEKTIONS-PREVIEW ============ */
+.preview{margin-top:1rem}
+/* — Leistungs-Karten PMU — */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:clamp(1rem,2.4vw,1.8rem)}
+.card{
+  background:var(--light);border:1px solid var(--hairline-soft);
+  padding:2.4rem 1.8rem 2.1rem;text-align:center;position:relative;
+  transition:transform .8s var(--ease),box-shadow .8s var(--ease);
+}
+.card:hover{transform:translateY(-5px);box-shadow:0 24px 50px -28px rgba(46,38,32,.28)}
+.card .no{font-family:var(--display);font-size:.85rem;letter-spacing:.3em;color:var(--gold)}
+.card h4{font-family:var(--display);font-weight:400;text-transform:uppercase;letter-spacing:.2em;font-size:1.12rem;margin:.9rem 0 .4rem}
+.card .s{font-family:var(--script);font-size:1.45rem;color:var(--gold-deep);margin-bottom:.8rem}
+.card p{font-size:.84rem;color:var(--umber-soft);line-height:1.75}
+.card .rline{margin:1.2rem auto 0;display:flex;align-items:center;gap:.7rem;justify-content:center}
+.card .rline::before,.card .rline::after{content:"";height:1px;width:36px;background:var(--hairline)}
+/* — Wellness-Split — */
+.split{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(1.6rem,4vw,4rem);align-items:center;margin-top:clamp(2rem,5vw,3.6rem)}
+.passepartout{background:var(--champagne);padding:clamp(14px,2vw,22px);border:1px solid var(--hairline-soft)}
+.passepartout .inner{border:1px solid var(--gold);padding:6px}
+.passepartout img{width:100%;aspect-ratio:1/1;object-fit:cover}
+.split .copy .eyebrow{margin-bottom:.9rem;display:block}
+.split .copy h3{font-family:var(--display);font-weight:300;text-transform:uppercase;letter-spacing:.16em;font-size:clamp(1.5rem,3vw,2.3rem);line-height:1.3}
+.split .copy .s{font-family:var(--script);font-size:clamp(1.8rem,3vw,2.4rem);color:var(--gold);margin:.4rem 0 1.1rem;display:block}
+.split .copy p{font-size:.92rem;color:var(--umber-soft);max-width:460px}
+.split .copy .btn{margin-top:1.7rem}
+/* — CTA dunkel — */
+.cta{
+  margin-top:clamp(2rem,5vw,3.6rem);position:relative;overflow:hidden;
+  background:linear-gradient(150deg,#382e25 0%,var(--umber) 60%,#241d17 100%);
+  color:var(--light);text-align:center;
+  padding:clamp(3.2rem,7vw,5.4rem) clamp(1.4rem,5vw,4rem);
+}
+.cta::before{content:"";position:absolute;inset:14px;border:1px solid rgba(191,136,90,.4);pointer-events:none}
+.cta::after{
+  content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;
+  background:radial-gradient(70% 90% at 50% -10%,rgba(191,136,90,.28),transparent 60%);
+}
+.cta .s{font-family:var(--script);font-size:clamp(2rem,4vw,3rem);color:var(--gold);display:block;position:relative;z-index:1}
+.cta h3{font-family:var(--display);font-weight:300;text-transform:uppercase;letter-spacing:.2em;font-size:clamp(1.3rem,3.2vw,2.2rem);margin:.9rem 0 1rem;position:relative;z-index:1;line-height:1.35}
+.cta p{font-size:.88rem;color:rgba(250,246,238,.72);max-width:480px;margin:0 auto 2rem;position:relative;z-index:1}
+.cta .rauten{color:var(--gold);letter-spacing:1.2em;padding-left:1.2em;font-size:.7rem;display:block;margin-bottom:1.4rem;position:relative;z-index:1}
+.cta .btn{position:relative;z-index:1}
+.preview-note{font-size:.68rem;letter-spacing:.14em;color:var(--umber-soft);margin-top:.9rem;text-align:center}
+
+/* ============ 6 · ORNAMENTIK ============ */
+.orn-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.2rem}
+.orn{
+  background:rgba(250,246,238,.6);border:1px solid var(--hairline-soft);
+  padding:2.2rem 1.4rem 1.4rem;text-align:center;
+  display:flex;flex-direction:column;gap:1.4rem;justify-content:space-between;
+}
+.orn .demo{min-height:86px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:.6rem}
+.orn .lbl{font-size:.6rem;letter-spacing:.28em;text-transform:uppercase;color:var(--umber-soft);font-weight:400;border-top:1px solid var(--hairline-soft);padding-top:.9rem}
+.orn .caps-label{display:flex;align-items:center;gap:1rem;font-family:var(--display);letter-spacing:.34em;text-transform:uppercase;font-size:.82rem;color:var(--umber)}
+.orn .caps-label::before,.orn .caps-label::after{content:"";height:1px;width:34px;background:var(--hairline)}
+.orn .frame-demo{width:82%;padding:1.3rem .6rem;font-family:var(--script);font-size:1.5rem;color:var(--gold-deep)}
+.orn .double{border:1px solid var(--gold);outline:1px solid var(--hairline);outline-offset:4px;width:82%;padding:1.1rem .6rem;font-family:var(--display);letter-spacing:.26em;text-transform:uppercase;font-size:.78rem}
+
+/* ============ 7 · SIGNATURE MOVES ============ */
+.moves{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.2rem}
+.move{background:var(--light);border:1px solid var(--hairline-soft);padding:2rem 1.7rem;position:relative}
+.move::before{content:"✦";position:absolute;top:1.1rem;right:1.2rem;color:var(--hairline);font-size:.8rem}
+.move .no{font-family:var(--display);font-size:2.2rem;font-weight:300;color:var(--gold);line-height:1}
+.move h4{font-family:var(--display);font-weight:400;text-transform:uppercase;letter-spacing:.18em;font-size:1rem;margin:.9rem 0 .5rem;line-height:1.5}
+.move p{font-size:.84rem;color:var(--umber-soft);line-height:1.75}
+.tech-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.2rem;margin-top:1.2rem}
+.tech{
+  border:1px solid var(--hairline);background:linear-gradient(160deg,rgba(232,220,200,.55),rgba(250,246,238,.7));
+  padding:1.6rem 1.5rem;
+}
+.tech .k{font-size:.58rem;letter-spacing:.32em;text-transform:uppercase;color:var(--gold-deep);font-weight:400;margin-bottom:.55rem}
+.tech .v{font-family:var(--display);font-size:1.06rem;letter-spacing:.06em;line-height:1.5}
+.tech p{font-size:.78rem;color:var(--umber-soft);margin-top:.45rem;line-height:1.7}
+
+/* ============ 8 · BILDSPRACHE ============ */
+.mood-sentence{
+  font-family:var(--display);font-weight:300;font-style:italic;
+  font-size:clamp(1.25rem,2.6vw,1.8rem);line-height:1.6;text-align:center;
+  max-width:760px;margin:0 auto;
+}
+.mood-sentence .g{color:var(--gold-deep)}
+.filmstrip{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(.7rem,2vw,1.4rem);margin-top:clamp(2rem,4vw,3rem)}
+.filmstrip figure{background:var(--champagne);padding:10px 10px 14px;border:1px solid var(--hairline-soft)}
+.filmstrip img{width:100%;aspect-ratio:3/4;object-fit:cover;filter:sepia(.08) saturate(.96)}
+.filmstrip figcaption{font-size:.6rem;letter-spacing:.24em;text-transform:uppercase;color:var(--umber-soft);text-align:center;margin-top:.8rem;font-weight:400}
+
+/* ============ FOOTER ============ */
+footer{
+  margin-top:clamp(5rem,10vw,8rem);
+  background:var(--umber);color:rgba(250,246,238,.65);
+  text-align:center;padding:3.6rem 1.4rem 3rem;
+}
+footer .s{font-family:var(--script);font-size:1.9rem;color:var(--gold);display:block;margin-bottom:.9rem}
+footer .l{font-size:.62rem;letter-spacing:.3em;text-transform:uppercase;font-weight:400}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:translateY(0)}}
+
+@media (max-width:760px){
+  .split{grid-template-columns:1fr}
+  .filmstrip{grid-template-columns:1fr 1fr}
+  .filmstrip figure:last-child{grid-column:1/-1}
+  .hero .play{display:none}
+  .mega{letter-spacing:.06em}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ 1 · KOPF ============ -->
+<header class="head wrap-narrow">
+  <img class="logo" src="assets/logo.svg" alt="PermanentReich Logo">
+  <p class="eyebrow kicker">Moodboard · Stilrichtung A · PermanentReich, Wiehl</p>
+  <h1>Goldenes <span class="gold">Atelier</span></h1>
+  <span class="script script-sub">Dein Reich für Schönheit &amp; Gesundheit.</span>
+  <p class="charakter">Die 1:1-Übersetzung des Print-Brandings ins Web: Ivory-Papier, Gold-Script,
+  feine Rauten-Ornamente und gesperrte Serif-Caps — klassisch-festlich, ornamental,
+  handwerklich-edel, wie eine aufgeschlagene Einladungskarte, die atmet.</p>
+  <div class="divider"><span class="raute">✦</span></div>
+</header>
+
+<!-- ============ 2 · HERO-MOCK ============ -->
+<section class="wrap">
+  <div class="sec-head"><span class="no">01</span><span class="t">Hero-Mock · Startseite</span></div>
+  <span class="mock-label">Entwurf — so öffnet die Site</span>
+  <div class="hero">
+    <div class="silk"></div>
+    <div class="vignette"></div>
+    <div class="play">▶</div>
+    <div class="hero-inner">
+      <span class="hero-badge">Neu in Altklef</span>
+      <div class="hero-rautenzeile"><span class="raute">✦</span></div>
+      <h2>Dein Reich für<br><span class="gold">Schönheit</span> &amp; <span class="gold">Gesundheit</span>.</h2>
+      <p class="sub">Permanent Make-up, Kopfhautpigmentierung und Wellness im Luxus-Massagesessel — persönlich, ehrlich, auf Augenhöhe.</p>
+      <div class="cta-row">
+        <a class="btn btn-solid" href="#">Kostenlose Beratung</a>
+        <a class="btn" href="#">Leistungen entdecken</a>
+      </div>
+    </div>
+    <div class="video-note">
+      <b>▸ Video-Platzhalter · 12-s-Loop</b>
+      Zeitlupe: ivoryfarbene Seide wogt in warmem Atelierlicht, goldene Pigmentpartikel
+      sinken glitzernd herab — Kamera fährt minimal zurück, Highlights blühen weich auf.
+    </div>
+  </div>
+</section>
+
+<!-- ============ 3 · FARBSYSTEM ============ -->
+<section class="wrap">
+  <div class="sec-head"><span class="no">02</span><span class="t">Farbsystem</span></div>
+  <div class="swatches">
+    <div class="swatch"><div class="chip" style="background:#faf6ee"></div><div class="meta"><div class="name">Light</div><div class="hex">#FAF6EE</div><div class="share">≈ 15 % Fläche</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#f5f0e8"></div><div class="meta"><div class="name">Ivory</div><div class="hex">#F5F0E8</div><div class="share">≈ 40 % Fläche</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#e8dcc8"></div><div class="meta"><div class="name">Champagne</div><div class="hex">#E8DCC8</div><div class="share">≈ 20 % Fläche</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#bf885a"></div><div class="meta"><div class="name">Gold</div><div class="hex">#BF885A</div><div class="share">max. 8 % Fläche</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#a8743f"></div><div class="meta"><div class="name">Gold Deep</div><div class="hex">#A8743F</div><div class="share">≈ 2 % · Hover</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#6b6560"></div><div class="meta"><div class="name">Umber Soft</div><div class="hex">#6B6560</div><div class="share">Sekundärtext</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#2e2620"></div><div class="meta"><div class="name">Umber</div><div class="hex">#2E2620</div><div class="share">≈ 15 % · Text &amp; Footer</div></div></div>
+  </div>
+  <p class="color-rule">Regel: Gold ist <strong>Schmuck, nie Tapete</strong> — zusammen mit Gold Deep maximal 10 % der Fläche.
+  Kein reines Schwarz, kein kühles Grau, kein Blau. Dunkelste Fläche ist warmes Umber.</p>
+</section>
+
+<!-- ============ 4 · TYPOGRAFIE ============ -->
+<section class="wrap">
+  <div class="sec-head"><span class="no">03</span><span class="t">Typografie · live gerendert</span></div>
+  <div class="type-stage">
+    <div class="type-row">
+      <p class="type-tag">Mega-Zeile · <em>Cormorant Garamond Light 300</em> · gesperrte Caps · Gold-Sheen wandert langsam durch</p>
+      <div class="mega">Dein Reich</div>
+    </div>
+    <div class="type-row">
+      <p class="type-tag">Display H1/H2 · <em>Cormorant Garamond Light 300</em> · Sperrung .18–.22em</p>
+      <div class="t-d1">Dein Reich für Schönheit<br>&amp; Gesundheit.</div>
+      <div class="t-d2" style="margin-top:1.1rem;color:var(--gold-deep)">Permanent Make-up · Kopfhautpigmentierung</div>
+    </div>
+    <div class="type-row">
+      <p class="type-tag">Script-Akzente · <em>Pinyon Script 400</em> · nur für Badges, Overlines &amp; emotionale Einwürfe</p>
+      <div class="t-script-xl">Neu in Altklef</div>
+      <div class="t-script-m" style="margin-top:.5rem">Persönlich. Ehrlich. Auf Augenhöhe.</div>
+    </div>
+    <div class="type-row">
+      <p class="type-tag">Body &amp; Labels · <em>Jost 300/400</em> · ruhig, geometrisch, viel Durchschuss</p>
+      <p class="t-body">Bei PermanentReich nimmt sich Olga Reich Zeit für Dich: In der kostenlosen Beratung
+      schauen wir gemeinsam, welche Form, welche Farbe und welche Technik wirklich zu Dir passen —
+      ehrlich und ohne Verkaufsdruck.</p>
+      <p class="t-small" style="margin-top:1.1rem">Kostenlose Beratung · Wiehl-Altklef ✦ Termin nach Vereinbarung</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 5 · SEKTIONS-PREVIEW ============ -->
+<section class="wrap preview">
+  <div class="sec-head"><span class="no">04</span><span class="t">Sektions-Preview · im Stil gesetzt</span></div>
+
+  <span class="mock-label">Preview 1 — Leistungs-Karten Permanent Make-up</span>
+  <div class="cards">
+    <div class="card corners">
+      <span class="no">✦ 01</span>
+      <h4>Powderbrows</h4>
+      <div class="s">wie sanft gepudert</div>
+      <p>Weich schattierte Augenbrauen mit natürlichem Verlauf — jeden Morgen perfekt,
+      ganz ohne Nachziehen.</p>
+      <div class="rline"><span class="raute">✦</span></div>
+    </div>
+    <div class="card corners">
+      <span class="no">✦ 02</span>
+      <h4>Lippen</h4>
+      <div class="s">Farbe, die bleibt</div>
+      <p>Konturierte, gleichmäßig pigmentierte Lippen in Deinem Ton — frisch und
+      voller, aber immer glaubwürdig Du.</p>
+      <div class="rline"><span class="raute">✦</span></div>
+    </div>
+    <div class="card corners">
+      <span class="no">✦ 03</span>
+      <h4>Wimpernkranz&shy;verdichtung</h4>
+      <div class="s">der wache Blick</div>
+      <p>Feine Pigmentierung entlang des Wimpernkranzes öffnet den Blick — dezenter
+      als jeder Eyeliner.</p>
+      <div class="rline"><span class="raute">✦</span></div>
+    </div>
+  </div>
+  <p class="preview-note">Dazu als eigene Sektion: Kopfhautpigmentierung (SMP) für Sie &amp; Ihn — gleiches Kartenprinzip auf Champagne-Grund.</p>
+
+  <span class="mock-label" style="margin-top:2.6rem">Preview 2 — Wellness-Sektion mit Passepartout-Bild</span>
+  <div class="split">
+    <div class="passepartout"><div class="inner"><img src="assets/sessel.jpg" alt="Goldener Luxus-Massagesessel im cremefarbenen Studio"></div></div>
+    <div class="copy">
+      <span class="eyebrow">Wellness ✦ Auszeit</span>
+      <h3>Der Luxus-<br>Massagesessel</h3>
+      <span class="s">Zeit, die nur Dir gehört</span>
+      <p>Tiefenentspannung in privater Atmosphäre: Dein Termin, Dein Raum, keine Wartenden —
+      nur warmes Licht, Ruhe und eine Massage, die den ganzen Rücken umarmt.</p>
+      <a class="btn" href="#">Auszeit buchen</a>
+    </div>
+  </div>
+
+  <span class="mock-label" style="margin-top:2.6rem">Preview 3 — CTA-Sektion auf Umber</span>
+  <div class="cta">
+    <span class="rauten">✦ ✦ ✦</span>
+    <span class="s">Persönlich. Ehrlich. Auf Augenhöhe.</span>
+    <h3>Lerne Olga kennen —<br>bei Deiner kostenlosen Beratung.</h3>
+    <p>Kein Verkaufsgespräch, sondern ein ehrlicher Blick auf das, was zu Dir passt.
+    Neu in Altklef, mitten in Wiehl.</p>
+    <a class="btn btn-light" href="#">Beratungstermin sichern</a>
+  </div>
+</section>
+
+<!-- ============ 6 · ORNAMENTIK ============ -->
+<section class="wrap">
+  <div class="sec-head"><span class="no">05</span><span class="t">Ornamentik &amp; Dekor-Sprache</span></div>
+  <div class="orn-grid">
+    <div class="orn">
+      <div class="demo">
+        <div class="divider" style="margin:0"><span class="raute">✦</span></div>
+      </div>
+      <div class="lbl">Linien-Divider mit Raute — trennt jede Sektion</div>
+    </div>
+    <div class="orn">
+      <div class="demo" style="flex-direction:row;gap:1.1rem">
+        <span style="color:var(--hairline);font-size:.7rem">✦</span>
+        <span style="color:var(--gold);font-size:1.15rem">✦</span>
+        <span style="color:var(--hairline);font-size:.7rem">✦</span>
+      </div>
+      <div class="lbl">Rauten-Trio — Kapitelmarke, mittig über Headlines</div>
+    </div>
+    <div class="orn">
+      <div class="demo"><div class="frame-demo corners">Olga Reich</div></div>
+      <div class="lbl">Eck-Winkel-Rahmen — für Karten, Zitate &amp; Preise</div>
+    </div>
+    <div class="orn">
+      <div class="demo"><div class="double">Permanent Make-up</div></div>
+      <div class="lbl">Doppellinien-Rahmen — wie auf der Visitenkarte</div>
+    </div>
+    <div class="orn">
+      <div class="demo"><div class="caps-label">Leistungen</div></div>
+      <div class="lbl">Gesperrtes Caps-Label mit Seitenlinien — Overline jeder Sektion</div>
+    </div>
+    <div class="orn">
+      <div class="demo">
+        <div style="background:var(--champagne);padding:8px;border:1px solid var(--hairline-soft)">
+          <div style="border:1px solid var(--gold);padding:4px;width:96px;height:64px;background:var(--ivory)"></div>
+        </div>
+      </div>
+      <div class="lbl">Passepartout — jedes Foto sitzt auf Champagne mit Gold-Filet</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 7 · SIGNATURE MOVES ============ -->
+<section class="wrap">
+  <div class="sec-head"><span class="no">06</span><span class="t">Signature Moves · Motion &amp; Technik</span></div>
+  <div class="moves">
+    <div class="move">
+      <div class="no">01</div>
+      <h4>Monogramm-Preloader</h4>
+      <p>Das Gold-Monogramm aus dem Logo zeichnet sich als Linie selbst auf Ivory,
+      füllt sich mit Gold — dann hebt sich der Vorhang zur Site.</p>
+    </div>
+    <div class="move">
+      <div class="no">02</div>
+      <h4>Split-Text-Reveal</h4>
+      <p>Headlines steigen zeilenweise aus einer unsichtbaren Maske auf, langsam und
+      gestaffelt — wie Buchstaben, die auf Papier gedruckt werden.</p>
+    </div>
+    <div class="move">
+      <div class="no">03</div>
+      <h4>Vorher/Nachher-Slider</h4>
+      <p>PMU-Beweisfotos mit einem Griff in Form einer goldenen Raute ✦ — der Slider
+      gleitet gedämpft, wie durch Öl gezogen.</p>
+    </div>
+  </div>
+  <div class="tech-row">
+    <div class="tech">
+      <div class="k">WebGL-Element</div>
+      <div class="v">Silk-Shader</div>
+      <p>Sehr subtil als lebendige Papiertextur hinter dem Hero — Ivory-Seide, die
+      kaum merklich atmet, nie lauter als der Inhalt.</p>
+    </div>
+    <div class="tech">
+      <div class="k">Animations-Charakter</div>
+      <div class="v">Langsam-cinematic</div>
+      <p>0,9–1,4 s Dauer, weiche Custom-Eases, großzügige Staffelung — nichts springt,
+      alles gleitet.</p>
+    </div>
+    <div class="tech">
+      <div class="k">Benchmark</div>
+      <div class="v">monopo.tokyo</div>
+      <p>Referenz für die Balance aus Ruhe, Textur und einem einzigen, perfekt
+      dosierten WebGL-Moment.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 8 · BILDSPRACHE ============ -->
+<section class="wrap">
+  <div class="sec-head"><span class="no">07</span><span class="t">Bildsprache</span></div>
+  <p class="mood-sentence">Helles Atelier-Licht auf Ivory-Papier, warme <span class="g">Gold-Reflexe</span> in
+  liftigen Schatten, viel Negativraum und Ruhe — jede Aufnahme wirkt wie auf die
+  Einladungskarte <span class="g">gedruckt</span>.</p>
+  <div class="filmstrip">
+    <figure><img src="assets/olga.jpg" alt="Portrait Olga Reich in warmem High-Key-Licht"><figcaption>Portrait · High-Key</figcaption></figure>
+    <figure><img src="assets/sessel.jpg" alt="Goldener Massagesessel im Creme-Raum"><figcaption>Raum · Gold-Reflex</figcaption></figure>
+    <figure><img src="assets/olga2.jpg" alt="Portrait Olga Reich, nahbar und ruhig"><figcaption>Nahbarkeit · Ruhe</figcaption></figure>
+  </div>
+</section>
+
+<footer>
+  <span class="s">PermanentReich</span>
+  <p class="l">Moodboard A · Goldenes Atelier ✦ Entwurf zur Abstimmung · Wiehl-Altklef</p>
+</footer>
+
+</body>
+</html>

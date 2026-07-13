@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Moodboard C — Champagne Noir · PermanentReich</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400;1,9..144,500;1,9..144,600&family=Great+Vibes&family=Mulish:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
+
+/* ————— Tokens ————— */
+:root{
+  --light:#faf6ee;
+  --ivory:#f5f0e8;
+  --champagne:#e8dcc8;
+  --gold:#bf885a;
+  --gold-deep:#a8743f;
+  --umber-soft:#6b6560;
+  --umber:#2e2620;
+  --display:'Fraunces',serif;
+  --script:'Great Vibes',cursive;
+  --body:'Mulish',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:var(--body);
+  background:var(--ivory);
+  color:var(--umber);
+  font-size:16px;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img{max-width:100%;display:block;}
+.wrap{max-width:1120px;margin:0 auto;padding:0 clamp(20px,4vw,48px);}
+
+/* ————— Moodboard-Meta-Sprache ————— */
+.chapter{padding:clamp(64px,9vw,120px) 0;}
+.chapter.dark{
+  background:
+    radial-gradient(60% 50% at 75% 20%, rgba(191,136,90,.13), transparent 65%),
+    radial-gradient(50% 60% at 15% 85%, rgba(168,116,63,.08), transparent 60%),
+    var(--umber);
+  color:var(--ivory);
+  position:relative;
+  overflow:hidden;
+}
+.chapter.dark .seclabel{color:var(--champagne);}
+.chapter.dark .seclabel::after{background:linear-gradient(90deg,var(--gold),transparent);}
+.seclabel{
+  display:flex;align-items:center;gap:18px;
+  font-size:11px;font-weight:700;letter-spacing:.32em;text-transform:uppercase;
+  color:var(--umber-soft);margin-bottom:clamp(28px,4vw,48px);
+}
+.seclabel::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--gold-deep),transparent);opacity:.5;}
+.seclabel b{color:var(--gold-deep);font-weight:700;}
+.chapter.dark .seclabel b{color:var(--gold);}
+
+.annot{
+  font-size:12.5px;color:var(--umber-soft);letter-spacing:.04em;
+  border-left:2px solid var(--gold);padding:6px 0 6px 14px;margin-top:22px;max-width:640px;
+}
+.chapter.dark .annot{color:#b8ac9c;border-left-color:var(--gold);}
+
+/* ————— Kopfbereich ————— */
+.mbhead{
+  background:
+    radial-gradient(70% 90% at 50% -20%, var(--light), transparent 70%),
+    var(--ivory);
+  text-align:center;
+  padding:clamp(72px,10vw,140px) 0 clamp(56px,8vw,96px);
+  border-bottom:1px solid rgba(191,136,90,.25);
+}
+.mbhead .eyebrow{
+  font-size:11px;font-weight:700;letter-spacing:.38em;text-transform:uppercase;color:var(--gold-deep);
+}
+.mbhead h1{
+  font-family:var(--display);
+  font-weight:400;
+  font-size:clamp(52px,9vw,116px);
+  line-height:1.02;
+  margin:22px 0 8px;
+  letter-spacing:-.01em;
+}
+.mbhead h1 em{
+  font-style:italic;font-weight:300;
+  background:linear-gradient(100deg,var(--gold-deep),var(--gold) 55%,#d9a976);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.mbhead .script-sub{
+  font-family:var(--script);font-size:clamp(26px,4vw,40px);color:var(--gold);display:block;margin-top:4px;
+}
+.mbhead p.char{
+  max-width:640px;margin:26px auto 0;font-size:clamp(16px,2vw,19px);color:var(--umber-soft);font-weight:300;line-height:1.7;
+}
+.orna-div{display:flex;align-items:center;gap:16px;justify-content:center;margin-top:40px;}
+.orna-div::before,.orna-div::after{content:"";width:min(120px,20vw);height:1px;background:linear-gradient(90deg,transparent,var(--gold));}
+.orna-div::after{background:linear-gradient(90deg,var(--gold),transparent);}
+.orna-div span{color:var(--gold);font-size:14px;animation:pulse 4s ease-in-out infinite;}
+@keyframes pulse{0%,100%{opacity:.55;transform:scale(1);}50%{opacity:1;transform:scale(1.18);}}
+
+/* ————— 01 Hero-Mock ————— */
+.heromock{
+  border:1px solid rgba(191,136,90,.35);
+  background:var(--light);
+  box-shadow:0 30px 80px -30px rgba(46,38,32,.25);
+  overflow:hidden;
+}
+.mock-nav{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:18px clamp(18px,3.5vw,40px);
+  border-bottom:1px solid rgba(191,136,90,.2);
+  background:rgba(250,246,238,.9);
+}
+.mock-nav img{height:44px;width:auto;}
+.mock-nav nav{display:flex;gap:clamp(14px,2.5vw,30px);font-size:11.5px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--umber-soft);}
+.mock-nav nav span:hover{color:var(--gold-deep);}
+.btn{
+  display:inline-block;font-family:var(--body);font-size:11.5px;font-weight:700;
+  letter-spacing:.24em;text-transform:uppercase;text-decoration:none;
+  padding:15px 30px;border:1px solid var(--gold);color:var(--gold-deep);
+  transition:all .4s ease;cursor:pointer;background:transparent;
+}
+.btn.solid{background:linear-gradient(115deg,var(--gold),var(--gold-deep));color:var(--light);border-color:transparent;}
+.btn.solid:hover{box-shadow:0 10px 30px -8px rgba(168,116,63,.55);transform:translateY(-2px);}
+.btn.ghost:hover{background:rgba(191,136,90,.08);}
+.mock-nav .btn{padding:11px 20px;}
+
+.mock-hero-body{
+  display:grid;grid-template-columns:1.05fr .95fr;gap:0;align-items:stretch;
+}
+.mock-hero-copy{
+  padding:clamp(36px,6vw,80px) clamp(22px,4vw,56px) clamp(40px,6vw,80px) clamp(18px,3.5vw,40px);
+  display:flex;flex-direction:column;justify-content:center;
+}
+.badge-script{
+  font-family:var(--script);font-size:clamp(28px,3.5vw,38px);color:var(--gold);
+  transform:rotate(-2.5deg);display:inline-block;margin-bottom:6px;
+}
+.badge-script::after{
+  content:"✦";font-family:var(--body);font-size:13px;vertical-align:super;margin-left:10px;color:var(--gold-deep);
+}
+.mock-hero-copy h2{
+  font-family:var(--display);font-weight:400;
+  font-size:clamp(34px,4.6vw,58px);line-height:1.08;letter-spacing:-.01em;margin:8px 0 20px;
+}
+.mock-hero-copy h2 em{font-style:italic;font-weight:300;color:var(--gold-deep);}
+.mock-hero-copy p{color:var(--umber-soft);font-weight:300;max-width:420px;margin-bottom:30px;}
+.mock-hero-copy .cta-row{display:flex;gap:14px;flex-wrap:wrap;}
+
+.videomock{
+  position:relative;min-height:420px;overflow:hidden;background:var(--champagne);
+  border-left:1px solid rgba(191,136,90,.25);
+}
+.videomock::before{
+  content:"";position:absolute;inset:-45%;
+  background:
+    radial-gradient(42% 55% at 32% 42%, rgba(191,136,90,.38), transparent 70%),
+    radial-gradient(46% 62% at 70% 62%, rgba(250,246,238,.95), transparent 72%),
+    radial-gradient(36% 48% at 56% 28%, rgba(168,116,63,.24), transparent 70%),
+    linear-gradient(118deg, #f5f0e8, #e8dcc8 42%, #f6efe2 68%, #e3d4ba);
+  animation:silk 18s ease-in-out infinite alternate;
+}
+@keyframes silk{
+  0%{transform:rotate(0deg) scale(1) translate(0,0);}
+  100%{transform:rotate(9deg) scale(1.18) translate(3%,-3%);}
+}
+.videomock::after{
+  content:"";position:absolute;inset:0;
+  background:repeating-linear-gradient(0deg,rgba(46,38,32,.014) 0 1px,transparent 1px 3px);
+  pointer-events:none;
+}
+.playchip{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:76px;height:76px;border-radius:50%;
+  border:1px solid rgba(168,116,63,.6);background:rgba(250,246,238,.55);
+  backdrop-filter:blur(3px);
+  display:flex;align-items:center;justify-content:center;
+  animation:breath 5s ease-in-out infinite;
+}
+.playchip::before{content:"";border-style:solid;border-width:9px 0 9px 15px;border-color:transparent transparent transparent var(--gold-deep);margin-left:4px;}
+@keyframes breath{0%,100%{box-shadow:0 0 0 0 rgba(191,136,90,.35);}50%{box-shadow:0 0 0 18px rgba(191,136,90,0);}}
+.videocap{
+  position:absolute;left:0;right:0;bottom:0;padding:14px 20px;
+  background:linear-gradient(0deg,rgba(46,38,32,.82),rgba(46,38,32,0));
+  color:var(--champagne);font-size:11.5px;letter-spacing:.12em;line-height:1.6;
+}
+.videocap b{color:var(--light);letter-spacing:.24em;text-transform:uppercase;font-size:10.5px;display:block;margin-bottom:3px;}
+
+/* ————— 02 Farbsystem ————— */
+.swatches{display:grid;grid-template-columns:repeat(7,1fr);gap:14px;}
+.swatch{display:flex;flex-direction:column;}
+.swatch .chip{
+  height:120px;border:1px solid rgba(46,38,32,.1);position:relative;transition:transform .35s ease;
+}
+.swatch:hover .chip{transform:translateY(-5px);}
+.swatch .chip.glow::after{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(60% 60% at 60% 30%,rgba(191,136,90,.35),transparent 70%);
+}
+.swatch dl{padding-top:12px;font-size:11px;letter-spacing:.05em;}
+.swatch dt{font-weight:700;text-transform:uppercase;letter-spacing:.18em;font-size:10px;color:var(--umber);}
+.swatch dd{color:var(--umber-soft);}
+.swatch dd.hex{font-family:ui-monospace,Menlo,monospace;color:var(--gold-deep);margin:2px 0;}
+.swatch dd.area{font-style:italic;}
+
+/* ————— 03 Typografie ————— */
+.typocard{
+  background:var(--light);border:1px solid rgba(191,136,90,.28);
+  padding:clamp(26px,4vw,44px);margin-bottom:22px;
+}
+.typocard .fontmeta{
+  display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px;
+  border-bottom:1px solid rgba(191,136,90,.22);padding-bottom:14px;margin-bottom:24px;
+}
+.typocard .fontmeta h3{font-family:var(--body);font-size:12px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--gold-deep);}
+.typocard .fontmeta span{font-size:11.5px;color:var(--umber-soft);letter-spacing:.06em;}
+.spec{display:flex;align-items:baseline;gap:22px;margin-bottom:18px;flex-wrap:wrap;}
+.spec:last-child{margin-bottom:0;}
+.spec .size{flex:0 0 64px;font-size:10.5px;color:var(--umber-soft);letter-spacing:.14em;font-family:ui-monospace,Menlo,monospace;}
+.f-display{font-family:var(--display);font-weight:400;line-height:1.1;}
+.f-display.it{font-style:italic;font-weight:300;}
+.f-script{font-family:var(--script);line-height:1.2;color:var(--gold);}
+.f-body{font-family:var(--body);}
+.megaline{
+  overflow:hidden;padding:clamp(20px,3vw,40px) 0 clamp(8px,1.5vw,16px);
+  border-top:1px solid rgba(191,136,90,.25);border-bottom:1px solid rgba(191,136,90,.25);
+  margin-top:34px;white-space:nowrap;
+}
+.megaline .mega{
+  font-family:var(--display);font-style:italic;font-weight:300;
+  font-size:clamp(64px,13.5vw,168px);line-height:1;letter-spacing:-.02em;
+  color:var(--umber);
+}
+.megaline .mega em{
+  font-style:italic;
+  background:linear-gradient(100deg,var(--gold-deep),#d9a976);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.megaline .mega .amp{font-family:var(--script);font-size:.62em;vertical-align:baseline;color:var(--gold);}
+
+/* ————— 04 Sektions-Preview ————— */
+.preview-note{font-size:11px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--gold-deep);margin:44px 0 16px;display:flex;align-items:center;gap:12px;}
+.preview-note::after{content:"";flex:1;height:1px;background:rgba(191,136,90,.3);}
+.chapter.dark .preview-note{color:var(--gold);}
+.chapter.dark .preview-note::after{background:rgba(191,136,90,.35);}
+
+.pmu-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,48px);align-items:center;}
+.passepartout{
+  background:var(--champagne);padding:clamp(14px,2.5vw,22px);
+  border:1px solid rgba(191,136,90,.35);position:relative;
+}
+.passepartout::after{
+  content:"";position:absolute;inset:7px;border:1px solid rgba(168,116,63,.4);pointer-events:none;
+}
+.passepartout img{width:100%;height:clamp(320px,42vw,460px);object-fit:cover;object-position:center 20%;filter:saturate(.96);}
+.pmu-copy .kicker{font-size:11px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--gold-deep);margin-bottom:12px;}
+.pmu-copy h3{font-family:var(--display);font-weight:400;font-size:clamp(30px,3.6vw,44px);line-height:1.12;margin-bottom:16px;}
+.pmu-copy h3 em{font-style:italic;font-weight:300;color:var(--gold-deep);}
+.pmu-copy>p{color:var(--umber-soft);font-weight:300;max-width:440px;margin-bottom:24px;}
+.leist-list{list-style:none;}
+.leist-list li{
+  display:flex;gap:14px;align-items:baseline;padding:14px 0;border-bottom:1px solid rgba(191,136,90,.22);
+}
+.leist-list li:first-child{border-top:1px solid rgba(191,136,90,.22);}
+.leist-list .dia{color:var(--gold);font-size:11px;flex:0 0 auto;}
+.leist-list b{font-family:var(--display);font-weight:500;font-size:17px;letter-spacing:.01em;display:block;}
+.leist-list small{color:var(--umber-soft);font-size:13.5px;font-weight:300;line-height:1.55;display:block;margin-top:2px;}
+
+/* Dunkel-Kapitel Wellness */
+.wellness{display:grid;grid-template-columns:.95fr 1.05fr;gap:clamp(26px,4.5vw,56px);align-items:center;position:relative;z-index:1;}
+.wellness-copy .kap{
+  font-family:var(--display);font-style:italic;font-weight:300;font-size:15px;color:var(--gold);
+  letter-spacing:.14em;margin-bottom:14px;display:block;
+}
+.wellness-copy h3{
+  font-family:var(--display);font-weight:300;font-size:clamp(34px,4.4vw,54px);line-height:1.08;color:var(--light);margin-bottom:18px;
+}
+.wellness-copy h3 em{
+  font-style:italic;
+  background:linear-gradient(100deg,#d9a976,var(--gold) 60%,var(--gold-deep));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.wellness-copy p{color:#c9bda9;font-weight:300;max-width:460px;margin-bottom:26px;}
+.wellness-copy .script-line{font-family:var(--script);font-size:clamp(26px,3vw,34px);color:var(--gold);display:block;margin-bottom:20px;}
+.sessel-frame{position:relative;}
+.sessel-frame::before{
+  content:"";position:absolute;inset:-24px -24px 24px 24px;
+  border:1px solid rgba(191,136,90,.4);z-index:0;pointer-events:none;
+}
+.sessel-frame img{
+  position:relative;z-index:1;width:100%;height:clamp(340px,44vw,500px);object-fit:cover;
+  box-shadow:0 40px 90px -30px rgba(0,0,0,.6), 0 0 80px -10px rgba(191,136,90,.18);
+}
+.sessel-frame figcaption{
+  position:relative;z-index:1;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#a2947e;margin-top:14px;
+}
+
+/* Gold-Dust Partikel (CSS) */
+.dust{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:0;}
+.dust i{
+  position:absolute;bottom:-10px;border-radius:50%;
+  background:radial-gradient(circle,rgba(240,222,196,.95),rgba(191,136,90,.4) 55%,transparent 75%);
+  opacity:0;animation:rise linear infinite;
+}
+@keyframes rise{
+  0%{transform:translate(0,0);opacity:0;}
+  10%{opacity:.85;}
+  70%{opacity:.4;}
+  100%{transform:translate(30px,-560px);opacity:0;}
+}
+.dust i:nth-child(1){left:8%;width:4px;height:4px;animation-duration:12s;animation-delay:0s;}
+.dust i:nth-child(2){left:22%;width:3px;height:3px;animation-duration:15s;animation-delay:3s;}
+.dust i:nth-child(3){left:37%;width:5px;height:5px;animation-duration:11s;animation-delay:6s;}
+.dust i:nth-child(4){left:52%;width:3px;height:3px;animation-duration:16s;animation-delay:1.5s;}
+.dust i:nth-child(5){left:64%;width:4px;height:4px;animation-duration:13s;animation-delay:8s;}
+.dust i:nth-child(6){left:78%;width:3px;height:3px;animation-duration:17s;animation-delay:4s;}
+.dust i:nth-child(7){left:88%;width:5px;height:5px;animation-duration:12.5s;animation-delay:9.5s;}
+.dust i:nth-child(8){left:45%;width:2.5px;height:2.5px;animation-duration:18s;animation-delay:11s;}
+
+/* CTA-Preview */
+.cta-preview{
+  text-align:center;position:relative;z-index:1;
+  border:1px solid rgba(191,136,90,.35);padding:clamp(44px,7vw,88px) clamp(20px,4vw,60px);
+  background:radial-gradient(70% 90% at 50% 110%,rgba(191,136,90,.14),transparent 70%);
+}
+.cta-preview .script-line{font-family:var(--script);font-size:clamp(34px,5vw,52px);color:var(--gold);display:block;margin-bottom:10px;}
+.cta-preview h3{font-family:var(--display);font-weight:300;font-size:clamp(28px,3.6vw,42px);color:var(--light);line-height:1.15;margin-bottom:18px;}
+.cta-preview h3 em{font-style:italic;color:var(--gold);}
+.cta-preview p{color:#c9bda9;font-weight:300;max-width:480px;margin:0 auto 30px;}
+.cta-preview .credo{
+  font-size:11.5px;font-weight:700;letter-spacing:.34em;text-transform:uppercase;color:var(--champagne);margin-top:28px;display:block;
+}
+.cta-preview .credo em{color:var(--gold);font-style:normal;}
+
+/* ————— 05 Ornamentik ————— */
+.orna-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+.orna-tile{
+  background:var(--light);border:1px solid rgba(191,136,90,.28);
+  min-height:190px;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:18px;padding:28px 20px;text-align:center;position:relative;
+}
+.orna-tile .cap{font-size:10.5px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--umber-soft);}
+.orna-tile.dark-tile{background:var(--umber);border-color:rgba(191,136,90,.4);}
+.orna-tile.dark-tile .cap{color:#a2947e;}
+.o-hairline{display:flex;align-items:center;gap:14px;width:100%;max-width:260px;}
+.o-hairline::before,.o-hairline::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--gold));}
+.o-hairline::after{background:linear-gradient(90deg,var(--gold),transparent);}
+.o-hairline span{color:var(--gold);font-size:13px;}
+.o-corner{
+  width:150px;height:88px;position:relative;display:flex;align-items:center;justify-content:center;
+  font-family:var(--display);font-style:italic;font-weight:300;font-size:17px;color:var(--umber);
+}
+.o-corner::before,.o-corner::after{content:"";position:absolute;width:26px;height:26px;border:1px solid var(--gold);}
+.o-corner::before{top:0;left:0;border-right:none;border-bottom:none;}
+.o-corner::after{bottom:0;right:0;border-left:none;border-top:none;}
+.o-kapitel{font-family:var(--display);color:var(--champagne);font-weight:300;font-size:14px;letter-spacing:.3em;text-transform:uppercase;}
+.o-kapitel .roman{display:block;font-size:44px;font-style:italic;letter-spacing:.05em;color:var(--gold);margin-bottom:6px;text-transform:none;}
+.o-doubleframe{
+  width:150px;height:90px;border:1px solid var(--gold);position:relative;background:var(--champagne);
+}
+.o-doubleframe::after{content:"";position:absolute;inset:5px;border:1px solid rgba(168,116,63,.5);}
+.o-goldrule{width:100%;max-width:240px;height:2px;background:linear-gradient(90deg,transparent,var(--gold-deep) 25%,#dcb083 50%,var(--gold-deep) 75%,transparent);}
+.o-script-drop{font-family:var(--script);font-size:44px;color:var(--gold);line-height:1;}
+.o-script-drop small{font-family:var(--body);font-size:12px;color:var(--umber-soft);display:block;letter-spacing:.2em;text-transform:uppercase;margin-top:8px;}
+
+/* ————— 06 Signature Moves ————— */
+.moves{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;position:relative;z-index:1;}
+.move{
+  border:1px solid rgba(191,136,90,.4);padding:clamp(24px,3vw,36px);
+  background:linear-gradient(160deg,rgba(191,136,90,.08),transparent 55%);
+  transition:border-color .4s ease, transform .4s ease;
+}
+.move:hover{border-color:var(--gold);transform:translateY(-4px);}
+.move .num{
+  font-family:var(--display);font-style:italic;font-weight:300;font-size:34px;color:var(--gold);display:block;margin-bottom:14px;
+}
+.move h4{font-family:var(--display);font-weight:500;font-size:19px;color:var(--light);margin-bottom:10px;line-height:1.3;}
+.move p{font-size:13.5px;color:#c9bda9;font-weight:300;line-height:1.65;}
+.techrow{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:18px;position:relative;z-index:1;
+}
+.tech{
+  border:1px solid rgba(191,136,90,.25);padding:22px 26px;background:rgba(250,246,238,.03);
+}
+.tech .lab{font-size:10px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:8px;}
+.tech p{font-size:13.5px;color:#c9bda9;font-weight:300;line-height:1.6;}
+.tech p b{color:var(--champagne);font-weight:600;}
+.cursor-demo{display:flex;gap:34px;align-items:center;margin-top:10px;}
+.cursor-demo .cur{width:34px;height:34px;border-radius:50%;flex:0 0 auto;}
+.cursor-demo .cur.light-c{border:1.5px solid var(--umber-soft);background:transparent;}
+.cursor-demo .cur.gold-c{
+  background:radial-gradient(circle,#e9c79b,var(--gold) 55%,transparent 75%);
+  box-shadow:0 0 24px 6px rgba(191,136,90,.5);
+  animation:glowpulse 3s ease-in-out infinite;
+}
+@keyframes glowpulse{0%,100%{box-shadow:0 0 18px 4px rgba(191,136,90,.4);}50%{box-shadow:0 0 34px 10px rgba(191,136,90,.65);}}
+
+/* ————— 07 Bildsprache ————— */
+.imagerow{display:grid;grid-template-columns:1fr 1.4fr 1fr;gap:14px;margin-top:32px;}
+.imagerow figure{position:relative;overflow:hidden;}
+.imagerow img{width:100%;height:clamp(220px,30vw,340px);object-fit:cover;transition:transform 6s ease;}
+.imagerow figure:hover img{transform:scale(1.05);}
+.imagerow figcaption{
+  position:absolute;left:0;right:0;bottom:0;padding:12px 16px;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--champagne);background:linear-gradient(0deg,rgba(46,38,32,.75),transparent);
+}
+.imagerow .darkfig img{filter:brightness(.82) contrast(1.06) saturate(1.02);}
+.bildsatz{
+  font-family:var(--display);font-weight:300;font-style:italic;
+  font-size:clamp(20px,2.8vw,30px);line-height:1.45;max-width:820px;color:var(--umber);
+}
+.bildsatz em{color:var(--gold-deep);}
+
+/* ————— Footer ————— */
+.mbfoot{
+  background:var(--umber);color:#a2947e;text-align:center;
+  padding:44px 20px;font-size:11px;letter-spacing:.26em;text-transform:uppercase;position:relative;overflow:hidden;
+}
+.mbfoot .dia{color:var(--gold);margin:0 12px;}
+
+/* ————— Responsive ————— */
+@media (max-width:960px){
+  .swatches{grid-template-columns:repeat(4,1fr);}
+  .mock-hero-body{grid-template-columns:1fr;}
+  .videomock{min-height:320px;border-left:none;border-top:1px solid rgba(191,136,90,.25);}
+  .pmu-grid,.wellness{grid-template-columns:1fr;}
+  .orna-grid,.moves,.techrow{grid-template-columns:repeat(2,1fr);}
+  .imagerow{grid-template-columns:1fr 1fr;}
+  .imagerow figure:first-child{grid-column:1 / -1;}
+}
+@media (max-width:600px){
+  .swatches{grid-template-columns:repeat(2,1fr);}
+  .orna-grid,.moves,.techrow{grid-template-columns:1fr;}
+  .imagerow{grid-template-columns:1fr;}
+  .imagerow figure:first-child{grid-column:auto;}
+  .mock-nav nav{display:none;}
+  .spec{gap:10px;}
+  .spec .size{flex-basis:100%;}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none !important;transition:none !important;}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════ 0 · KOPFBEREICH ═══════════ -->
+<header class="mbhead">
+  <div class="wrap">
+    <p class="eyebrow">Moodboard · Stilrichtung C · PermanentReich, Wiehl</p>
+    <h1>Champagne <em>Noir</em><span class="script-sub">Tag &amp; goldene Stunde</span></h1>
+    <p class="char">Die Site atmet hell auf Ivory — und taucht für den Sessel-Moment und den Abschluss in warmes Dunkelbraun mit Gold-Glow: ein cinematischer Kapitelwechsel als Kern-Dramaturgie, kontrastreich und theatral wie Kerzenlicht nach einem hellen Tag.</p>
+    <div class="orna-div"><span>✦</span></div>
+  </div>
+</header>
+
+<!-- ═══════════ 01 · HERO-MOCK ═══════════ -->
+<section class="chapter">
+  <div class="wrap">
+    <p class="seclabel"><b>01</b> Hero-Mock — der erste Eindruck</p>
+    <div class="heromock">
+      <div class="mock-nav">
+        <img src="assets/logo.svg" alt="PermanentReich Logo">
+        <nav><span>Permanent Make-up</span><span>Kopfhaut</span><span>Wellness</span><span>Über Olga</span></nav>
+        <span class="btn ghost">Beratung</span>
+      </div>
+      <div class="mock-hero-body">
+        <div class="mock-hero-copy">
+          <span class="badge-script">Neu in Altklef</span>
+          <h2>Dein Reich für <em>Schönheit</em> &amp;&nbsp;<em>Gesundheit</em>.</h2>
+          <p>Permanent Make-up, Kopfhautpigmentierung und Wellness im Luxus-Massagesessel — bei Olga Reich in Wiehl. Persönlich. Ehrlich. Auf Augenhöhe.</p>
+          <div class="cta-row">
+            <span class="btn solid">Kostenlose Beratung</span>
+            <span class="btn ghost">Leistungen entdecken</span>
+          </div>
+        </div>
+        <div class="videomock">
+          <div class="playchip"></div>
+          <div class="videocap">
+            <b>Video-Platzhalter — Hero-Loop</b>
+            Macro-Zeitlupe: Goldpigment sinkt in cremige Ivory-Flüssigkeit, weiches Morgenlicht wandert über Seidenstoff — nahtloser 12-s-Loop, Silk-Shader-Overlay in Echtzeit darüber.
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="annot">Anmerkung: Der Hero gehört zum hellen „Tag"-Kapitel — High-Key-Ivory, Headline in Fraunces mit Italic-Akzenten in Gold-Deep, Badge „Neu in Altklef" leicht rotiert in Great Vibes. Das Dunkel kommt erst später — als Auftritt, nicht als Grundstimmung.</p>
+  </div>
+</section>
+
+<!-- ═══════════ 02 · FARBSYSTEM ═══════════ -->
+<section class="chapter" style="padding-top:0;">
+  <div class="wrap">
+    <p class="seclabel"><b>02</b> Farbsystem — Tag &amp; goldene Stunde</p>
+    <div class="swatches">
+      <div class="swatch">
+        <div class="chip" style="background:#faf6ee;"></div>
+        <dl><dt>Light</dt><dd class="hex">#faf6ee</dd><dd>Highlights, hellster Punkt</dd><dd class="area">≈ 18 % Fläche</dd></dl>
+      </div>
+      <div class="swatch">
+        <div class="chip" style="background:#f5f0e8;"></div>
+        <dl><dt>Ivory</dt><dd class="hex">#f5f0e8</dd><dd>Grundfläche Tag-Kapitel</dd><dd class="area">≈ 30 % Fläche</dd></dl>
+      </div>
+      <div class="swatch">
+        <div class="chip" style="background:#e8dcc8;"></div>
+        <dl><dt>Champagne</dt><dd class="hex">#e8dcc8</dd><dd>Karten, Passepartouts</dd><dd class="area">≈ 12 % Fläche</dd></dl>
+      </div>
+      <div class="swatch">
+        <div class="chip" style="background:#bf885a;"></div>
+        <dl><dt>Gold</dt><dd class="hex">#bf885a</dd><dd>Akzent, Script, Ornamente</dd><dd class="area">max. 8 % Fläche</dd></dl>
+      </div>
+      <div class="swatch">
+        <div class="chip" style="background:#a8743f;"></div>
+        <dl><dt>Gold-Deep</dt><dd class="hex">#a8743f</dd><dd>Hover, Schattenstufe</dd><dd class="area">≈ 2 % Fläche</dd></dl>
+      </div>
+      <div class="swatch">
+        <div class="chip" style="background:#6b6560;"></div>
+        <dl><dt>Umber-Soft</dt><dd class="hex">#6b6560</dd><dd>Sekundärtext, warmgrau</dd><dd class="area">nur Text</dd></dl>
+      </div>
+      <div class="swatch">
+        <div class="chip glow" style="background:#2e2620;"></div>
+        <dl><dt>Umber</dt><dd class="hex">#2e2620</dd><dd>Dunkel-Kapitel: Wellness + Footer</dd><dd class="area">≈ 28 % Fläche</dd></dl>
+      </div>
+    </div>
+    <p class="annot">Champagne Noir gibt Umber #2e2620 als einzige Richtung echte Flächenmacht: ganze Kapitel statt nur Footer. Kein reines Schwarz, kein kühles Grau, kein Blau/Lila — das Dunkel bleibt warmes Braun, immer mit Gold-Glow aus einer Lichtquelle angewärmt.</p>
+  </div>
+</section>
+
+<!-- ═══════════ 03 · TYPOGRAFIE ═══════════ -->
+<section class="chapter" style="padding-top:0;">
+  <div class="wrap">
+    <p class="seclabel"><b>03</b> Typografie — live gerendert</p>
+
+    <div class="typocard">
+      <div class="fontmeta">
+        <h3>Display — Fraunces</h3>
+        <span>Google Fonts · opsz 9–144 · Regular + Light Italic · Headlines, Kapitel-Nummern, Zitate</span>
+      </div>
+      <div class="spec"><span class="size">72 px</span><span class="f-display it" style="font-size:clamp(38px,6vw,72px);">Dein Reich.</span></div>
+      <div class="spec"><span class="size">44 px</span><span class="f-display" style="font-size:clamp(28px,4vw,44px);">Schönheit &amp; <em style="font-style:italic;font-weight:300;color:var(--gold-deep);">Gesundheit</em></span></div>
+      <div class="spec"><span class="size">24 px</span><span class="f-display" style="font-size:24px;font-weight:500;">Powderbrows, Lippen, Wimpernkranz — Kapitel für Kapitel.</span></div>
+    </div>
+
+    <div class="typocard">
+      <div class="fontmeta">
+        <h3>Script — Great Vibes</h3>
+        <span>Google Fonts · nur für Badge, Einwürfe &amp; Signatur — nie für Fließtext</span>
+      </div>
+      <div class="spec"><span class="size">56 px</span><span class="f-script" style="font-size:clamp(36px,5vw,56px);">Neu in Altklef</span></div>
+      <div class="spec"><span class="size">36 px</span><span class="f-script" style="font-size:36px;">Olga Reich — von Herzen</span></div>
+    </div>
+
+    <div class="typocard">
+      <div class="fontmeta">
+        <h3>Body — Mulish</h3>
+        <span>Google Fonts · Light 300 für Lauftext, Bold 700 letterspaced für Labels &amp; Buttons</span>
+      </div>
+      <div class="spec"><span class="size">18 px</span><span class="f-body" style="font-size:18px;font-weight:300;">Kostenlose Beratung in privater Atmosphäre — wir nehmen uns Zeit für dich und deine Fragen.</span></div>
+      <div class="spec"><span class="size">15 px</span><span class="f-body" style="font-size:15px;font-weight:400;color:var(--umber-soft);">Permanent Make-up und Kopfhautpigmentierung für Sie &amp; Ihn — natürlich, präzise, typgerecht.</span></div>
+      <div class="spec"><span class="size">11 px</span><span class="f-body" style="font-size:11px;font-weight:700;letter-spacing:.32em;text-transform:uppercase;color:var(--gold-deep);">Persönlich · Ehrlich · Auf Augenhöhe</span></div>
+    </div>
+
+    <div class="megaline">
+      <span class="mega">Schönheit <span class="amp">&amp;</span> <em>Gesundheit</em></span>
+    </div>
+    <p class="annot">Mega-Typo als Kapitel-Auftakt: Fraunces Light Italic in Übergröße, Wortpaare laufen beim Scroll leicht horizontal auseinander. Das „&amp;" darf als Script-Einwurf tanzen — im Dunkel-Kapitel wird dieselbe Zeile champagnerfarben auf Umber gesetzt.</p>
+  </div>
+</section>
+
+<!-- ═══════════ 04a · SEKTIONS-PREVIEW HELL ═══════════ -->
+<section class="chapter" style="padding-top:0;">
+  <div class="wrap">
+    <p class="seclabel"><b>04</b> Sektions-Preview — Tag-Kapitel: Permanent Make-up</p>
+    <div class="pmu-grid">
+      <figure class="passepartout">
+        <img src="assets/olga.jpg" alt="Olga Reich — Inhaberin PermanentReich">
+      </figure>
+      <div class="pmu-copy">
+        <p class="kicker">Kapitel I — Permanent Make-up</p>
+        <h3>Aufwachen und <em>schön sein</em> — jeden Tag.</h3>
+        <p>Olga arbeitet präzise, typgerecht und ehrlich: Was dir nicht steht, bekommst du auch nicht empfohlen. Jede Behandlung beginnt mit einer kostenlosen Beratung.</p>
+        <ul class="leist-list">
+          <li><span class="dia">✦</span><span><b>Powderbrows</b><small>Sanft gepuderte Augenbrauen mit weichem Verlauf — wie geschminkt, nur natürlicher und morgens schon fertig.</small></span></li>
+          <li><span class="dia">✦</span><span><b>Lippen</b><small>Zarte Kontur und natürliche Farbauffrischung, die dein Lächeln unterstreicht statt es zu übermalen.</small></span></li>
+          <li><span class="dia">✦</span><span><b>Wimpernkranzverdichtung</b><small>Feine Pigmentierung direkt am Wimpernkranz — der Effekt von Mascara, ganz ohne Mascara.</small></span></li>
+        </ul>
+      </div>
+    </div>
+    <p class="annot">Tag-Kapitel-Rezept: Ivory-Grund, Champagne-Passepartout mit doppelter Innenlinie, Raute ✦ als Aufzählungszeichen, viel Luft. Die Karten heben sich nur über Papier-Ton und Hairlines ab — keine Schatten-Orgien im Hellen.</p>
+  </div>
+</section>
+
+<!-- ═══════════ 04b · KAPITELWECHSEL → DUNKEL ═══════════ -->
+<div style="height:clamp(60px,9vw,120px);background:linear-gradient(180deg,var(--ivory),#8a7a63 55%,var(--umber));"></div>
+<section class="chapter dark" style="padding-top:clamp(40px,6vw,72px);">
+  <div class="dust"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  <div class="wrap">
+    <p class="seclabel"><b>04</b> Sektions-Preview — Dunkel-Kapitel: Wellness <span style="letter-spacing:.1em;">(← hier passiert der Kapitelwechsel)</span></p>
+    <div class="wellness">
+      <div class="wellness-copy">
+        <span class="kap">Kapitel II — Die goldene Stunde</span>
+        <h3>Dein Moment. <em>Nur für dich.</em></h3>
+        <span class="script-line">einfach mal loslassen …</span>
+        <p>Unser Luxus-Massagesessel empfängt dich in privater Atmosphäre — kein Wartezimmer, kein Trubel. Nur warmes Licht, Stille und eine Massage, die den ganzen Körper meint.</p>
+        <span class="btn ghost" style="color:var(--gold);border-color:var(--gold);">Wellness-Termin sichern</span>
+      </div>
+      <figure class="sessel-frame">
+        <img src="assets/sessel.jpg" alt="Goldener Luxus-Massagesessel im Creme-Raum">
+        <figcaption>✦ Chiaroscuro-Grading: Gold-Glow auf Umber — wie Kerzenlicht</figcaption>
+      </figure>
+    </div>
+    <p class="annot">Der cineastische Kern: Beim Scroll blendet ein Shader die Seite von Ivory nach Umber #2e2620 — dieselbe Marke, andere Tageszeit. Gold-Dust-Partikel steigen langsam auf (hier als CSS-Andeutung), der Sessel wird als Pin-Section inszeniert.</p>
+
+    <p class="preview-note">CTA / Footer-Preview — Abschluss im Dunkel</p>
+    <div class="cta-preview">
+      <span class="script-line">Wir freuen uns auf dich</span>
+      <h3>Lerne dein <em>Reich</em> kennen — bei einer kostenlosen Beratung.</h3>
+      <p>Ob Powderbrows, Kopfhautpigmentierung für Sie &amp; Ihn oder eine Auszeit im Massagesessel: Der erste Schritt kostet nichts außer ein Gespräch.</p>
+      <span class="btn solid">Kostenlose Beratung vereinbaren</span>
+      <span class="credo">Persönlich <em>✦</em> Ehrlich <em>✦</em> Auf Augenhöhe</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ 05 · ORNAMENTIK ═══════════ -->
+<section class="chapter">
+  <div class="wrap">
+    <p class="seclabel"><b>05</b> Ornamentik &amp; Dekor-Sprache</p>
+    <div class="orna-grid">
+      <div class="orna-tile">
+        <div class="o-hairline"><span>✦</span></div>
+        <p class="cap">Hairline mit Raute — Standard-Trenner</p>
+      </div>
+      <div class="orna-tile">
+        <div class="o-corner">Eckwinkel</div>
+        <p class="cap">Offene Gold-Eckwinkel um Zitate &amp; Preise</p>
+      </div>
+      <div class="orna-tile dark-tile">
+        <div class="o-kapitel"><span class="roman">II</span>Kapitel-Nummer</div>
+        <p class="cap">Römische Kapitel-Ziffern in Fraunces Italic</p>
+      </div>
+      <div class="orna-tile">
+        <div class="o-doubleframe"></div>
+        <p class="cap">Doppelrahmen-Passepartout für Bilder</p>
+      </div>
+      <div class="orna-tile">
+        <div class="o-goldrule"></div>
+        <p class="cap">Gold-Verlaufslinie — schwillt zur Mitte an</p>
+      </div>
+      <div class="orna-tile">
+        <div class="o-script-drop">R<small>Script-Initial als Einwurf</small></div>
+        <p class="cap">Great-Vibes-Initiale über Headline gelegt</p>
+      </div>
+    </div>
+    <p class="annot">Regel: Ornamente sind immer 1 px fein und golden — nie fett, nie grafisch laut. Im Dunkel-Kapitel wechseln dieselben Elemente nur die Rolle: Gold leuchtet dort statt zu dekorieren.</p>
+  </div>
+</section>
+
+<!-- ═══════════ 06 · SIGNATURE MOVES ═══════════ -->
+<section class="chapter dark">
+  <div class="dust"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  <div class="wrap">
+    <p class="seclabel"><b>06</b> Signature Moves · WebGL · Animation</p>
+    <div class="moves">
+      <div class="move">
+        <span class="num">I.</span>
+        <h4>Die Kapitel-Blende</h4>
+        <p>Ein WebGL-Shader-Übergang blendet beim Scroll die gesamte Seite von Ivory-Hell nach Umber-Dunkel — wie ein Szenenwechsel im Film, nicht wie ein Section-Break.</p>
+      </div>
+      <div class="move">
+        <span class="num">II.</span>
+        <h4>Die Sessel-Sequenz</h4>
+        <p>Pin-Section im Dunkel-Kapitel: Der goldene Sessel bleibt stehen, während Copy-Zeilen und aufsteigende Gold-Partikel in Zeitlupe an ihm vorbeiziehen.</p>
+      </div>
+      <div class="move">
+        <span class="num">III.</span>
+        <h4>Der Glow-Cursor</h4>
+        <p>Custom Cursor als feiner Ring im Hellen — sobald das Dunkel-Kapitel beginnt, wird er zum warm pulsierenden Gold-Glow, der das Umber-Braun lokal erleuchtet.</p>
+        <div class="cursor-demo">
+          <span class="cur light-c" title="Tag-Kapitel"></span>
+          <span style="color:#a2947e;font-size:11px;letter-spacing:.2em;text-transform:uppercase;">→</span>
+          <span class="cur gold-c" title="Dunkel-Kapitel"></span>
+        </div>
+      </div>
+    </div>
+    <div class="techrow">
+      <div class="tech">
+        <span class="lab">WebGL-Element</span>
+        <p><b>Silk-Shader</b> als fließender Seidenstoff im hellen Hero + <b>Gold-Dust-Partikelfeld</b> (GPU-Instancing), das nur im Dunkel-Kapitel lebt.</p>
+      </div>
+      <div class="tech">
+        <span class="lab">Animations-Charakter</span>
+        <p><b>Langsam-cinematic:</b> lange Eases (1,2–1,8 s), viel Ruhe — unterbrochen von markanten, bewusst inszenierten Kapitelwechseln.</p>
+      </div>
+      <div class="tech">
+        <span class="lab">Benchmark-Sites</span>
+        <p><b>14islands.com</b> (Shader-Übergänge, Materialgefühl) + <b>exoape.com</b> (cineastisches Pacing, Dunkel-Dramaturgie).</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ 07 · BILDSPRACHE ═══════════ -->
+<section class="chapter">
+  <div class="wrap">
+    <p class="seclabel"><b>07</b> Bildsprache</p>
+    <p class="bildsatz">Ivory-High-Key mit weichem Morgenlicht im Tag-Kapitel trifft auf <em>Chiaroscuro-Gold-Momente wie Kerzenlicht</em> im Dunkel — immer warm (~4800 K), immer eine Lichtquelle, viel Negativraum, Menschen und Sessel als ruhige Solisten in der Bildmitte.</p>
+    <div class="imagerow">
+      <figure><img src="assets/olga2.jpg" alt="Portrait Olga Reich, High-Key"><figcaption>Tag · High-Key-Ivory</figcaption></figure>
+      <figure class="darkfig"><img src="assets/sessel.jpg" alt="Goldener Massagesessel, Chiaroscuro"><figcaption>Goldene Stunde · Chiaroscuro</figcaption></figure>
+      <figure><img src="assets/olga.jpg" alt="Portrait Olga Reich, warmes Licht"><figcaption>Tag · warmes Portrait</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer class="mbfoot">
+  <div class="dust"><i></i><i></i><i></i><i></i></div>
+  Moodboard C — Champagne Noir <span class="dia">✦</span> PermanentReich · Olga Reich · Wiehl <span class="dia">✦</span> Dein Reich für Schönheit &amp; Gesundheit.
+</footer>
+
+</body>
+</html>
