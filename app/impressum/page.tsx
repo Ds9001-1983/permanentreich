@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { kontakt } from '@/content/copy.de';
+import { Footer } from '@/components/layout/footer';
 
 export const metadata: Metadata = {
   title: 'Impressum — PermanentReich',
@@ -19,10 +20,16 @@ function Platzhalter({ children }: { children: React.ReactNode }) {
 export default function ImpressumPage() {
   return (
     <main className="min-h-screen bg-ivory">
-      <div className="mx-auto max-w-3xl px-6 pb-24 pt-40 md:px-10">
+      <div className="mx-auto max-w-3xl px-6 pb-24 pt-28 md:px-10">
+        <Link href="/" className="flex w-fit items-baseline gap-1.5 whitespace-nowrap">
+          <span className="font-display text-[1.05rem] uppercase tracking-[0.18em] text-umber-soft">
+            Permanent
+          </span>
+          <span className="font-script text-[1.7rem] leading-none text-gold">Reich</span>
+        </Link>
         <Link
           href="/"
-          className="link-line inline-block text-[17px] text-umber-soft"
+          className="link-line mt-8 inline-flex min-h-11 items-center text-[17px] text-umber-soft"
         >
           ← Zurück zu deinem Reich
         </Link>
@@ -81,27 +88,15 @@ export default function ImpressumPage() {
         </p>
 
         <h2 className="font-display mb-3 mt-10 text-xl text-umber">
-          EU-Streitschlichtung
+          Verbraucherstreitbeilegung (§ 36 VSBG)
         </h2>
-        <p className="mb-4 text-[17px] leading-relaxed text-umber-soft">
-          Die Europäische Kommission stellt eine Plattform zur
-          Online-Streitbeilegung (OS) bereit:{' '}
-          <a
-            href="https://ec.europa.eu/consumers/odr/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="link-line text-umber"
-          >
-            https://ec.europa.eu/consumers/odr/
-          </a>
-          . Unsere Kontaktdaten findest du oben in diesem Impressum.
-        </p>
         <p className="mb-4 text-[17px] leading-relaxed text-umber-soft">
           Wir sind nicht verpflichtet und nicht bereit, an
           Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle
           teilzunehmen.
         </p>
       </div>
+      <Footer />
     </main>
   );
 }

@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import { BeforeAfterSlider } from '@/components/ui/before-after-slider';
+import Image from 'next/image';
 import { SectionHeading } from '@/components/ui/section-heading';
 import { kontakt, pmu } from '@/content/copy.de';
 import { gsap, prefersReducedMotion } from '@/lib/gsap';
@@ -60,22 +60,42 @@ export function Pmu() {
               target="_blank"
               rel="noopener noreferrer"
               data-cursor="Buchen"
-              className="link-line mt-10 inline-block font-semibold text-gold-text"
+              className="link-line mt-10 inline-flex min-h-14 items-center text-lg font-semibold text-gold-text"
             >
               {pmu.cta}
             </a>
           </div>
 
-          {/* Rechts — Beweis: Vorher/Nachher-Slider, versetzt */}
+          {/* Rechts — Beweis als Diptychon (die beiden Aufnahmen sind nicht
+              deckungsgleich — nebeneinander ist der ehrliche Vergleich) */}
           <div className="lg:col-span-5 lg:col-start-8 lg:mt-24">
-            <BeforeAfterSlider
-              vorher={media.results.pmu.vorher}
-              nachher={media.results.pmu.nachher}
-              vorherLabel={pmu.slider.vorher}
-              nachherLabel={pmu.slider.nachher}
-              alt="Powderbrows Ergebnis"
-              aspect="aspect-[3/4]"
-            />
+            <div className="grid grid-cols-2 gap-1">
+              {(
+                [
+                  { src: media.results.pmu.vorher, label: pmu.slider.vorher, gold: false },
+                  { src: media.results.pmu.nachher, label: pmu.slider.nachher, gold: true },
+                ] as const
+              ).map((bild) => (
+                <figure key={bild.label} className="relative">
+                  <div className="relative aspect-[3/4] w-full overflow-hidden">
+                    <Image
+                      src={bild.src}
+                      alt={`Powderbrows — ${bild.label}`}
+                      fill
+                      sizes="(max-width: 768px) 50vw, 25vw"
+                      className="object-cover"
+                    />
+                  </div>
+                  <figcaption
+                    className={`absolute left-3 top-3 rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-light ${
+                      bild.gold ? 'bg-gold/90' : 'bg-umber/55 backdrop-blur-[2px]'
+                    }`}
+                  >
+                    {bild.label}
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
             <p className="mt-4 text-sm tracking-wide text-umber-soft">
               <span aria-hidden className="text-gold">
                 ✦{' '}

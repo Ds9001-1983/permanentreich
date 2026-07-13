@@ -121,7 +121,8 @@ export function Smp() {
               vorherLabel={smp.slider.vorher}
               nachherLabel={smp.slider.nachher}
               alt={`${smp.eyebrow} — ${smp.toggle[modus]}`}
-              aspect="aspect-[4/3]"
+              // Crops nativ: Frau ~2:1 (Collage-Streifen), Mann hochformat
+              aspect={modus === 'sie' ? 'aspect-[16/9]' : 'aspect-[3/4]'}
             />
           </div>
         </div>

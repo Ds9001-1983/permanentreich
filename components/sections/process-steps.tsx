@@ -72,7 +72,7 @@ export function ProcessSteps() {
             <li
               key={schritt.nr}
               data-step
-              className="border-champagne pb-12 last:pb-0 [&:not(:first-child)]:border-t [&:not(:first-child)]:pt-10 md:border-t md:pt-10 md:pb-0"
+              className="border-champagne pb-12 last:pb-0 [&:not(:first-child)]:border-t [&:not(:first-child)]:pt-10 md:border-t md:pt-10 md:pb-0 md:nth-2:mt-12 md:nth-3:mt-24"
             >
               <span
                 data-step-nr={Number(schritt.nr)}

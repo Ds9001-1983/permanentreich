@@ -25,6 +25,13 @@ export function Hero() {
     setVertical(window.matchMedia('(max-width: 767px)').matches);
   }, []);
 
+  // Reduced Motion: Video pausieren, sobald es tatsächlich gemountet ist
+  // (der Haupt-Effect läuft vor dem Video-Mount und würde ins Leere greifen).
+  useEffect(() => {
+    if (vertical === null) return;
+    if (prefersReducedMotion()) videoRef.current?.pause();
+  }, [vertical]);
+
   // Italic-Akzent: letztes Wort der zweiten Headline-Zeile in Fraunces Italic.
   const zeile2Woerter = hero.headline[1].split(' ');
   const akzent = zeile2Woerter[zeile2Woerter.length - 1];
@@ -130,18 +137,19 @@ export function Hero() {
       {/* WebGL-Silk-Shader als Soft-Light-Overlay über dem Video */}
       <LazySilk intensity={0.5} blend="soft-light" />
 
-      {/* Content */}
-      <div className="relative mx-auto flex min-h-[100svh] max-w-[1440px] flex-col justify-center px-6 md:px-10 lg:px-16">
+      {/* Content — pt schafft Clearance zum fixed Header, H1 zusätzlich an
+          die Viewport-HÖHE gekoppelt (Laptop-Folds 760–880px brechen sonst) */}
+      <div className="relative mx-auto flex min-h-[100svh] max-w-[1440px] flex-col justify-center px-6 pt-[clamp(6rem,13svh,9rem)] pb-16 md:px-10 lg:px-16">
         <SplitReveal
           as="p"
           immediate
           delay={0.2}
-          className="font-script -rotate-3 text-[clamp(1.8rem,4vw,3rem)] text-gold-deep"
+          className="font-script w-fit -rotate-3 text-[min(clamp(1.8rem,4vw,3rem),5svh)] text-gold-deep"
         >
           {hero.badge}
         </SplitReveal>
 
-        <h1 className="font-display mt-4 text-[clamp(3.2rem,10vw,9.5rem)] font-light leading-[1.02] tracking-[-0.02em] text-umber">
+        <h1 className="font-display mt-4 text-[min(clamp(3.2rem,10vw,9.5rem),12svh)] font-light leading-[1.02] tracking-[-0.02em] text-umber">
           <SplitReveal as="span" className="block" immediate delay={0.2}>
             {hero.headline[0]}
           </SplitReveal>
@@ -187,8 +195,8 @@ export function Hero() {
         </div>
       </div>
 
-      {/* Scroll-Hint unten mittig */}
-      <div className="pointer-events-none absolute inset-x-0 bottom-8 flex justify-center">
+      {/* Scroll-Hint unten mittig — auf flachen Viewports ausgeblendet */}
+      <div className="pointer-events-none absolute inset-x-0 bottom-8 flex justify-center [@media(max-height:749px)]:hidden">
         <div data-hero-fade className="flex flex-col items-center gap-3">
           <span className="text-xs uppercase tracking-[0.25em] text-umber-soft">
             {hero.scrollHint}

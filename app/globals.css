@@ -69,10 +69,8 @@ body {
   color: var(--color-umber); /* AA-Kontrast auch auf Champagne */
 }
 
-.eyebrow::after {
-  content: " ✦";
-  color: var(--color-gold);
-}
+/* Kein automatisches ✦ an jedem Eyebrow — Stil-Gesetz B: Ornamente nur als
+   einzelne, bewusst gesetzte Marker (Hook-Abschluss, Marquee-Trenner). */
 
 /* Fokus-Zustände (A11y) */
 :focus-visible {

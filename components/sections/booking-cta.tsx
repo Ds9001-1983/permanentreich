@@ -32,8 +32,9 @@ function InstagramIcon({ className }: { className?: string }) {
 export function BookingCta() {
   return (
     <section id="termin" className="relative bg-champagne py-[clamp(80px,10vw,160px)]">
-      {/* Silk-Shader als lebendiger Sektions-Hintergrund */}
-      <LazySilk intensity={0.85} />
+      {/* Silk-Shader als lebendiger Sektions-Hintergrund — 0.65 lässt genug
+          Champagne durchscheinen (Stil-Gesetz: Sektion bleibt Champagne) */}
+      <LazySilk intensity={0.65} />
 
       <div className="relative z-10 mx-auto max-w-[1440px] px-6 md:px-10 lg:px-16">
         <div className="grid gap-16 lg:grid-cols-2 lg:gap-24">
@@ -73,7 +74,7 @@ export function BookingCta() {
 
             <p className="mt-8 text-center text-umber/80">
               {cta.telefonLabel}{' '}
-              <a href={kontakt.telefonLink} className="link-line font-semibold text-umber">
+              <a href={kontakt.telefonLink} className="link-line inline-flex min-h-11 items-center font-semibold text-umber">
                 {kontakt.telefon}
               </a>
             </p>
@@ -92,7 +93,7 @@ export function BookingCta() {
                 href={kontakt.mapsLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="link-line text-umber"
+                className="link-line inline-flex min-h-11 items-center text-umber"
               >
                 {cta.kartenHinweis}
               </a>

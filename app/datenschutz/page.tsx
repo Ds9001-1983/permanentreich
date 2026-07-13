@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { kontakt } from '@/content/copy.de';
+import { Footer } from '@/components/layout/footer';
 
 export const metadata: Metadata = {
   title: 'Datenschutz — PermanentReich',
@@ -28,10 +29,16 @@ const betroffenenrechte = [
 export default function DatenschutzPage() {
   return (
     <main className="min-h-screen bg-ivory">
-      <div className="mx-auto max-w-3xl px-6 pb-24 pt-40 md:px-10">
+      <div className="mx-auto max-w-3xl px-6 pb-24 pt-28 md:px-10">
+        <Link href="/" className="flex w-fit items-baseline gap-1.5 whitespace-nowrap">
+          <span className="font-display text-[1.05rem] uppercase tracking-[0.18em] text-umber-soft">
+            Permanent
+          </span>
+          <span className="font-script text-[1.7rem] leading-none text-gold">Reich</span>
+        </Link>
         <Link
           href="/"
-          className="link-line inline-block text-[17px] text-umber-soft"
+          className="link-line mt-8 inline-flex min-h-11 items-center text-[17px] text-umber-soft"
         >
           ← Zurück zu deinem Reich
         </Link>
@@ -183,6 +190,7 @@ export default function DatenschutzPage() {
           .
         </p>
       </div>
+      <Footer />
     </main>
   );
 }

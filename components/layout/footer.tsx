@@ -57,7 +57,7 @@ export function Footer() {
               href={kontakt.mapsLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="link-line mt-4 inline-block py-1 text-[17px] leading-relaxed text-light/80"
+              className="link-line mt-4 inline-flex min-h-11 items-center text-[17px] leading-relaxed text-light/80"
             >
               {kontakt.strasse}
               <br />
@@ -68,7 +68,7 @@ export function Footer() {
           <div>
             <a
               href={kontakt.telefonLink}
-              className="link-line font-display inline-block py-2 text-[clamp(1.375rem,2vw,1.75rem)] text-light"
+              className="link-line font-display inline-flex min-h-11 items-center text-[clamp(1.375rem,2vw,1.75rem)] text-light"
             >
               {kontakt.telefon}
             </a>
@@ -79,7 +79,7 @@ export function Footer() {
               href={kontakt.instagram}
               target="_blank"
               rel="noopener noreferrer"
-              className="link-line font-display inline-block py-2 text-[clamp(1.375rem,2vw,1.75rem)] text-light"
+              className="link-line font-display inline-flex min-h-11 items-center text-[clamp(1.375rem,2vw,1.75rem)] text-light"
             >
               {kontakt.instagramHandle}
             </a>
@@ -103,7 +103,7 @@ export function Footer() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="link-line inline-block py-1 text-[15px] text-light/70"
+                className="link-line inline-flex min-h-11 items-center text-[15px] text-light/70"
               >
                 {link.label}
               </Link>

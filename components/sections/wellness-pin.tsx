@@ -135,12 +135,11 @@ export function WellnessPin() {
 
   return (
     <section id="wellness" className="relative overflow-clip bg-champagne">
-      {/* Gold-Dust-Partikel — Staub im Sonnenlicht um den Sessel */}
-      <LazyGoldParticles />
-
       {/* ————— Desktop-Pin-Story (lg + motion-safe): 300vh Strecke, Sticky-Bühne ————— */}
       <div ref={pinWrapRef} className="relative hidden h-[300vh] lg:motion-safe:block">
         <div className="sticky top-0 flex h-[100svh] items-center overflow-hidden">
+          {/* Gold-Dust-Partikel IN der Sticky-Bühne (nicht auf der 300vh-Strecke) */}
+          <LazyGoldParticles />
           {/* Sektionskopf oben absolut im Sticky-Bereich */}
           <div className="absolute inset-x-0 top-[clamp(2rem,6vh,4.5rem)]">
             <div className="mx-auto max-w-[1440px] px-6 md:px-10 lg:px-16">

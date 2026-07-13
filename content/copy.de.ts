@@ -62,7 +62,7 @@ export const leistungen = {
 
 export const pmu = {
   eyebrow: 'Permanent Make-up',
-  headline: 'Wach aufgeweckt — nicht geschminkt.',
+  headline: 'Wach aussehen — nicht geschminkt.',
   text: 'Dein Permanent Make-up unterstreicht, was schon da ist: ausdrucksstarke Brauen, weiche Lippenkontur, ein offener Blick. Olga arbeitet fein, natürlich und pigmentschonend — damit es aussieht wie du, nur ausgeschlafener.',
   details: [
     {
@@ -154,13 +154,18 @@ export const ablauf = {
   ],
 } as const;
 
+/**
+ * Neueröffnung: Statt erfundener Kundenzitate (Anti-Pattern + UWG-Risiko)
+ * stehen hier Olgas echte Versprechen. Sobald reale Kundinnen-Stimmen mit
+ * Einverständnis vorliegen, werden sie hier ergänzt.
+ */
 export const stimmen = {
-  eyebrow: 'Stimmen aus deinem Reich',
+  eyebrow: 'Olgas Versprechen an dich',
   zitate: [
-    { text: 'Endlich Brauen, die ich nicht jeden Morgen malen muss. Olga hat genau verstanden, was ich wollte.', name: 'Sandra K.', ort: 'Wiehl' },
-    { text: 'Die Beratung war ehrlich — kein Verkaufsgespräch. Genau deshalb bin ich geblieben.', name: 'Melanie B.', ort: 'Gummersbach' },
-    { text: 'Nach der Pigmentierung schaue ich wieder gern in den Spiegel. Danke, Olga!', name: 'Thomas R.', ort: 'Nümbrecht' },
-    { text: 'Der Massagesessel ist der beste Kurzurlaub im Oberbergischen.', name: 'Petra S.', ort: 'Bielstein' },
+    { text: 'Deine Beratung ist immer kostenlos und ehrlich — auch wenn ich dir mal von etwas abrate.', name: 'Olga', ort: 'Versprechen 01' },
+    { text: 'Du bekommst Ergebnisse, die zu dir passen — natürlich statt gemacht.', name: 'Olga', ort: 'Versprechen 02' },
+    { text: 'Bei Hygiene und Pigmenten mache ich keine Kompromisse — daran wird nie gespart.', name: 'Olga', ort: 'Versprechen 03' },
+    { text: 'Auch nach deinem Termin bin ich für dich da — Nachsorge gehört bei mir dazu.', name: 'Olga', ort: 'Versprechen 04' },
   ],
   marquee: ['Schönheit', 'Gesundheit', 'Zeit für dich', 'Neu in Altklef'],
 } as const;
@@ -171,7 +176,7 @@ export const cta = {
   text: 'Schreib mir — ich antworte persönlich. Die Beratung ist kostenlos, dein Termin bequem geplant.',
   whatsappLabel: 'Per WhatsApp schreiben',
   instagramLabel: 'Auf Instagram folgen',
-  telefonLabel: 'Oder ruf an',
+  telefonLabel: 'Oder ruf einfach an:',
   oeffnungszeiten: 'Termine nach Vereinbarung',
   kartenHinweis: 'Route in Karten öffnen',
 } as const;
