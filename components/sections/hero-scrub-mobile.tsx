@@ -72,7 +72,9 @@ export function HeroScrubMobile({ children }: { children: React.ReactNode }) {
     const ctx2d = canvas.getContext('2d');
     if (!ctx2d) return;
 
-    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    // DPR-Cap 1.5: Quellframes sind 640px breit — mehr Canvas-Pixel kosten
+    // nur Fill-Rate beim Scrollen, ohne sichtbaren Schärfegewinn.
+    const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
 
     const resize = () => {
       canvas.width = Math.round(canvas.clientWidth * dpr);

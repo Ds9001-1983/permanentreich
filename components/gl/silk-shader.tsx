@@ -143,8 +143,15 @@ export function SilkCanvas({
   // Safari: verlorener WebGL-Kontext → Canvas dauerhaft abbauen statt
   // pro Frame in Three.js-Fehler zu laufen (friert sonst Lenis/GSAP ein).
   const [lost, setLost] = useState(false);
+  // Auf Phones kostet der Shader mehr als er zeigt (läuft dort nur unter
+  // 65 % Champagne in der Termin-Sektion) — Ivory-Welt reicht als Fallback.
+  const [phone, setPhone] = useState(false);
 
-  if (!capable || lost) return null;
+  useEffect(() => {
+    setPhone(window.matchMedia('(max-width: 767px)').matches);
+  }, []);
+
+  if (!capable || lost || phone) return null;
 
   return (
     <div
@@ -155,7 +162,9 @@ export function SilkCanvas({
     >
       <GlErrorBoundary>
         <Canvas
-          dpr={[1, 1.5]}
+          // DPR 1 reicht: FBM-Seide ist niederfrequent, Retina-Auflösung
+          // kostet nur Fragment-Last (Jank bei Soft-Light-Blend in Safari)
+          dpr={1}
           frameloop={inView ? 'always' : 'never'}
           gl={{ antialias: false, alpha: true, powerPreference: 'low-power' }}
           camera={{ position: [0, 0, 1] }}

@@ -139,6 +139,26 @@ export function WellnessPin() {
           scrollTrigger: { trigger: item, start: 'top 88%', once: true },
         });
       });
+
+      /* Scroll-Effekt auf den Raumfotos: Parallax-Zoom-Reveal per Scrub —
+         jedes Kapitel-Bild lebt beim Durchscrollen (Pendant zum Desktop-Crossfade) */
+      gsap.utils.toArray<HTMLElement>('[data-wellness-parallax]', scope).forEach((bild) => {
+        gsap.fromTo(
+          bild,
+          { yPercent: -6, scale: 1.18 },
+          {
+            yPercent: 6,
+            scale: 1,
+            ease: 'none',
+            scrollTrigger: {
+              trigger: bild.parentElement,
+              start: 'top bottom',
+              end: 'bottom top',
+              scrub: true,
+            },
+          },
+        );
+      });
     });
 
     return () => mm.revert();
@@ -238,23 +258,33 @@ export function WellnessPin() {
             headline={wellness.headline}
           />
 
-          <div
-            data-wellness-fade
-            className="relative mx-auto mt-14 aspect-[3/4] w-full max-w-md overflow-hidden rounded-t-full"
-          >
-            <Image
-              src={media.wellness.raeume[0]}
-              alt={wellness.bildAlts[0]}
-              fill
-              sizes="(min-width: 768px) 28rem, 92vw"
-              className="object-cover"
-            />
-          </div>
-
-          <div className="mt-16 flex flex-col gap-[clamp(3.5rem,10vw,5rem)]">
-            {wellness.kapitel.map((k) => (
-              <div key={k.nr} data-wellness-fade>
-                <Kapitel nr={k.nr} titel={k.titel} text={k.text} />
+          {/* Jedes Kapitel mit eigenem Raumfoto (Rundbogen + Parallax-Zoom-Reveal) —
+              so sieht auch der mobile Rundgang alle drei Räume */}
+          <div className="mt-14 flex flex-col gap-[clamp(4rem,12vw,6rem)]">
+            {wellness.kapitel.map((k, i) => (
+              <div key={k.nr}>
+                <div
+                  data-wellness-fade
+                  className={`relative aspect-[3/4] w-full max-w-md overflow-hidden rounded-t-full ${
+                    i === 1 ? 'ml-auto' : i === 2 ? 'mx-auto' : ''
+                  }`}
+                >
+                  <div
+                    data-wellness-parallax
+                    className="absolute inset-x-0 -inset-y-[9%] will-change-transform"
+                  >
+                    <Image
+                      src={media.wellness.raeume[i]}
+                      alt={wellness.bildAlts[i]}
+                      fill
+                      sizes="(min-width: 768px) 28rem, 92vw"
+                      className="object-cover"
+                    />
+                  </div>
+                </div>
+                <div data-wellness-fade className="mt-10">
+                  <Kapitel nr={k.nr} titel={k.titel} text={k.text} />
+                </div>
               </div>
             ))}
           </div>
