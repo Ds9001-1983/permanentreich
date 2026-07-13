@@ -34,7 +34,19 @@ export const media = {
   },
   wellness: {
     sessel: '/media/wellness/sessel.jpg',
+    /** Echte Studio-Fotos (LUT-gegradet, Farb-Gate PASS) — je Kapitel eins */
+    raeume: [
+      '/media/wellness/raum-01.jpg',
+      '/media/wellness/raum-02.jpg',
+      '/media/wellness/raum-03.jpg',
+    ],
   },
+  cta: {
+    /** Echte Sitzecke — warmer Anker in der Termin-Sektion */
+    lounge: '/media/cta/lounge.jpg',
+  },
+  /** Behandlungsraum mit „Auszeit"-Kissen — Polaroid in der PMU-Sektion */
+  pmuStudio: '/media/pmu-studio.jpg',
   textures: {
     paper: '/media/textures/paper.jpg',
     interior: '/media/textures/interior.jpg',

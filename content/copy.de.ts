@@ -17,6 +17,8 @@ export const kontakt = {
     'https://wa.me/4915678338712?text=Hallo%20Olga%2C%20ich%20interessiere%20mich%20f%C3%BCr%20eine%20kostenlose%20Beratung.',
   instagram: 'https://www.instagram.com/permanentreich',
   instagramHandle: '@permanentreich',
+  /** Studiobookr — Online-Terminbuchung */
+  booking: 'https://www.studiobookr.com/permanentreich-75951',
   domain: 'www.permanentreich.info',
   mapsLink: 'https://maps.apple.com/?q=Altklef+4,+51674+Wiehl',
 } as const;
@@ -26,6 +28,7 @@ export const hero = {
   headline: ['Dein Reich', 'für Schönheit', '& Gesundheit.'],
   sub: 'Permanent Make-up · Kopfhautpigmentierung · Permanent Wellness — bei Olga in Wiehl.',
   cta: 'Kostenlose Beratung',
+  ctaBooking: 'Direkt online buchen',
   scrollHint: 'Entdecke dein Reich',
 } as const;
 
@@ -36,6 +39,7 @@ export const hook = {
 
 export const leistungen = {
   eyebrow: 'Deine drei Reiche',
+  script: 'für dich',
   headline: 'Was darf es für dich sein?',
   items: [
     {
@@ -64,6 +68,7 @@ export const leistungen = {
 
 export const pmu = {
   eyebrow: 'Permanent Make-up',
+  script: 'natürlich schön',
   headline: 'Wach aussehen — nicht geschminkt.',
   text: 'Dein Permanent Make-up unterstreicht, was schon da ist: ausdrucksstarke Brauen, weiche Lippenkontur, ein offener Blick. Olga arbeitet fein, natürlich und pigmentschonend — damit es aussieht wie du, nur ausgeschlafener.',
   details: [
@@ -81,6 +86,7 @@ export const pmu = {
     },
   ],
   slider: { vorher: 'Vorher', nachher: 'Nachher', hinweis: 'Echtes Ergebnis aus dem Studio' },
+  studioBild: 'Dein Platz bei mir',
   cta: 'Beratung für dein PMU',
 } as const;
 
@@ -101,7 +107,13 @@ export const smp = {
 
 export const wellness = {
   eyebrow: 'Permanent Wellness',
+  script: 'deine Auszeit',
   headline: 'Zeit für dich.',
+  bildAlts: [
+    'Wellness-Raum bei PermanentReich: goldener Massagesessel vor Mooswänden mit Bögen',
+    'Blick aus dem Massagesessel auf Tablet-Steuerung und Kaminfeuer',
+    'Der goldene Luxus-Massagesessel am Fenster mit Kerzenlicht',
+  ],
   kapitel: [
     {
       nr: '01',
@@ -136,6 +148,7 @@ export const olga = {
 
 export const ablauf = {
   eyebrow: 'So einfach geht’s',
+  script: 'ganz entspannt',
   headline: 'Dein Weg zu deinem Termin.',
   schritte: [
     {
@@ -175,12 +188,15 @@ export const stimmen = {
 export const cta = {
   eyebrow: 'Dein Termin',
   headline: 'Dein Termin in deinem Reich.',
-  text: 'Schreib mir — ich antworte persönlich. Die Beratung ist kostenlos, dein Termin bequem geplant.',
+  text: 'Such dir deinen Wunschtermin direkt online aus — oder schreib mir, wenn du vorher Fragen hast. Die Beratung ist immer kostenlos.',
+  script: 'Ich freu mich auf dich!',
+  bookingLabel: 'Online Termin buchen',
   whatsappLabel: 'Per WhatsApp schreiben',
   instagramLabel: 'Auf Instagram folgen',
   telefonLabel: 'Oder ruf einfach an:',
   oeffnungszeiten: 'Termine nach Vereinbarung',
   kartenHinweis: 'Route in Karten öffnen',
+  loungeAlt: 'Gemütliche Sitzecke bei PermanentReich in Wiehl-Altklef',
 } as const;
 
 export const footer = {

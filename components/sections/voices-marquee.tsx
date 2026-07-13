@@ -34,12 +34,19 @@ export function VoicesMarquee() {
         ))}
       </Marquee>
 
-      {/* Band 2: Claim-Repetition — rein dekorativ, daher aria-hidden */}
+      {/* Band 2: Claim-Repetition — rein dekorativ, daher aria-hidden.
+          Verspielt: Script und Display-Italic wechseln sich ab. */}
       <div aria-hidden>
         <Marquee reverse duration={40} className="mt-12">
-          {stimmen.marquee.map((wort) => (
+          {stimmen.marquee.map((wort, i) => (
             <span key={wort} className="flex items-center">
-              <span className="whitespace-nowrap font-display text-[clamp(2.5rem,6vw,5rem)] text-gold-deep">
+              <span
+                className={`whitespace-nowrap text-gold-deep ${
+                  i % 2 === 1
+                    ? 'font-script text-[clamp(2.8rem,6.5vw,5.5rem)]'
+                    : 'font-display italic text-[clamp(2.5rem,6vw,5rem)]'
+                }`}
+              >
                 {wort}
               </span>
               <span className="mx-[clamp(1.25rem,3vw,2.75rem)] text-[clamp(1.25rem,2.5vw,2rem)] text-gold">

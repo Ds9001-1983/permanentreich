@@ -71,6 +71,7 @@ export function ServicesGrid() {
       <div className="mx-auto max-w-[1440px] px-6 md:px-10 lg:px-16">
         <SectionHeading
           eyebrow={leistungen.eyebrow}
+          script={leistungen.script}
           headline={leistungen.headline}
           className="max-w-3xl"
         />
@@ -88,12 +89,20 @@ export function ServicesGrid() {
               >
                 <Magnetic strength={0.06}>
                   <a href={item.anchor} data-cursor="Entdecken" className="group block">
-                    <VideoTile
-                      poster={tile.poster}
-                      videoSrc={VIDEOS_READY ? tile.video : undefined}
-                      alt={item.titel}
-                      sizes={col.sizes}
-                    />
+                    {/* Verspielt: mittlere Kachel als Rundbogen, sanfter Hover-Tilt */}
+                    <div
+                      className={`transition-transform duration-700 ease-[var(--ease-out-soft)] ${
+                        i % 2 === 0 ? 'group-hover:rotate-[1.2deg]' : 'group-hover:-rotate-[1.2deg]'
+                      }`}
+                    >
+                      <VideoTile
+                        poster={tile.poster}
+                        videoSrc={VIDEOS_READY ? tile.video : undefined}
+                        alt={item.titel}
+                        sizes={col.sizes}
+                        className={i === 1 ? 'rounded-t-full' : ''}
+                      />
+                    </div>
                     <div className="mt-7">
                       <p className="eyebrow mb-3">{item.eyebrow}</p>
                       <h3 className="font-display text-2xl text-umber transition-colors duration-500 group-hover:text-gold-deep">

@@ -62,7 +62,12 @@ export function ProcessSteps() {
   return (
     <section id="ablauf" ref={root} className="bg-ivory py-[clamp(80px,10vw,160px)]">
       <div className="mx-auto max-w-[1440px] px-6 md:px-10 lg:px-16">
-        <SectionHeading eyebrow={ablauf.eyebrow} headline={ablauf.headline} align="center" />
+        <SectionHeading
+          eyebrow={ablauf.eyebrow}
+          script={ablauf.script}
+          headline={ablauf.headline}
+          align="center"
+        />
 
         <ol
           data-steps-list

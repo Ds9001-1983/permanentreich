@@ -99,7 +99,7 @@ export function Preloader() {
       document.fonts.ready,
       ladeBild(media.hero.posterDesktop),
       ladeBild(media.olga.portrait),
-      ladeBild(media.wellness.sessel),
+      ladeBild(media.wellness.raeume[0]),
     ];
 
     let fertig = 0;

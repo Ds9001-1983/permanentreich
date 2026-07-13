@@ -113,7 +113,10 @@ export function Smp() {
           </div>
 
           {/* Vorher/Nachher-Slider links (Desktop) / unten (Mobile) */}
-          <div ref={sliderRef} className="lg:col-span-5 lg:col-start-1 lg:row-start-1">
+          <div
+            ref={sliderRef}
+            className="overflow-hidden rounded-2xl lg:col-span-5 lg:col-start-1 lg:row-start-1"
+          >
             <BeforeAfterSlider
               key={modus}
               vorher={aktiv.bilder.vorher}

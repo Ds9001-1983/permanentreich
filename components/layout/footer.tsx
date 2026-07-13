@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { gsap, prefersReducedMotion } from '@/lib/gsap';
-import { footer, kontakt } from '@/content/copy.de';
+import { cta, footer, kontakt } from '@/content/copy.de';
 import { media } from '@/lib/media';
 
 /**
@@ -74,7 +74,17 @@ export function Footer() {
             </a>
           </address>
 
-          <div>
+          <div className="flex flex-col items-start gap-2">
+            {/* Booking auch im Footer — der wichtigste Weg, in Gold */}
+            <a
+              href={kontakt.booking}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-cursor="Buchen"
+              className="link-line font-display inline-flex min-h-11 items-center text-[clamp(1.375rem,2vw,1.75rem)] text-gold"
+            >
+              {cta.bookingLabel}
+            </a>
             <a
               href={kontakt.telefonLink}
               className="link-line font-display inline-flex min-h-11 items-center text-[clamp(1.375rem,2vw,1.75rem)] text-light"

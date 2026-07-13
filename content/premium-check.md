@@ -57,6 +57,20 @@ Behoben: Hero-Fold-Bruch auf Laptop-Höhen (620–880 px verifiziert OK) · Redu
 - Fallbacks: reduced-motion / Save-Data / Ladefehler → statischer Hero (verifiziert)
 - Lighthouse Mobile danach: Performance 83 · A11y 100 · BP 100 · SEO 100 · CLS 0
 
+## Nachtrag 2026-07-13 (2): Verspielt-Paket · Studiobookr · echte Studio-Fotos · Scroll-Härtung
+- **Studiobookr-Booking** (studiobookr.com/permanentreich-75951) integriert: primärer CTA in
+  der Termin-Sektion, Sekundär-Link im Hero, Wellness-CTA direkt in die Buchung,
+  Gold-Link im Footer — Link-out statt iFrame (kein Datenschutz-Zusatz nötig)
+- **5 echte Studio-Fotos** (Apple-Preview 768×1024) durch Brand-LUT + Farb-Gate (alle PASS,
+  Set-Hue-SD 7,5°): 3 Wellness-Räume (Kapitel-Crossfade im Pin), Lounge (Termin-Sektion),
+  Behandlungsraum (PMU-Polaroid). Hinweis: Original-Auflösung bei Dennis anfragen → mehr Schärfe
+- **Verspielt-Paket** lt. Stil-Nachtrag (Script-Einwürfe, Rundbögen, Flourishes, Sparkles,
+  Polaroids, Hover-Tilt)
+- **Scroll-Härtung** (Meldung „Footer nicht erreichbar"): WebGL-Error-Boundary +
+  Context-Loss-Abbau (Safari verliert Kontexte → warf pro Frame Three.js-Fehler),
+  Lenis-raf try/catch, ScrollTrigger.refresh() nach Scrub-Aktivierung (+150vh);
+  Seitenende in Chromium/WebKit/Firefox verifiziert erreichbar
+
 ## Bewusste Abweichungen (dokumentiert)
 - Statisches Kartenbild → stattdessen DSGVO-sicherer Karten-Link (Apple/Google Maps); ein erfundenes Kartenbild wäre irreführend, ein OSM-Render Ausbaustufe
 - Barba.js → App-Router-Transitions (Barba ist mit Next-Routing inkompatibel; Seitenwechsel sind weich via Preloader-Session-Fade)

@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { useEffect, useRef } from 'react';
 import { gsap, prefersReducedMotion } from '@/lib/gsap';
 import { SectionHeading } from '@/components/ui/section-heading';
+import { Flourish } from '@/components/ui/flourish';
 import { olga, kontakt } from '@/content/copy.de';
 import { media } from '@/lib/media';
 
@@ -54,7 +55,7 @@ export function AboutOlga() {
         <div className="grid gap-16 lg:grid-cols-12 lg:items-center lg:gap-x-10">
           {/* Portrait mit Parallax + eingelegtem BTS-Polaroid */}
           <div className="relative lg:col-span-5">
-            <div className="relative aspect-[3/4] overflow-hidden">
+            <div className="relative aspect-[3/4] overflow-hidden rounded-t-full">
               {/* Innerer Frame ist auf Desktop 20 % höher, damit yPercent ±8 nie Ränder freilegt */}
               <div
                 ref={parallaxRef}
@@ -70,7 +71,7 @@ export function AboutOlga() {
               </div>
             </div>
 
-            <figure className="absolute -bottom-8 -right-2 w-40 rotate-3 border border-champagne bg-light p-2 md:-right-8">
+            <figure className="absolute -bottom-8 -right-2 w-40 rotate-3 border border-champagne bg-light p-2 transition-transform duration-500 ease-[var(--ease-out-soft)] hover:rotate-6 hover:scale-[1.04] md:-right-8">
               <div className="relative aspect-square overflow-hidden">
                 <Image
                   src={media.olga.bts}
@@ -102,9 +103,11 @@ export function AboutOlga() {
               ))}
             </div>
 
-            <p className="font-script mt-10 text-2xl text-umber">
-              {olga.signatur}
-            </p>
+            <div className="mt-10 w-fit">
+              <p className="font-script text-2xl text-umber">{olga.signatur}</p>
+              {/* Gold-Swash zeichnet sich unter der Signatur */}
+              <Flourish variant="bogen" className="-mt-1 h-5 w-36" />
+            </div>
           </div>
         </div>
       </div>

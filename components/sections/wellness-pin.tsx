@@ -9,14 +9,12 @@ import { Magnetic } from '@/components/ui/magnetic';
 import { SectionHeading } from '@/components/ui/section-heading';
 import { LazyGoldParticles } from '@/components/gl/lazy';
 
-const SESSEL_ALT = 'Luxus-Massagesessel in privater Atmosphäre bei PermanentReich';
-
-/** Magnetic Pill-CTA (wie Hero) → WhatsApp-Beratung. */
+/** Magnetic Pill-CTA (wie Hero) → direkt in die Online-Buchung (Studiobookr). */
 function WellnessCta({ className = '' }: { className?: string }) {
   return (
     <Magnetic className={className}>
       <a
-        href={kontakt.whatsapp}
+        href={kontakt.booking}
         target="_blank"
         rel="noopener noreferrer"
         data-cursor="Buchen"
@@ -56,6 +54,7 @@ export function WellnessPin() {
   const stackedRef = useRef<HTMLDivElement>(null);
   const floatRef = useRef<HTMLDivElement>(null);
   const chapterRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const bildRefs = useRef<(HTMLDivElement | null)[]>([]);
   const strokeRefs = useRef<(HTMLSpanElement | null)[]>([]);
 
   useEffect(() => {
@@ -76,7 +75,9 @@ export function WellnessPin() {
         );
       }
 
+      const bilder = bildRefs.current.filter(Boolean) as HTMLDivElement[];
       gsap.set(chapters.slice(1), { autoAlpha: 0, y: 60 });
+      gsap.set(bilder.slice(1), { autoAlpha: 0 });
 
       const tl = gsap.timeline({
         defaults: { ease: 'none' },
@@ -108,6 +109,16 @@ export function WellnessPin() {
         }
         if (i < chapters.length - 1) {
           tl.to(chapter, { autoAlpha: 0, y: -60, duration: 0.3 }, i + 0.7);
+        }
+      });
+
+      /* Raumfoto i crossfadet synchron zum Kapitelwechsel */
+      bilder.forEach((bild, i) => {
+        if (i > 0) {
+          tl.fromTo(bild, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.35 }, i - 0.05);
+        }
+        if (i < bilder.length - 1) {
+          tl.to(bild, { autoAlpha: 0, duration: 0.35 }, i + 0.75);
         }
       });
       /* Strecke bis Progress 1 auffüllen, damit Kapitel 03 seine volle Lesezeit bekommt */
@@ -143,21 +154,38 @@ export function WellnessPin() {
           {/* Sektionskopf oben absolut im Sticky-Bereich */}
           <div className="absolute inset-x-0 top-[clamp(2rem,6vh,4.5rem)]">
             <div className="mx-auto max-w-[1440px] px-6 md:px-10 lg:px-16">
-              <SectionHeading eyebrow={wellness.eyebrow} headline={wellness.headline} />
+              <SectionHeading
+                eyebrow={wellness.eyebrow}
+                script={wellness.script}
+                headline={wellness.headline}
+              />
             </div>
           </div>
 
           <div className="mx-auto flex w-full max-w-[1440px] items-center gap-[clamp(2.5rem,5vw,6rem)] px-6 pt-[clamp(4rem,10vh,7rem)] md:px-10 lg:px-16">
-            {/* Sessel — frei stehend, schwebend */}
-            <div className="w-[45%] shrink-0">
-              <div ref={floatRef} className="relative h-[min(60svh,38rem)] w-full will-change-transform">
-                <Image
-                  src={media.wellness.sessel}
-                  alt={SESSEL_ALT}
-                  fill
-                  sizes="(min-width: 1024px) 45vw, 90vw"
-                  className="object-contain"
-                />
+            {/* Echte Raumfotos im Rundbogen — schwebend, crossfaden je Kapitel */}
+            <div className="w-[40%] shrink-0">
+              <div
+                ref={floatRef}
+                className="relative mx-auto h-[min(62svh,38rem)] w-full max-w-[26rem] overflow-hidden rounded-t-full will-change-transform"
+              >
+                {media.wellness.raeume.map((src, i) => (
+                  <div
+                    key={src}
+                    ref={(el) => {
+                      bildRefs.current[i] = el;
+                    }}
+                    className="absolute inset-0"
+                  >
+                    <Image
+                      src={src}
+                      alt={wellness.bildAlts[i]}
+                      fill
+                      sizes="(min-width: 1024px) 26rem, 90vw"
+                      className="object-cover"
+                    />
+                  </div>
+                ))}
               </div>
             </div>
 
@@ -204,15 +232,22 @@ export function WellnessPin() {
       {/* ————— Mobile / reduced-motion: normale gestapelte Sektion ————— */}
       <div ref={stackedRef} className="relative lg:motion-safe:hidden">
         <div className="mx-auto max-w-[1440px] px-6 py-[clamp(80px,10vw,160px)] md:px-10 lg:px-16">
-          <SectionHeading eyebrow={wellness.eyebrow} headline={wellness.headline} />
+          <SectionHeading
+            eyebrow={wellness.eyebrow}
+            script={wellness.script}
+            headline={wellness.headline}
+          />
 
-          <div data-wellness-fade className="relative mx-auto mt-14 h-[min(58vw,26rem)] w-full max-w-xl">
+          <div
+            data-wellness-fade
+            className="relative mx-auto mt-14 aspect-[3/4] w-full max-w-md overflow-hidden rounded-t-full"
+          >
             <Image
-              src={media.wellness.sessel}
-              alt={SESSEL_ALT}
+              src={media.wellness.raeume[0]}
+              alt={wellness.bildAlts[0]}
               fill
-              sizes="(min-width: 768px) 36rem, 92vw"
-              className="object-contain"
+              sizes="(min-width: 768px) 28rem, 92vw"
+              className="object-cover"
             />
           </div>
 

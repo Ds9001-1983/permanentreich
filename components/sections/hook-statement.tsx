@@ -5,6 +5,8 @@ import Image from 'next/image';
 import { hook } from '@/content/copy.de';
 import { media } from '@/lib/media';
 import { gsap, prefersReducedMotion } from '@/lib/gsap';
+import { Flourish } from '@/components/ui/flourish';
+import { Sparkles } from '@/components/ui/sparkles';
 
 /**
  * Sektion #2 „Hook" (SM-12 Mask-Reveal): drei Mega-Typo-Zeilen,
@@ -109,10 +111,14 @@ export function HookStatement() {
           {hook.sub}
         </p>
 
-        <span data-hook-ornament aria-hidden className="mt-10 block text-xl text-gold">
-          ✦
-        </span>
+        {/* Verspielt: Gold-Swash zeichnet sich als Abschluss */}
+        <div data-hook-ornament className="mt-10 flex justify-center">
+          <Flourish className="h-8 w-56" />
+        </div>
       </div>
+
+      {/* Schwebende Gold-Funken über der Sektion */}
+      <Sparkles />
     </section>
   );
 }

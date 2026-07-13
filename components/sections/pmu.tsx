@@ -42,7 +42,7 @@ export function Pmu() {
         <div className="grid gap-16 lg:grid-cols-12 lg:gap-10">
           {/* Links — Text & Editorial-Liste */}
           <div className="lg:col-span-6">
-            <SectionHeading eyebrow={pmu.eyebrow} headline={pmu.headline} />
+            <SectionHeading eyebrow={pmu.eyebrow} script={pmu.script} headline={pmu.headline} />
 
             <p className="mt-8 max-w-[52ch] text-umber-soft">{pmu.text}</p>
 
@@ -68,8 +68,8 @@ export function Pmu() {
 
           {/* Rechts — Beweis als Diptychon (die beiden Aufnahmen sind nicht
               deckungsgleich — nebeneinander ist der ehrliche Vergleich) */}
-          <div className="lg:col-span-5 lg:col-start-8 lg:mt-24">
-            <div className="grid grid-cols-2 gap-1">
+          <div className="relative lg:col-span-5 lg:col-start-8 lg:mt-24">
+            <div className="grid grid-cols-2 gap-1 overflow-hidden rounded-2xl">
               {(
                 [
                   { src: media.results.pmu.vorher, label: pmu.slider.vorher, gold: false },
@@ -102,6 +102,23 @@ export function Pmu() {
               </span>
               {pmu.slider.hinweis}
             </p>
+
+            {/* Verspielt: Studio-Polaroid — dein Platz im Behandlungsraum
+                (unten rechts, damit das Vorher-Label frei bleibt) */}
+            <figure className="mx-auto mt-10 w-52 -rotate-2 border border-champagne bg-light p-2 transition-transform duration-500 ease-[var(--ease-out-soft)] hover:rotate-1 hover:scale-[1.03] lg:absolute lg:-bottom-24 lg:-right-8 lg:mx-0 lg:mt-0 lg:rotate-3 xl:-right-14">
+              <div className="relative aspect-[4/3] overflow-hidden">
+                <Image
+                  src={media.pmuStudio}
+                  alt={`${pmu.studioBild} — Behandlungsraum bei PermanentReich`}
+                  fill
+                  sizes="208px"
+                  className="object-cover"
+                />
+              </div>
+              <figcaption className="font-script mt-2 text-center text-lg leading-snug text-gold-deep">
+                {pmu.studioBild}
+              </figcaption>
+            </figure>
           </div>
         </div>
       </div>

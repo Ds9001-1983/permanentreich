@@ -65,7 +65,7 @@ function HeroInhalt() {
         {hero.sub}
       </p>
 
-      <div data-hero-fade className="mt-10">
+      <div data-hero-fade className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-4">
         <Magnetic className="inline-block">
           <a
             href={kontakt.whatsapp}
@@ -77,6 +77,18 @@ function HeroInhalt() {
             {hero.cta}
           </a>
         </Magnetic>
+
+        {/* Booking direkt aus dem Hero (Studiobookr) */}
+        <a
+          href={kontakt.booking}
+          target="_blank"
+          rel="noopener noreferrer"
+          data-cursor="Buchen"
+          className="link-line inline-flex min-h-11 items-center gap-2 font-semibold text-umber"
+        >
+          <span aria-hidden className="text-gold">✦</span>
+          {hero.ctaBooking}
+        </a>
       </div>
     </div>
   );
