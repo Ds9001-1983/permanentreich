@@ -11,6 +11,11 @@ export const media = {
     videoDesktopMp4: '/media/hero/hero.mp4',
     videoDesktopWebm: '/media/hero/hero.webm',
     videoMobileMp4: '/media/hero/hero-mobile.mp4',
+    /** Mobiler Scrollytelling-Rundgang (scripts/build-scrub.sh) */
+    scrub: {
+      count: 76,
+      frame: (i: number) => `/media/hero/scrub/f${String(i + 1).padStart(2, '0')}.webp`,
+    },
   },
   tiles: {
     pmu: { poster: '/media/tiles/pmu.jpg', video: '/media/tiles/pmu.mp4' },

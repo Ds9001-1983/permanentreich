@@ -29,3 +29,9 @@ Originale bleiben unangetastet. Verarbeitete Versionen → `assets/graded/`, Web
 - `assets/brand/hald-permanentreich.png` — **Brand-LUT v1** (colortemperature 5100 K, warme Balance, Sättigung 0.95, lifted shadows)
   - Anwenden Foto: `ffmpeg -i IN -i assets/brand/hald-permanentreich.png -filter_complex haldclut OUT`
   - Anwenden Video: gleicher Filter, identischer Look für alles
+
+## Nachtrag 2026-07-13
+
+| Datei | Inhalt | Slot | Behandlung |
+|---|---|---|---|
+| `IMG_6698.mov` | Studio-Rundgang (iPhone, HLG/HDR, 2160×3840@60, 6,3 s): Liege → Sitzecke → Gold-Sessel | Mobiler Scrollytelling-Hero | `scripts/build-scrub.sh`: eq-Kompensation + Brand-LUT + 76 WebP-Frames → `public/media/hero/scrub/` ✓ Gate |

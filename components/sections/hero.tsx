@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { hero, kontakt } from '@/content/copy.de';
 import { media, VIDEOS_READY } from '@/lib/media';
@@ -8,34 +8,84 @@ import { gsap, prefersReducedMotion } from '@/lib/gsap';
 import { SplitReveal } from '@/components/ui/split-reveal';
 import { Magnetic } from '@/components/ui/magnetic';
 import { LazySilk } from '@/components/gl/lazy';
+import { HeroScrubMobile } from '@/components/sections/hero-scrub-mobile';
 
 /**
- * Sektion #1 — Hero `#start` (Raster: Full-bleed 100svh, kein Sektions-Padding).
- * Video-BG (Poster-Fallback solange VIDEOS_READY false), Script-Badge,
- * 3-zeilige Mega-Headline mit gestaffeltem SplitReveal, WhatsApp-CTA, Scroll-Hint.
+ * Sektion #1 — Hero `#start`.
+ * Desktop: Seiden-Video-Loop + Silk-Shader-Overlay + Split-Text-Entrance.
+ * Mobile: Scrollytelling-Studio-Rundgang (Canvas-Frame-Scrub, hero-scrub-mobile).
  */
-export function Hero() {
-  const rootRef = useRef<HTMLElement>(null);
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const strichRef = useRef<HTMLSpanElement>(null);
-  // null = SSR/vor Mount (Poster via CSS-Breakpoint), danach passendes Video
-  const [vertical, setVertical] = useState<boolean | null>(null);
 
-  useEffect(() => {
-    setVertical(window.matchMedia('(max-width: 767px)').matches);
-  }, []);
-
-  // Reduced Motion: Video pausieren, sobald es tatsächlich gemountet ist
-  // (der Haupt-Effect läuft vor dem Video-Mount und würde ins Leere greifen).
-  useEffect(() => {
-    if (vertical === null) return;
-    if (prefersReducedMotion()) videoRef.current?.pause();
-  }, [vertical]);
-
+/** Badge + Headline + Sub + CTA — geteilt zwischen Desktop- und Mobile-Variante. */
+function HeroInhalt() {
   // Italic-Akzent: letztes Wort der zweiten Headline-Zeile in Fraunces Italic.
   const zeile2Woerter = hero.headline[1].split(' ');
   const akzent = zeile2Woerter[zeile2Woerter.length - 1];
   const zeile2Auftakt = zeile2Woerter.slice(0, -1).join(' ');
+
+  return (
+    <div className="relative mx-auto flex min-h-[100svh] max-w-[1440px] flex-col justify-center px-6 pt-[clamp(6rem,13svh,9rem)] pb-16 md:px-10 lg:px-16">
+      <SplitReveal
+        as="p"
+        immediate
+        delay={0.2}
+        className="font-script w-fit -rotate-3 text-[min(clamp(1.8rem,4vw,3rem),5svh)] text-gold-deep"
+      >
+        {hero.badge}
+      </SplitReveal>
+
+      <h1 className="font-display mt-4 text-[min(clamp(3.2rem,10vw,9.5rem),12svh)] font-light leading-[1.02] tracking-[-0.02em] text-umber">
+        <SplitReveal as="span" className="block" immediate delay={0.2}>
+          {hero.headline[0]}
+        </SplitReveal>
+        <span className="block">
+          {zeile2Auftakt && (
+            <SplitReveal as="span" immediate delay={0.35}>
+              {zeile2Auftakt}
+            </SplitReveal>
+          )}{' '}
+          <SplitReveal
+            as="em"
+            className="italic"
+            immediate
+            delay={0.35 + zeile2Woerter.length * 0.055 - 0.055}
+          >
+            {akzent}
+          </SplitReveal>
+        </span>
+        <SplitReveal as="span" className="block" immediate delay={0.5}>
+          {hero.headline[2]}
+        </SplitReveal>
+      </h1>
+
+      <p
+        data-hero-fade
+        className="mt-8 max-w-xl text-[clamp(1.0625rem,1.4vw,1.1875rem)] leading-relaxed text-umber"
+      >
+        {hero.sub}
+      </p>
+
+      <div data-hero-fade className="mt-10">
+        <Magnetic className="inline-block">
+          <a
+            href={kontakt.whatsapp}
+            target="_blank"
+            rel="noopener noreferrer"
+            data-cursor="Buchen"
+            className="inline-flex h-14 items-center rounded-full bg-umber px-10 text-light transition-colors duration-300 hover:bg-gold"
+          >
+            {hero.cta}
+          </a>
+        </Magnetic>
+      </div>
+    </div>
+  );
+}
+
+export function Hero() {
+  const rootRef = useRef<HTMLElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const strichRef = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
     const root = rootRef.current;
@@ -89,121 +139,61 @@ export function Hero() {
   }, []);
 
   return (
-    <section id="start" ref={rootRef} className="relative min-h-[100svh] overflow-hidden">
-      {/* Hintergrund-Ebene: Poster (LCP, je Viewport) + Video nach Mount */}
-      <div className="absolute inset-0">
-        <Image
-          src={media.hero.posterDesktop}
-          alt=""
-          fill
-          priority
-          sizes="100vw"
-          className="hidden object-cover md:block"
-        />
-        <Image
-          src={media.hero.posterMobile}
-          alt=""
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover md:hidden"
-        />
-        {VIDEOS_READY && vertical !== null && (
-          <video
-            ref={videoRef}
-            autoPlay
-            muted
-            loop
-            playsInline
-            poster={vertical ? media.hero.posterMobile : media.hero.posterDesktop}
-            aria-hidden
-            className="absolute inset-0 h-full w-full object-cover"
-          >
-            {!vertical && <source src={media.hero.videoDesktopWebm} type="video/webm" />}
-            <source
-              src={vertical ? media.hero.videoMobileMp4 : media.hero.videoDesktopMp4}
-              type="video/mp4"
-            />
-          </video>
-        )}
-      </div>
-
-      {/* Sanfter Lesbarkeits-Verlauf von unten — kein Blur-Kasten */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 bg-linear-to-t from-ivory/70 via-ivory/20 to-transparent"
-      />
-
-      {/* WebGL-Silk-Shader als Soft-Light-Overlay über dem Video */}
-      <LazySilk intensity={0.5} blend="soft-light" />
-
-      {/* Content — pt schafft Clearance zum fixed Header, H1 zusätzlich an
-          die Viewport-HÖHE gekoppelt (Laptop-Folds 760–880px brechen sonst) */}
-      <div className="relative mx-auto flex min-h-[100svh] max-w-[1440px] flex-col justify-center px-6 pt-[clamp(6rem,13svh,9rem)] pb-16 md:px-10 lg:px-16">
-        <SplitReveal
-          as="p"
-          immediate
-          delay={0.2}
-          className="font-script w-fit -rotate-3 text-[min(clamp(1.8rem,4vw,3rem),5svh)] text-gold-deep"
-        >
-          {hero.badge}
-        </SplitReveal>
-
-        <h1 className="font-display mt-4 text-[min(clamp(3.2rem,10vw,9.5rem),12svh)] font-light leading-[1.02] tracking-[-0.02em] text-umber">
-          <SplitReveal as="span" className="block" immediate delay={0.2}>
-            {hero.headline[0]}
-          </SplitReveal>
-          <span className="block">
-            {zeile2Auftakt && (
-              <SplitReveal as="span" immediate delay={0.35}>
-                {zeile2Auftakt}
-              </SplitReveal>
-            )}{' '}
-            <SplitReveal
-              as="em"
-              className="italic"
-              immediate
-              delay={0.35 + zeile2Woerter.length * 0.055 - 0.055}
+    <section id="start" ref={rootRef}>
+      {/* ————— Desktop: Seiden-Video-Loop + Silk-Shader ————— */}
+      <div className="relative hidden min-h-[100svh] overflow-hidden md:block">
+        <div className="absolute inset-0">
+          <Image
+            src={media.hero.posterDesktop}
+            alt=""
+            fill
+            priority
+            sizes="(max-width: 767px) 1px, 100vw"
+            className="object-cover"
+          />
+          {VIDEOS_READY && (
+            <video
+              ref={videoRef}
+              autoPlay
+              muted
+              loop
+              playsInline
+              poster={media.hero.posterDesktop}
+              aria-hidden
+              className="absolute inset-0 h-full w-full object-cover"
             >
-              {akzent}
-            </SplitReveal>
-          </span>
-          <SplitReveal as="span" className="block" immediate delay={0.5}>
-            {hero.headline[2]}
-          </SplitReveal>
-        </h1>
+              <source src={media.hero.videoDesktopWebm} type="video/webm" />
+              <source src={media.hero.videoDesktopMp4} type="video/mp4" />
+            </video>
+          )}
+        </div>
 
-        <p
-          data-hero-fade
-          className="mt-8 max-w-xl text-[clamp(1.0625rem,1.4vw,1.1875rem)] leading-relaxed text-umber"
-        >
-          {hero.sub}
-        </p>
+        {/* Sanfter Lesbarkeits-Verlauf von unten — kein Blur-Kasten */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 bg-linear-to-t from-ivory/70 via-ivory/20 to-transparent"
+        />
 
-        <div data-hero-fade className="mt-10">
-          <Magnetic className="inline-block">
-            <a
-              href={kontakt.whatsapp}
-              target="_blank"
-              rel="noopener noreferrer"
-              data-cursor="Buchen"
-              className="inline-flex h-14 items-center rounded-full bg-umber px-10 text-light transition-colors duration-300 hover:bg-gold"
-            >
-              {hero.cta}
-            </a>
-          </Magnetic>
+        {/* WebGL-Silk-Shader als Soft-Light-Overlay über dem Video */}
+        <LazySilk intensity={0.5} blend="soft-light" />
+
+        <HeroInhalt />
+
+        {/* Scroll-Hint unten mittig — auf flachen Viewports ausgeblendet */}
+        <div className="pointer-events-none absolute inset-x-0 bottom-8 flex justify-center [@media(max-height:749px)]:hidden">
+          <div data-hero-fade className="flex flex-col items-center gap-3">
+            <span className="text-xs uppercase tracking-[0.25em] text-umber-soft">
+              {hero.scrollHint}
+            </span>
+            <span ref={strichRef} aria-hidden className="block h-12 w-px bg-gold" />
+          </div>
         </div>
       </div>
 
-      {/* Scroll-Hint unten mittig — auf flachen Viewports ausgeblendet */}
-      <div className="pointer-events-none absolute inset-x-0 bottom-8 flex justify-center [@media(max-height:749px)]:hidden">
-        <div data-hero-fade className="flex flex-col items-center gap-3">
-          <span className="text-xs uppercase tracking-[0.25em] text-umber-soft">
-            {hero.scrollHint}
-          </span>
-          <span ref={strichRef} aria-hidden className="block h-12 w-px bg-gold" />
-        </div>
-      </div>
+      {/* ————— Mobile: Scrollytelling-Rundgang durch dein Reich ————— */}
+      <HeroScrubMobile>
+        <HeroInhalt />
+      </HeroScrubMobile>
     </section>
   );
 }
