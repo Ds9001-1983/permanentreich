@@ -9,14 +9,6 @@ export const metadata: Metadata = {
     'Datenschutzerklärung von PermanentReich, Olga Reich, Wiehl-Altklef — Informationen nach DSGVO.',
 };
 
-function Platzhalter({ children }: { children: React.ReactNode }) {
-  return (
-    <p className="mb-4 border-l-2 border-gold pl-4 text-[17px] leading-relaxed text-gold-deep">
-      {children}
-    </p>
-  );
-}
-
 const betroffenenrechte = [
   'Auskunft über deine gespeicherten Daten (Art. 15 DSGVO)',
   'Berichtigung unrichtiger Daten (Art. 16 DSGVO)',
@@ -72,19 +64,32 @@ export default function DatenschutzPage() {
           <a href={kontakt.telefonLink} className="link-line text-umber">
             {kontakt.telefon}
           </a>
+          <br />
+          E-Mail:{' '}
+          <a href={kontakt.emailLink} className="link-line text-umber">
+            {kontakt.email}
+          </a>
         </p>
-        <Platzhalter>[NOCH ERGÄNZEN: E-Mail-Adresse]</Platzhalter>
 
         <h2 className="font-display mb-3 mt-10 text-xl text-umber">Hosting</h2>
         <p className="mb-4 text-[17px] leading-relaxed text-umber-soft">
-          Diese Website wird bei einem externen Dienstleister gehostet. Die
-          personenbezogenen Daten, die beim Besuch der Website erfasst werden,
-          werden auf den Servern des Hosters verarbeitet.
+          Diese Website wird bei Vercel gehostet. Anbieter ist die Vercel
+          Inc., 340 S Lemon Ave #4133, Walnut, CA 91789, USA. Die
+          personenbezogenen Daten, die beim Besuch dieser Website erfasst
+          werden (z.&nbsp;B. IP-Adressen in Server-Logfiles), werden auf der
+          Infrastruktur von Vercel verarbeitet — dabei kann eine Übermittlung
+          in die USA stattfinden.
         </p>
-        <Platzhalter>
-          [NOCH ERGÄNZEN: Hoster (Name, Anschrift) + Hinweis auf abgeschlossenen
-          Vertrag über Auftragsverarbeitung (AVV) nach Art. 28 DSGVO]
-        </Platzhalter>
+        <p className="mb-4 text-[17px] leading-relaxed text-umber-soft">
+          Mit Vercel besteht ein Vertrag über Auftragsverarbeitung nach
+          Art.&nbsp;28 DSGVO (Vercel Data Processing Addendum). Die
+          Übermittlung in die USA stützt sich auf die Zertifizierung von
+          Vercel unter dem EU-US Data Privacy Framework sowie auf
+          EU-Standardvertragsklauseln. Rechtsgrundlage der Verarbeitung ist
+          Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;f DSGVO — unser berechtigtes
+          Interesse an einer sicheren und schnellen Bereitstellung der
+          Website.
+        </p>
 
         <h2 className="font-display mb-3 mt-10 text-xl text-umber">
           Server-Logfiles

@@ -11,6 +11,8 @@ export const kontakt = {
   ort: '51674 Wiehl',
   telefon: '0156 78338712',
   telefonLink: 'tel:+4915678338712',
+  email: 'hallo@permanentreich.info',
+  emailLink: 'mailto:hallo@permanentreich.info',
   whatsapp:
     'https://wa.me/4915678338712?text=Hallo%20Olga%2C%20ich%20interessiere%20mich%20f%C3%BCr%20eine%20kostenlose%20Beratung.',
   instagram: 'https://www.instagram.com/permanentreich',

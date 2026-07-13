@@ -56,6 +56,11 @@ export default function ImpressumPage() {
             {kontakt.telefon}
           </a>
           <br />
+          E-Mail:{' '}
+          <a href={kontakt.emailLink} className="link-line text-umber">
+            {kontakt.email}
+          </a>
+          <br />
           Instagram:{' '}
           <a
             href={kontakt.instagram}
@@ -66,14 +71,13 @@ export default function ImpressumPage() {
             {kontakt.instagramHandle}
           </a>
         </p>
-        <Platzhalter>[NOCH ERGÄNZEN: E-Mail-Adresse]</Platzhalter>
 
         <h2 className="font-display mb-3 mt-10 text-xl text-umber">
           Umsatzsteuer
         </h2>
         <Platzhalter>
-          [NOCH ERGÄNZEN: USt-IdNr. oder Hinweis Kleinunternehmerregelung § 19
-          UStG]
+          [NOCH ERGÄNZEN: USt-IdNr. — liegt vor und wird vor Go-live
+          nachgetragen]
         </Platzhalter>
 
         <h2 className="font-display mb-3 mt-10 text-xl text-umber">

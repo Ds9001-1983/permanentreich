@@ -42,13 +42,20 @@
 ## Multi-Agent-QA (3 Reviewer + 22 adversarial bestätigte Findings)
 Behoben: Hero-Fold-Bruch auf Laptop-Höhen (620–880 px verifiziert OK) · Reduced-Motion-Video-Pause · PMU-Diptychon statt Bildbruch-Slider · SMP-Aspects an native Crops angepasst · Touch-Targets ≥ 44 px (PMU-CTA, Tel-/Karten-/Footer-Links) · Gold-Partikel in die Sticky-Bühne verlegt · Ornament-Diät (kein automatisches ✦ je Eyebrow) · CTA-Shader auf 0,65 (Champagne bleibt sichtbar) · Ablauf-Spalten editorial gestaffelt · Fake-Testimonials → Olgas Versprechen · Copy-Fixes („Wach aussehen", „Oder ruf einfach an:") · veralteter EU-ODR-Passus ersetzt (§ 36 VSBG) · Rechtsseiten mit Wortmarke + Footer gerahmt
 
-## Offen — nur durch Dennis/Olga lösbar (Go-live-Blocker Recht)
-- [ ] **E-Mail-Adresse** für Impressum + Datenschutz (§ 5 DDG Pflicht!)
-- [ ] **USt-Status** (USt-IdNr. oder Kleinunternehmerregelung § 19 UStG)
-- [ ] **Hoster + AVV** für die Datenschutzerklärung (Hosting-Ziel lt. Brief: Hetzner)
-- [ ] Schriftliche **Foto-Einverständnisse** der abgebildeten Kundinnen (Vorher/Nachher)
+## Offen — nur durch Dennis/Olga lösbar
+- [x] E-Mail-Adresse: hallo@permanentreich.info (Impressum + Datenschutz) ✓ 2026-07-13
+- [ ] **USt-IdNr.** — liegt vor, Dennis reicht sie nach (einziger Go-live-Punkt, Platzhalter markiert)
+- [x] Hoster: **Vercel** — Datenschutz-Abschnitt mit DPA/AVV + EU-US DPF ✓
+- [x] Foto-Einverständnisse der Kundinnen: von Dennis bestätigt ✓ 2026-07-13
 - [ ] Nutzungsrecht Produktfoto Massagesessel (Hersteller) prüfen
 - [ ] Echte Kundenstimmen sammeln → ersetzen später Olgas Versprechen-Band
+
+## Nachtrag 2026-07-13: Mobiler Scrollytelling-Hero
+- Echtes Studio-Rundgang-Video (IMG_6698.mov, iPhone HLG 2160×3840@60) als Canvas-Frame-Scrub
+  auf Phones: 76 Frames à 640×1138 WebP (2,2 MB gesamt, progressiv geladen), Brand-LUT,
+  Farb-Gate PASS (Set-Hue-Abweichung 2,4°); Desktop behält den Seiden-Loop
+- Fallbacks: reduced-motion / Save-Data / Ladefehler → statischer Hero (verifiziert)
+- Lighthouse Mobile danach: Performance 83 · A11y 100 · BP 100 · SEO 100 · CLS 0
 
 ## Bewusste Abweichungen (dokumentiert)
 - Statisches Kartenbild → stattdessen DSGVO-sicherer Karten-Link (Apple/Google Maps); ein erfundenes Kartenbild wäre irreführend, ein OSM-Render Ausbaustufe
