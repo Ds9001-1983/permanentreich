@@ -1,9 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import Image from 'next/image';
 import { nav, kontakt } from '@/content/copy.de';
-import { media } from '@/lib/media';
 import { Magnetic } from '@/components/ui/magnetic';
 import { prefersReducedMotion } from '@/lib/gsap';
 
@@ -58,17 +56,17 @@ export function Header() {
       } ${scrolled ? 'bg-ivory/85 backdrop-blur-sm' : 'bg-transparent'}`}
     >
       <div className="mx-auto flex max-w-[1440px] items-center justify-between gap-8 px-6 py-4 md:px-10 lg:px-16">
-        {/* Logo → zurück zum Anfang */}
+        {/* Wortmarke (typografisch — gestochen scharf in jeder Größe) */}
         <Magnetic strength={0.25}>
-          <a href="#start" aria-label={`${kontakt.name} — zum Seitenanfang`} className="block">
-            <Image
-              src={media.logo}
-              alt={kontakt.name}
-              width={194}
-              height={44}
-              priority
-              className="h-11 w-auto"
-            />
+          <a
+            href="#start"
+            aria-label={`${kontakt.name} — zum Seitenanfang`}
+            className="flex items-baseline gap-1.5 whitespace-nowrap"
+          >
+            <span className="font-display text-[1.05rem] uppercase tracking-[0.18em] text-umber-soft">
+              Permanent
+            </span>
+            <span className="font-script text-[1.7rem] leading-none text-gold">Reich</span>
           </a>
         </Magnetic>
 

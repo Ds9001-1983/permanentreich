@@ -1,6 +1,7 @@
 import { MessageCircle } from 'lucide-react';
 import { Magnetic } from '@/components/ui/magnetic';
 import { SectionHeading } from '@/components/ui/section-heading';
+import { LazySilk } from '@/components/gl/lazy';
 import { cta, kontakt } from '@/content/copy.de';
 
 /** Instagram-Glyph im Lucide-Strichstil (Brand-Icons sind aus lucide-react v1 entfernt). */
@@ -31,8 +32,8 @@ function InstagramIcon({ className }: { className?: string }) {
 export function BookingCta() {
   return (
     <section id="termin" className="relative bg-champagne py-[clamp(80px,10vw,160px)]">
-      {/* WebGL-Slot: Silk-Shader als Sektions-Hintergrund (Phase 6) */}
-      <div id="cta-gl" className="absolute inset-0 pointer-events-none" />
+      {/* Silk-Shader als lebendiger Sektions-Hintergrund */}
+      <LazySilk intensity={0.85} />
 
       <div className="relative z-10 mx-auto max-w-[1440px] px-6 md:px-10 lg:px-16">
         <div className="grid gap-16 lg:grid-cols-2 lg:gap-24">

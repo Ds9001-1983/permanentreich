@@ -7,6 +7,7 @@ import { wellness, kontakt } from '@/content/copy.de';
 import { media } from '@/lib/media';
 import { Magnetic } from '@/components/ui/magnetic';
 import { SectionHeading } from '@/components/ui/section-heading';
+import { LazyGoldParticles } from '@/components/gl/lazy';
 
 const SESSEL_ALT = 'Luxus-Massagesessel in privater Atmosphäre bei PermanentReich';
 
@@ -134,8 +135,8 @@ export function WellnessPin() {
 
   return (
     <section id="wellness" className="relative overflow-clip bg-champagne">
-      {/* WebGL-Slot: Gold-Dust-Partikel (Phase 6) */}
-      <div id="wellness-gl" className="absolute inset-0 pointer-events-none" />
+      {/* Gold-Dust-Partikel — Staub im Sonnenlicht um den Sessel */}
+      <LazyGoldParticles />
 
       {/* ————— Desktop-Pin-Story (lg + motion-safe): 300vh Strecke, Sticky-Bühne ————— */}
       <div ref={pinWrapRef} className="relative hidden h-[300vh] lg:motion-safe:block">

@@ -28,6 +28,11 @@ export function CustomCursor() {
     const yDot = gsap.quickTo(dot.current, 'y', { duration: 0.12, ease: 'power2.out' });
 
     const onMove = (e: MouseEvent) => {
+      // Erst ab der ersten echten Mausbewegung zeigen (kein Ring bei 0,0)
+      if (ring.current?.style.opacity !== '1') {
+        gsap.set([ring.current, dot.current], { opacity: 1 });
+        gsap.set([ring.current, dot.current], { x: e.clientX, y: e.clientY });
+      }
       xRing(e.clientX);
       yRing(e.clientY);
       xDot(e.clientX);
@@ -65,6 +70,7 @@ export function CustomCursor() {
       <div
         ref={ring}
         aria-hidden
+        style={{ opacity: 0 }}
         className="pointer-events-none fixed left-0 top-0 z-[100] -ml-5 -mt-5 flex h-10 w-10 items-center justify-center rounded-full border border-gold"
       >
         <span
@@ -75,6 +81,7 @@ export function CustomCursor() {
       <div
         ref={dot}
         aria-hidden
+        style={{ opacity: 0 }}
         className="pointer-events-none fixed left-0 top-0 z-[100] -ml-[3px] -mt-[3px] h-1.5 w-1.5 rounded-full bg-gold"
       />
     </>

@@ -1,12 +1,13 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import { hero, kontakt } from '@/content/copy.de';
 import { media, VIDEOS_READY } from '@/lib/media';
 import { gsap, prefersReducedMotion } from '@/lib/gsap';
 import { SplitReveal } from '@/components/ui/split-reveal';
 import { Magnetic } from '@/components/ui/magnetic';
+import { LazySilk } from '@/components/gl/lazy';
 
 /**
  * Sektion #1 — Hero `#start` (Raster: Full-bleed 100svh, kein Sektions-Padding).
@@ -17,6 +18,12 @@ export function Hero() {
   const rootRef = useRef<HTMLElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const strichRef = useRef<HTMLSpanElement>(null);
+  // null = SSR/vor Mount (Poster via CSS-Breakpoint), danach passendes Video
+  const [vertical, setVertical] = useState<boolean | null>(null);
+
+  useEffect(() => {
+    setVertical(window.matchMedia('(max-width: 767px)').matches);
+  }, []);
 
   // Italic-Akzent: letztes Wort der zweiten Headline-Zeile in Fraunces Italic.
   const zeile2Woerter = hero.headline[1].split(' ');
@@ -71,42 +78,52 @@ export function Hero() {
 
   return (
     <section id="start" ref={rootRef} className="relative min-h-[100svh] overflow-hidden">
-      {/* Hintergrund-Ebene: Video (Phase 5b) bzw. Poster-Bild */}
+      {/* Hintergrund-Ebene: Poster (LCP, je Viewport) + Video nach Mount */}
       <div className="absolute inset-0">
-        {VIDEOS_READY ? (
+        <Image
+          src={media.hero.posterDesktop}
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="hidden object-cover md:block"
+        />
+        <Image
+          src={media.hero.posterMobile}
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover md:hidden"
+        />
+        {VIDEOS_READY && vertical !== null && (
           <video
             ref={videoRef}
             autoPlay
             muted
             loop
             playsInline
-            poster={media.hero.posterDesktop}
+            poster={vertical ? media.hero.posterMobile : media.hero.posterDesktop}
             aria-hidden
             className="absolute inset-0 h-full w-full object-cover"
           >
-            <source src={media.hero.videoDesktopWebm} type="video/webm" />
-            <source src={media.hero.videoDesktopMp4} type="video/mp4" />
+            {!vertical && <source src={media.hero.videoDesktopWebm} type="video/webm" />}
+            <source
+              src={vertical ? media.hero.videoMobileMp4 : media.hero.videoDesktopMp4}
+              type="video/mp4"
+            />
           </video>
-        ) : (
-          <Image
-            src={media.hero.posterDesktop}
-            alt=""
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover"
-          />
         )}
       </div>
 
       {/* Sanfter Lesbarkeits-Verlauf von unten — kein Blur-Kasten */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 bg-linear-to-t from-ivory/40 via-ivory/10 to-transparent"
+        className="pointer-events-none absolute inset-0 bg-linear-to-t from-ivory/70 via-ivory/20 to-transparent"
       />
 
-      {/* Slot für WebGL-Silk-Shader (Phase 6) */}
-      <div id="hero-gl" className="absolute inset-0 pointer-events-none" />
+      {/* WebGL-Silk-Shader als Soft-Light-Overlay über dem Video */}
+      <LazySilk intensity={0.5} blend="soft-light" />
 
       {/* Content */}
       <div className="relative mx-auto flex min-h-[100svh] max-w-[1440px] flex-col justify-center px-6 md:px-10 lg:px-16">
@@ -145,7 +162,7 @@ export function Hero() {
 
         <p
           data-hero-fade
-          className="mt-8 max-w-xl text-[clamp(1.0625rem,1.4vw,1.1875rem)] leading-relaxed text-umber-soft opacity-0"
+          className="mt-8 max-w-xl text-[clamp(1.0625rem,1.4vw,1.1875rem)] leading-relaxed text-umber opacity-0"
         >
           {hero.sub}
         </p>
