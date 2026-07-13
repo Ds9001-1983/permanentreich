@@ -40,7 +40,7 @@ export function BookingCta() {
           {/* Links — Einladung */}
           <div>
             <SectionHeading eyebrow={cta.eyebrow} headline={cta.headline} size="xl" />
-            <p className="mt-8 max-w-[42ch] text-umber-soft">{cta.text}</p>
+            <p className="mt-8 max-w-[42ch] text-umber/80">{cta.text}</p>
           </div>
 
           {/* Rechts — Button-Stack */}
@@ -71,7 +71,7 @@ export function BookingCta() {
               </a>
             </Magnetic>
 
-            <p className="mt-8 text-center text-umber-soft">
+            <p className="mt-8 text-center text-umber/80">
               {cta.telefonLabel}{' '}
               <a href={kontakt.telefonLink} className="link-line font-semibold text-umber">
                 {kontakt.telefon}
@@ -79,7 +79,7 @@ export function BookingCta() {
             </p>
 
             {/* Info-Zeile: Adresse · Öffnungszeiten · Karten-Link */}
-            <p className="mt-10 border-t border-light pt-8 text-center text-umber-soft">
+            <p className="mt-10 border-t border-light pt-8 text-center text-umber/80">
               {kontakt.strasse}, {kontakt.ort}
               <span aria-hidden className="mx-3 text-gold">
                 ·

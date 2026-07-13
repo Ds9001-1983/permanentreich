@@ -96,7 +96,7 @@ export function ServicesGrid() {
                     />
                     <div className="mt-7">
                       <p className="eyebrow mb-3">{item.eyebrow}</p>
-                      <h3 className="font-display text-2xl text-umber transition-colors duration-500 group-hover:text-gold">
+                      <h3 className="font-display text-2xl text-umber transition-colors duration-500 group-hover:text-gold-deep">
                         {item.titel}
                       </h3>
                       <p className="mt-3 max-w-[40ch] text-umber-soft">{item.text}</p>

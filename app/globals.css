@@ -7,6 +7,7 @@
   --color-champagne: #e8dcc8;
   --color-gold: #bf885a;
   --color-gold-deep: #a8743f;
+  --color-gold-text: #8a5f33; /* AA (4.5:1) für kleinen Gold-Text auf Light/Ivory */
   --color-umber-soft: #6b6560;
   --color-umber: #2e2620;
 
@@ -65,7 +66,7 @@ body {
   font-weight: 600;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--color-umber-soft);
+  color: var(--color-umber); /* AA-Kontrast auch auf Champagne */
 }
 
 .eyebrow::after {

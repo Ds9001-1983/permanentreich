@@ -90,7 +90,7 @@ export function AboutOlga() {
           <div className="lg:col-span-6 lg:col-start-7">
             <SectionHeading eyebrow={olga.eyebrow} headline={olga.headline} />
 
-            <p className="font-script mt-8 text-[clamp(1.8rem,3vw,2.6rem)] text-gold">
+            <p className="font-script mt-8 text-[clamp(1.8rem,3vw,2.6rem)] text-gold-deep">
               {olga.zitat}
             </p>
 

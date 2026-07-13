@@ -43,18 +43,23 @@ export function Hero() {
         return;
       }
 
-      gsap.fromTo(
-        fades,
-        { opacity: 0, y: 28 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 1.2,
-          ease: 'power3.out',
-          stagger: 0.14,
-          delay: 0.85,
-        },
-      );
+      // Auf Phones keine Entrance-Fades (LCP): Inhalt steht sofort.
+      if (window.matchMedia('(max-width: 767px)').matches) {
+        gsap.set(fades, { opacity: 1 });
+      } else {
+        gsap.fromTo(
+          fades,
+          { opacity: 0, y: 28 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 1.2,
+            ease: 'power3.out',
+            stagger: 0.14,
+            delay: 0.85,
+          },
+        );
+      }
 
       // Scroll-Hint: 1px-Gold-Strich zeichnet sich von oben, löst sich nach unten.
       if (strichRef.current) {
@@ -131,7 +136,7 @@ export function Hero() {
           as="p"
           immediate
           delay={0.2}
-          className="font-script -rotate-3 text-[clamp(1.8rem,4vw,3rem)] text-gold"
+          className="font-script -rotate-3 text-[clamp(1.8rem,4vw,3rem)] text-gold-deep"
         >
           {hero.badge}
         </SplitReveal>
@@ -162,12 +167,12 @@ export function Hero() {
 
         <p
           data-hero-fade
-          className="mt-8 max-w-xl text-[clamp(1.0625rem,1.4vw,1.1875rem)] leading-relaxed text-umber opacity-0"
+          className="mt-8 max-w-xl text-[clamp(1.0625rem,1.4vw,1.1875rem)] leading-relaxed text-umber"
         >
           {hero.sub}
         </p>
 
-        <div data-hero-fade className="mt-10 opacity-0">
+        <div data-hero-fade className="mt-10">
           <Magnetic className="inline-block">
             <a
               href={kontakt.whatsapp}
@@ -184,7 +189,7 @@ export function Hero() {
 
       {/* Scroll-Hint unten mittig */}
       <div className="pointer-events-none absolute inset-x-0 bottom-8 flex justify-center">
-        <div data-hero-fade className="flex flex-col items-center gap-3 opacity-0">
+        <div data-hero-fade className="flex flex-col items-center gap-3">
           <span className="text-xs uppercase tracking-[0.25em] text-umber-soft">
             {hero.scrollHint}
           </span>

@@ -60,7 +60,7 @@ export function Pmu() {
               target="_blank"
               rel="noopener noreferrer"
               data-cursor="Buchen"
-              className="link-line mt-10 inline-block font-semibold text-gold-deep"
+              className="link-line mt-10 inline-block font-semibold text-gold-text"
             >
               {pmu.cta}
             </a>

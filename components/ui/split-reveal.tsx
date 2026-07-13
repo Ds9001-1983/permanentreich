@@ -30,13 +30,14 @@ export function SplitReveal({
   useEffect(() => {
     const el = root.current;
     if (!el) return;
-    if (prefersReducedMotion()) {
-      el.style.visibility = 'visible';
-      return;
-    }
+    if (prefersReducedMotion()) return;
+    // Hero-Entrance (immediate) auf Phones überspringen: der Re-Paint nach
+    // Hydration + Delay würde das LCP auf ~4 s schieben. Desktop bleibt cinematisch.
+    if (immediate && window.matchMedia('(max-width: 767px)').matches) return;
 
+    // SSR rendert sichtbar (früher LCP-Paint, Preloader verdeckt die Bühne);
+    // erst beim Mount wird für die Reveal-Animation versteckt.
     const targets = el.querySelectorAll<HTMLElement>('[data-word-inner]');
-    el.style.visibility = 'visible';
     gsap.set(targets, { yPercent: 115 });
 
     const tween = gsap.to(targets, {
@@ -77,12 +78,15 @@ export function SplitReveal({
 
   return createElement(
     as,
-    { ref: root, className, style: { visibility: 'hidden' }, 'aria-label': children },
+    { ref: root, className },
+    <span key="sr" className="sr-only">
+      {children}
+    </span>,
     words.map((word, i) => (
       <span
         key={`${word}-${i}`}
         aria-hidden
-        className="inline-block overflow-hidden pb-[0.08em] -mb-[0.08em] align-baseline"
+        className="inline-block overflow-hidden pb-[0.08em] mb-[-0.08em] align-baseline"
       >
         <span data-word-inner className="inline-block will-change-transform">
           {word}

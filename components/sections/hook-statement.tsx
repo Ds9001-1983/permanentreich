@@ -93,7 +93,7 @@ export function HookStatement() {
               <span
                 data-hook-line
                 className={`block font-display text-[clamp(3rem,11vw,10rem)] leading-[1.02] tracking-[-0.03em] will-change-transform ${
-                  i === 1 ? 'italic text-gold' : 'text-umber'
+                  i === 1 ? 'italic text-gold-deep' : 'text-umber'
                 }`}
               >
                 {line}

@@ -39,7 +39,7 @@ export function VoicesMarquee() {
         <Marquee reverse duration={40} className="mt-12">
           {stimmen.marquee.map((wort) => (
             <span key={wort} className="flex items-center">
-              <span className="whitespace-nowrap font-display text-[clamp(2.5rem,6vw,5rem)] text-champagne">
+              <span className="whitespace-nowrap font-display text-[clamp(2.5rem,6vw,5rem)] text-gold-deep">
                 {wort}
               </span>
               <span className="mx-[clamp(1.25rem,3vw,2.75rem)] text-[clamp(1.25rem,2.5vw,2rem)] text-gold">

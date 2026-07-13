@@ -77,7 +77,7 @@ export function ProcessSteps() {
               <span
                 data-step-nr={Number(schritt.nr)}
                 aria-hidden
-                className="block font-display text-[clamp(3.5rem,6vw,5.5rem)] leading-none tracking-[-0.02em] text-gold"
+                className="block font-display text-[clamp(3.5rem,6vw,5.5rem)] leading-none tracking-[-0.02em] text-gold-deep"
               >
                 {schritt.nr}
               </span>

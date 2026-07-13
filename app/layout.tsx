@@ -24,6 +24,10 @@ const hanken = Hanken_Grotesk({
   variable: "--font-hanken",
   subsets: ["latin"],
   weight: ["300", "400", "600"],
+  // Kein später Font-Swap-Repaint (LCP): auf langsamen Verbindungen bleibt
+  // der metrisch angepasste Fallback stehen.
+  display: "optional",
+  adjustFontFallback: true,
 });
 
 export const metadata: Metadata = {

@@ -81,8 +81,10 @@ export function Preloader() {
     }
 
     // Vorhang-Exit: Inhalt zieht leicht voraus, Fläche schiebt sich nach oben
+    let exitGestartet = false;
     const exit = () => {
-      if (beendet) return;
+      if (beendet || exitGestartet) return;
+      exitGestartet = true;
       ctx.add(() => {
         gsap
           .timeline({ onComplete: abschliessen })
@@ -131,7 +133,16 @@ export function Preloader() {
       Promise.resolve(aufgabe).then(tick, tick);
     });
 
+    // Harter Deckel (LCP/UX): Nach max. 1,8 s geht der Vorhang auf —
+    // auch wenn einzelne Assets auf langsamen Verbindungen noch laden.
+    const deckel = gsap.delayedCall(1.8, () => {
+      if (beendet) return;
+      setProzent(100);
+      exit();
+    });
+
     return () => {
+      deckel.kill();
       beendet = true;
       ctx.revert();
       scrollFreigeben();
