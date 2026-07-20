@@ -73,6 +73,8 @@ export function ServicesGrid() {
           eyebrow={leistungen.eyebrow}
           script={leistungen.script}
           headline={leistungen.headline}
+          align="center-mobile"
+          scriptGap="mb-2 lg:-mb-[0.15em]"
           className="max-w-3xl"
         />
 

@@ -13,28 +13,46 @@ export function SectionHeading({
   align = 'left',
   size = 'lg',
   className = '',
+  scriptGap = '-mb-[0.28em]',
 }: {
   eyebrow: string;
   headline: string;
   script?: string;
-  align?: 'left' | 'center';
+  /** `center-mobile`: am Handy zentriert, ab lg wieder editorial links. */
+  align?: 'left' | 'center' | 'center-mobile';
   size?: 'lg' | 'xl';
   className?: string;
+  /**
+   * Vertikaler Abstand Script → Headline. Default `-mb-[0.28em]` (Überlappung).
+   * Positiver Wert (z. B. `mb-2`) löst die Überlappung und schafft Luft.
+   */
+  scriptGap?: string;
 }) {
   const sizeClass =
     size === 'xl'
       ? 'text-[clamp(2.8rem,7vw,6.5rem)]'
       : 'text-[clamp(2.2rem,5vw,4.5rem)]';
 
+  const wrapAlign =
+    align === 'center'
+      ? 'text-center'
+      : align === 'center-mobile'
+        ? 'text-center lg:text-left'
+        : '';
+  const scriptAlign =
+    align === 'center'
+      ? 'mx-auto'
+      : align === 'center-mobile'
+        ? 'mx-auto lg:ml-[14%]'
+        : 'ml-[14%]';
+
   return (
-    <div className={`${align === 'center' ? 'text-center' : ''} ${className}`}>
+    <div className={`${wrapAlign} ${className}`}>
       <p className="eyebrow mb-5">{eyebrow}</p>
       {script && (
         <span
           aria-hidden
-          className={`font-script pointer-events-none relative z-10 -mb-[0.28em] block w-fit text-[clamp(1.9rem,3.4vw,3.2rem)] text-gold-deep [--schweb-rot:-4deg] motion-safe:animate-[schweben_5.5s_ease-in-out_infinite_alternate] motion-reduce:-rotate-[4deg] ${
-            align === 'center' ? 'mx-auto' : 'ml-[14%]'
-          }`}
+          className={`font-script pointer-events-none relative z-10 block w-fit text-[clamp(1.9rem,3.4vw,3.2rem)] text-gold-deep [--schweb-rot:-4deg] motion-safe:animate-[schweben_5.5s_ease-in-out_infinite_alternate] motion-reduce:-rotate-[4deg] ${scriptGap} ${scriptAlign}`}
         >
           {script}
         </span>

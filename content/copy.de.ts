@@ -34,7 +34,7 @@ export const hero = {
 
 export const hook = {
   lines: ['Persönlich.', 'Ehrlich.', 'Auf Augenhöhe.'],
-  sub: 'Wir nehmen uns Zeit für dich und deine Wünsche — ohne Verkaufsdruck, mit ehrlicher Beratung.',
+  sub: 'Ich nehme mir Zeit für dich und deine Wünsche — ohne Verkaufsdruck, mit ehrlicher Beratung.',
 } as const;
 
 export const leistungen = {
