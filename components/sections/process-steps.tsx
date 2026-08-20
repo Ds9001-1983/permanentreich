@@ -60,7 +60,7 @@ export function ProcessSteps() {
   }, []);
 
   return (
-    <section id="ablauf" ref={root} className="bg-ivory py-[clamp(80px,10vw,160px)]">
+    <section id="ablauf" ref={root} className="bg-ivory py-[clamp(56px,6.5vw,104px)]">
       <div className="mx-auto max-w-[1440px] px-6 md:px-10 lg:px-16">
         <SectionHeading
           eyebrow={ablauf.eyebrow}
@@ -71,13 +71,13 @@ export function ProcessSteps() {
 
         <ol
           data-steps-list
-          className="mt-16 border-l border-champagne pl-7 md:mt-24 md:grid md:grid-cols-3 md:gap-10 md:border-l-0 md:pl-0 lg:gap-14"
+          className="mt-12 border-l border-champagne pl-7 md:mt-16 md:grid md:grid-cols-3 md:gap-10 md:border-l-0 md:pl-0 lg:gap-14"
         >
           {ablauf.schritte.map((schritt) => (
             <li
               key={schritt.nr}
               data-step
-              className="border-champagne pb-12 last:pb-0 [&:not(:first-child)]:border-t [&:not(:first-child)]:pt-10 md:border-t md:pt-10 md:pb-0 md:nth-2:mt-12 md:nth-3:mt-24"
+              className="border-champagne pb-10 last:pb-0 [&:not(:first-child)]:border-t [&:not(:first-child)]:pt-10 md:border-t md:pt-10 md:pb-0 md:nth-2:mt-6 md:nth-3:mt-12"
             >
               <span
                 data-step-nr={Number(schritt.nr)}

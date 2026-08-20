@@ -24,13 +24,13 @@ const columns = [
   },
   {
     span: 'lg:col-span-4',
-    offset: 'lg:mt-24',
+    offset: 'lg:mt-12',
     parallax: 5,
     sizes: '(max-width: 1023px) 92vw, 30vw',
   },
   {
     span: 'lg:col-span-3',
-    offset: 'lg:mt-48',
+    offset: 'lg:mt-24',
     parallax: 14,
     sizes: '(max-width: 1023px) 92vw, 23vw',
   },
@@ -66,7 +66,7 @@ export function ServicesGrid() {
     <section
       id="leistungen"
       ref={sectionRef}
-      className="bg-ivory py-[clamp(80px,10vw,160px)]"
+      className="bg-ivory py-[clamp(56px,6.5vw,104px)]"
     >
       <div className="mx-auto max-w-[1440px] px-6 md:px-10 lg:px-16">
         <SectionHeading
@@ -78,7 +78,7 @@ export function ServicesGrid() {
           className="max-w-3xl"
         />
 
-        <div className="mt-16 grid grid-cols-1 gap-y-20 lg:mt-24 lg:grid-cols-12 lg:gap-x-10">
+        <div className="mt-12 grid grid-cols-1 gap-y-14 lg:mt-16 lg:grid-cols-12 lg:gap-x-10">
           {leistungen.items.map((item, i) => {
             const col = columns[i % columns.length];
             const tile = media.tiles[item.id];
@@ -90,7 +90,7 @@ export function ServicesGrid() {
                 className={`${col.span} ${col.offset} will-change-transform`}
               >
                 <Magnetic strength={0.06}>
-                  <a href={item.anchor} data-cursor="Entdecken" className="group block">
+                  <a href={item.anchor} className="group block">
                     {/* Verspielt: mittlere Kachel als Rundbogen, sanfter Hover-Tilt */}
                     <div
                       className={`transition-transform duration-700 ease-[var(--ease-out-soft)] ${

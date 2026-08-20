@@ -55,8 +55,8 @@ export function BeforeAfterSlider({
   return (
     <div
       ref={container}
-      data-cursor="Ziehen"
-      className={`group relative ${aspect} w-full touch-pan-y select-none overflow-hidden ${className}`}
+      // Greif-Cursor als native Zieh-Einladung (ersetzt das frühere Cursor-Label)
+      className={`group relative ${aspect} w-full cursor-grab touch-pan-y select-none overflow-hidden active:cursor-grabbing ${className}`}
       onPointerDown={onPointerDown}
       onPointerMove={onPointerMove}
       onPointerUp={onPointerUp}

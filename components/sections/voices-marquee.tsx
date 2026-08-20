@@ -8,14 +8,14 @@ import { stimmen } from '@/content/copy.de';
  */
 export function VoicesMarquee() {
   return (
-    <section className="overflow-clip bg-light py-[clamp(60px,8vw,120px)]">
+    <section className="overflow-clip bg-light py-[clamp(40px,5vw,76px)]">
       {/* Eyebrow zentriert, einziger Container-Teil der Sektion */}
       <div className="mx-auto max-w-[1440px] px-6 text-center md:px-10 lg:px-16">
         <h2 className="eyebrow">{stimmen.eyebrow}</h2>
       </div>
 
       {/* Band 1: Kundinnen-Zitate */}
-      <Marquee duration={55} className="mt-[clamp(40px,5vw,72px)]">
+      <Marquee duration={55} className="mt-[clamp(28px,3.5vw,48px)]">
         {stimmen.zitate.map((zitat) => (
           <figure
             key={zitat.name}
@@ -37,7 +37,7 @@ export function VoicesMarquee() {
       {/* Band 2: Claim-Repetition — rein dekorativ, daher aria-hidden.
           Verspielt: Script und Display-Italic wechseln sich ab. */}
       <div aria-hidden>
-        <Marquee reverse duration={40} className="mt-12">
+        <Marquee reverse duration={40} className="mt-8">
           {stimmen.marquee.map((wort, i) => (
             <span key={wort} className="flex items-center">
               <span

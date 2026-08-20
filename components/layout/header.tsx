@@ -89,7 +89,6 @@ export function Header() {
         <Magnetic strength={0.3}>
           <a
             href="#termin"
-            data-cursor="Buchen"
             className="flex min-h-[56px] items-center rounded-full bg-umber px-8 text-[0.9375rem] font-semibold tracking-[0.04em] text-light transition-colors duration-500 ease-[var(--ease-out-soft)] hover:bg-gold"
           >
             {nav.cta}

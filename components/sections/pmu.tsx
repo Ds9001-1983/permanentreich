@@ -37,16 +37,16 @@ export function Pmu() {
   }, []);
 
   return (
-    <section id="pmu" ref={root} className="bg-light py-[clamp(80px,10vw,160px)]">
+    <section id="pmu" ref={root} className="bg-light py-[clamp(56px,6.5vw,104px)]">
       <div className="mx-auto max-w-[1440px] px-6 md:px-10 lg:px-16">
-        <div className="grid gap-16 lg:grid-cols-12 lg:gap-10">
+        <div className="grid gap-12 lg:grid-cols-12 lg:items-center lg:gap-10">
           {/* Links — Text & Editorial-Liste */}
           <div className="lg:col-span-6">
             <SectionHeading eyebrow={pmu.eyebrow} script={pmu.script} headline={pmu.headline} />
 
             <p className="mt-8 max-w-[52ch] text-umber-soft">{pmu.text}</p>
 
-            <ul data-pmu-list className="mt-14 border-b border-champagne">
+            <ul data-pmu-list className="mt-10 border-b border-champagne">
               {pmu.details.map((detail) => (
                 <li key={detail.titel} data-pmu-item className="border-t border-champagne py-7">
                   <h3 className="font-display text-xl text-umber">{detail.titel}</h3>
@@ -59,7 +59,6 @@ export function Pmu() {
               href={kontakt.whatsapp}
               target="_blank"
               rel="noopener noreferrer"
-              data-cursor="Buchen"
               className="link-line mt-10 inline-flex min-h-14 items-center text-lg font-semibold text-gold-text"
             >
               {pmu.cta}
@@ -68,7 +67,7 @@ export function Pmu() {
 
           {/* Rechts — Beweis als Diptychon (die beiden Aufnahmen sind nicht
               deckungsgleich — nebeneinander ist der ehrliche Vergleich) */}
-          <div className="relative lg:col-span-5 lg:col-start-8 lg:mt-24">
+          <div className="relative lg:col-span-5 lg:col-start-8 lg:self-center">
             <div className="grid grid-cols-2 gap-1 overflow-hidden rounded-2xl">
               {(
                 [
@@ -103,9 +102,10 @@ export function Pmu() {
               {pmu.slider.hinweis}
             </p>
 
-            {/* Verspielt: Studio-Polaroid — dein Platz im Behandlungsraum
-                (unten rechts, damit das Vorher-Label frei bleibt) */}
-            <figure className="mx-auto mt-10 w-52 -rotate-2 border border-champagne bg-light p-2 transition-transform duration-500 ease-[var(--ease-out-soft)] hover:rotate-1 hover:scale-[1.03] lg:absolute lg:-bottom-24 lg:-right-8 lg:mx-0 lg:mt-0 lg:rotate-3 xl:-right-14">
+            {/* Verspielt: Studio-Polaroid — dein Platz im Behandlungsraum.
+                Steht im Fluss unter dem Beweis (nicht absolut), sonst verdeckt
+                es entweder das Nachher-Bild oder reißt darunter ein Loch. */}
+            <figure className="mx-auto mt-8 w-52 -rotate-2 border border-champagne bg-light p-2 transition-transform duration-500 ease-[var(--ease-out-soft)] hover:rotate-1 hover:scale-[1.03] lg:mr-0 lg:ml-auto lg:rotate-3">
               <div className="relative aspect-[4/3] overflow-hidden">
                 <Image
                   src={media.pmuStudio}

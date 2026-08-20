@@ -3,7 +3,6 @@ import { Fraunces, Pinyon_Script, Hanken_Grotesk } from "next/font/google";
 import "./globals.css";
 import { kontakt, meta } from "@/content/copy.de";
 import { SmoothScrollProvider } from "@/components/providers/smooth-scroll";
-import { CustomCursor } from "@/components/layout/custom-cursor";
 import { ScrollProgress } from "@/components/layout/scroll-progress";
 
 const fraunces = Fraunces({
@@ -71,7 +70,7 @@ export default function RootLayout({
       lang="de"
       className={`${fraunces.variable} ${pinyon.variable} ${hanken.variable} h-full antialiased`}
     >
-      <body className="has-custom-cursor min-h-full flex flex-col">
+      <body className="min-h-full flex flex-col">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -79,7 +78,6 @@ export default function RootLayout({
         <SmoothScrollProvider>
           <ScrollProgress />
           {children}
-          <CustomCursor />
         </SmoothScrollProvider>
       </body>
     </html>

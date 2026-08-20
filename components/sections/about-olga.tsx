@@ -49,10 +49,10 @@ export function AboutOlga() {
     <section
       id="olga"
       ref={sectionRef}
-      className="bg-light py-[clamp(80px,10vw,160px)]"
+      className="bg-light py-[clamp(56px,6.5vw,104px)]"
     >
       <div className="mx-auto max-w-[1440px] px-6 md:px-10 lg:px-16">
-        <div className="grid gap-16 lg:grid-cols-12 lg:items-center lg:gap-x-10">
+        <div className="grid gap-12 lg:grid-cols-12 lg:items-center lg:gap-x-10">
           {/* Portrait mit Parallax + eingelegtem BTS-Polaroid */}
           <div className="relative lg:col-span-5">
             <div className="relative aspect-[3/4] overflow-hidden rounded-t-full">

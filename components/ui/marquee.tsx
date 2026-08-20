@@ -17,7 +17,6 @@ export function Marquee({
 }) {
   return (
     <div
-      data-cursor="Halten"
       className={`group/marquee flex w-full overflow-hidden ${className}`}
       style={{ maskImage: 'linear-gradient(90deg, transparent, black 8%, black 92%, transparent)' }}
     >

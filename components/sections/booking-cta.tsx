@@ -15,7 +15,7 @@ import { media } from '@/lib/media';
  */
 export function BookingCta() {
   return (
-    <section id="termin" className="relative bg-champagne py-[clamp(80px,10vw,160px)]">
+    <section id="termin" className="relative bg-champagne py-[clamp(56px,6.5vw,104px)]">
       {/* Silk-Shader als lebendiger Sektions-Hintergrund — 0.65 lässt genug
           Champagne durchscheinen (Stil-Gesetz: Sektion bleibt Champagne) */}
       <LazySilk intensity={0.65} />
@@ -51,7 +51,6 @@ export function BookingCta() {
                 href={kontakt.booking}
                 target="_blank"
                 rel="noopener noreferrer"
-                data-cursor="Buchen"
                 className="flex h-16 w-full items-center justify-center gap-3 rounded-full bg-umber text-lg font-semibold text-light transition-colors duration-300 hover:bg-gold"
               >
                 <CalendarHeart aria-hidden className="h-5 w-5" />
@@ -64,7 +63,6 @@ export function BookingCta() {
                 href={kontakt.whatsapp}
                 target="_blank"
                 rel="noopener noreferrer"
-                data-cursor="Schreiben"
                 className="flex h-14 w-full items-center justify-center gap-3 rounded-full border border-umber text-umber transition-colors duration-300 hover:bg-umber hover:text-light"
               >
                 <MessageCircle aria-hidden className="h-5 w-5" />

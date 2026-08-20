@@ -41,7 +41,7 @@ export function Ergebnisse() {
   }, []);
 
   return (
-    <section id="ergebnisse" ref={root} className="bg-light py-[clamp(80px,10vw,160px)]">
+    <section id="ergebnisse" ref={root} className="bg-light py-[clamp(56px,6.5vw,104px)]">
       <div className="mx-auto max-w-[1440px] px-6 md:px-10 lg:px-16">
         <SectionHeading
           eyebrow={ergebnisse.eyebrow}
@@ -61,13 +61,13 @@ export function Ergebnisse() {
             Zeilenraster würde dazwischen Löcher reißen. */}
         <div
           data-ergebnis-grid
-          className="mt-16 columns-1 lg:mt-24 lg:columns-2 lg:gap-x-12"
+          className="mt-12 columns-1 lg:mt-16 lg:columns-2 lg:gap-x-12"
         >
           {ergebnisListe.map((eintrag) => (
             <article
               key={eintrag.id}
               data-ergebnis-item
-              className="mb-16 break-inside-avoid lg:mb-24"
+              className="mb-10 break-inside-avoid lg:mb-14"
             >
               <div className="overflow-hidden rounded-2xl">
                 {eintrag.modus === 'einzel' ? (
@@ -134,7 +134,7 @@ export function Ergebnisse() {
           ))}
         </div>
 
-        <div className="mt-[clamp(56px,7vw,96px)] max-w-[52ch] max-lg:mx-auto max-lg:text-center">
+        <div className="mt-[clamp(16px,2vw,32px)] max-w-[52ch] max-lg:mx-auto max-lg:text-center">
           <p className="text-sm leading-relaxed tracking-wide text-umber-soft">
             <span aria-hidden className="text-gold">
               ✦{' '}
@@ -146,7 +146,6 @@ export function Ergebnisse() {
             href={kontakt.whatsapp}
             target="_blank"
             rel="noopener noreferrer"
-            data-cursor="Buchen"
             className="link-line mt-6 inline-flex min-h-[56px] items-center gap-3 text-lg font-medium text-umber"
           >
             <span>{ergebnisse.cta}</span>

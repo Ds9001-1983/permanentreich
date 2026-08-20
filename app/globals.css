@@ -79,13 +79,12 @@ body {
   border-radius: 2px;
 }
 
-/* Custom Cursor: nativen Cursor nur auf Pointer-Geräten ausblenden */
-@media (pointer: fine) {
-  .has-custom-cursor,
-  .has-custom-cursor a,
-  .has-custom-cursor button {
-    cursor: none;
-  }
+/* Klickbares zeigt die Hand. Browser geben <button> per UA-Default nur
+   `cursor: default` — Links dagegen schon `pointer`. */
+button:not(:disabled),
+[role="button"],
+summary {
+  cursor: pointer;
 }
 
 /* Animierte Link-Underline (kein Default-Underline) */

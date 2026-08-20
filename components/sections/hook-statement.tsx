@@ -73,7 +73,7 @@ export function HookStatement() {
     <section
       ref={sectionRef}
       id="reich"
-      className="relative overflow-hidden bg-light py-[clamp(80px,10vw,160px)]"
+      className="relative overflow-hidden bg-light py-[clamp(56px,6.5vw,104px)]"
     >
       {/* Dekorative Papiertextur */}
       <Image
@@ -106,13 +106,13 @@ export function HookStatement() {
 
         <p
           data-hook-sub
-          className="mx-auto mt-10 max-w-lg text-lg leading-relaxed text-umber-soft md:mt-14"
+          className="mx-auto mt-8 max-w-lg text-lg leading-relaxed text-umber-soft md:mt-10"
         >
           {hook.sub}
         </p>
 
         {/* Verspielt: Gold-Swash zeichnet sich als Abschluss */}
-        <div data-hook-ornament className="mt-10 flex justify-center">
+        <div data-hook-ornament className="mt-8 flex justify-center">
           <Flourish className="h-8 w-56" />
         </div>
       </div>

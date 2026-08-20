@@ -17,7 +17,6 @@ function WellnessCta({ className = '' }: { className?: string }) {
         href={kontakt.booking}
         target="_blank"
         rel="noopener noreferrer"
-        data-cursor="Buchen"
         className="inline-flex min-h-14 w-full items-center justify-center rounded-full bg-umber px-10 text-[1.0625rem] font-medium tracking-wide text-light transition-colors duration-500 hover:bg-gold-deep sm:w-auto"
       >
         {wellness.cta}
@@ -46,7 +45,7 @@ function Kapitel({ nr, titel, text }: { nr: string; titel: string; text: string 
 
 /**
  * Sektion #6 „Wellness" — SM-03 Pin-Story + SM-14 Kapitel-Zähler.
- * Desktop (lg, motion-safe): 300vh-Strecke, Sticky-Bühne, Kapitel per Scrub.
+ * Desktop (lg, motion-safe): 240vh-Strecke, Sticky-Bühne, Kapitel per Scrub.
  * Mobile / reduced-motion: gestapelte Sektion mit einfachem Fade-in.
  */
 export function WellnessPin() {
@@ -166,10 +165,10 @@ export function WellnessPin() {
 
   return (
     <section id="wellness" className="relative overflow-clip bg-champagne">
-      {/* ————— Desktop-Pin-Story (lg + motion-safe): 300vh Strecke, Sticky-Bühne ————— */}
-      <div ref={pinWrapRef} className="relative hidden h-[300vh] lg:motion-safe:block">
+      {/* ————— Desktop-Pin-Story (lg + motion-safe): 240vh Strecke, Sticky-Bühne ————— */}
+      <div ref={pinWrapRef} className="relative hidden h-[240vh] lg:motion-safe:block">
         <div className="sticky top-0 flex h-[100svh] items-center overflow-hidden">
-          {/* Gold-Dust-Partikel IN der Sticky-Bühne (nicht auf der 300vh-Strecke) */}
+          {/* Gold-Dust-Partikel IN der Sticky-Bühne (nicht auf der 240vh-Strecke) */}
           <LazyGoldParticles />
           {/* Sektionskopf oben absolut im Sticky-Bereich */}
           <div className="absolute inset-x-0 top-[clamp(2rem,6vh,4.5rem)]">
@@ -251,7 +250,7 @@ export function WellnessPin() {
 
       {/* ————— Mobile / reduced-motion: normale gestapelte Sektion ————— */}
       <div ref={stackedRef} className="relative lg:motion-safe:hidden">
-        <div className="mx-auto max-w-[1440px] px-6 py-[clamp(80px,10vw,160px)] md:px-10 lg:px-16">
+        <div className="mx-auto max-w-[1440px] px-6 py-[clamp(56px,6.5vw,104px)] md:px-10 lg:px-16">
           <SectionHeading
             eyebrow={wellness.eyebrow}
             script={wellness.script}
@@ -260,7 +259,7 @@ export function WellnessPin() {
 
           {/* Jedes Kapitel mit eigenem Raumfoto (Rundbogen + Parallax-Zoom-Reveal) —
               so sieht auch der mobile Rundgang alle drei Räume */}
-          <div className="mt-14 flex flex-col gap-[clamp(4rem,12vw,6rem)]">
+          <div className="mt-10 flex flex-col gap-[clamp(2.5rem,8vw,4rem)]">
             {wellness.kapitel.map((k, i) => (
               <div key={k.nr}>
                 <div
@@ -289,7 +288,7 @@ export function WellnessPin() {
             ))}
           </div>
 
-          <div data-wellness-fade className="mt-16 flex justify-center sm:justify-start">
+          <div data-wellness-fade className="mt-10 flex justify-center sm:justify-start">
             <WellnessCta className="w-full sm:w-auto" />
           </div>
         </div>

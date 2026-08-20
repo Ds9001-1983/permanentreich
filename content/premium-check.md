@@ -16,11 +16,18 @@
 - [x] SM-15 Preloader mit echtem Asset-Progress (+ 1,8-s-Deckel für LCP)
 - [x] SM-01 Split-Text-Reveal (Intl.Segmenter, ohne GSAP-Club)
 - [x] SM-09 WebGL „Liquid Gold Silk" (Hero-Overlay soft-light + CTA-Hintergrund, Maus-reaktiv)
-- [x] SM-03 Pin-Section-Scroll-Story (Wellness, 300 vh, 3 Kapitel) + Gold-Dust-Partikel
+- [x] SM-03 Pin-Section-Scroll-Story (Wellness, 240 vh, 3 Kapitel) + Gold-Dust-Partikel
 - [x] Custom Micro: Vorher/Nachher-Drag-Slider mit Gold-Rauten-Griff (SMP-Sektion + Beweis-Galerie `#ergebnisse`; PMU als ehrliches Diptychon, da Aufnahmen nicht deckungsgleich)
-- [x] SM-05/06 Custom + Magnetic Cursor mit Kontext-Labels („Entdecken/Ziehen/Buchen/Halten")
+- [x] SM-05 Magnetic Buttons/Tiles — SM-06 Custom Cursor am 2026-08-20 auf Kundenwunsch entfernt (nativer Zeiger; Drag-Slider zeigt stattdessen `cursor: grab`)
 - [x] SM-07 Marquee (Versprechen + Claim-Band)
 - Unterstützende Effekte (bewusst als Micro-Interactions klassifiziert, nicht als eigene Moves): SM-12 Mask-Reveal im Hook, SM-13 Parallax (Services/Olga), SM-14 Zähler (Ablauf), SM-10 Hover-Video-Tiles (Teil des Service-Grids lt. Raster)
+
+## Abstände
+
+- [x] Sektions-Rhythmus 2026-08-20 auf Kundenwunsch gestrafft: `py-[clamp(56px,6.5vw,104px)]`
+      statt `clamp(80px,10vw,160px)` (Desktop 144 → 94 px, Mobile 80 → 56 px). Zusätzlich
+      Versatz-Offsets im Leistungs-Grid und Ablauf halbiert, Wellness-Pin 300 → 240 vh,
+      PMU-Beweisspalte mittig statt oben verankert. Seitenhöhe Desktop 15 890 → 13 900 px.
 
 ## Medien
 - [x] Video-Hero vorhanden: Seide/Goldstaub-Loop (Desktop 16:9 + eigenes Mobile 9:16)

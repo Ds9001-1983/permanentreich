@@ -71,7 +71,6 @@ function HeroInhalt() {
             href={kontakt.whatsapp}
             target="_blank"
             rel="noopener noreferrer"
-            data-cursor="Buchen"
             className="inline-flex h-14 items-center rounded-full bg-umber px-10 text-light transition-colors duration-300 hover:bg-gold"
           >
             {hero.cta}
@@ -83,7 +82,6 @@ function HeroInhalt() {
           href={kontakt.booking}
           target="_blank"
           rel="noopener noreferrer"
-          data-cursor="Buchen"
           className="link-line inline-flex min-h-11 items-center gap-2 font-semibold text-umber"
         >
           <span aria-hidden className="text-gold">✦</span>

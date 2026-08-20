@@ -52,7 +52,7 @@ export function Footer() {
         </p>
 
         {/* Kontakt-Grid */}
-        <div className="mt-[clamp(48px,6vw,96px)] grid grid-cols-1 gap-12 border-t border-light/10 pt-[clamp(40px,5vw,72px)] md:grid-cols-3 md:gap-10">
+        <div className="mt-[clamp(32px,4vw,60px)] grid grid-cols-1 gap-12 border-t border-light/10 pt-[clamp(28px,3.5vw,52px)] md:grid-cols-3 md:gap-10">
           <address className="not-italic">
             {/* Original-Wortmarke (CI) — Grau/Gold funktioniert auch auf Umber */}
             <Image
@@ -80,7 +80,6 @@ export function Footer() {
               href={kontakt.booking}
               target="_blank"
               rel="noopener noreferrer"
-              data-cursor="Buchen"
               className="link-line font-display inline-flex min-h-11 items-center text-[clamp(1.375rem,2vw,1.75rem)] text-gold"
             >
               {cta.bookingLabel}

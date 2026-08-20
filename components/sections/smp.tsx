@@ -59,12 +59,12 @@ export function Smp() {
   const aktiv = inhalte[modus];
 
   return (
-    <section id="smp" className="bg-ivory py-[clamp(80px,10vw,160px)]">
+    <section id="smp" className="bg-ivory py-[clamp(56px,6.5vw,104px)]">
       <div className="mx-auto max-w-[1440px] px-6 md:px-10 lg:px-16">
         <SectionHeading
           eyebrow={smp.eyebrow}
           headline={smp.headline}
-          className="mb-[clamp(48px,6vw,96px)] max-w-5xl"
+          className="mb-[clamp(32px,4vw,56px)] max-w-5xl"
         />
 
         <div className="grid grid-cols-1 gap-y-12 lg:grid-cols-12 lg:items-center lg:gap-x-10">
@@ -104,7 +104,6 @@ export function Smp() {
               href={kontakt.whatsapp}
               target="_blank"
               rel="noopener noreferrer"
-              data-cursor="Buchen"
               className="link-line mt-10 inline-flex min-h-[56px] items-center gap-3 text-lg font-medium text-umber"
             >
               <span>{smp.cta}</span>
