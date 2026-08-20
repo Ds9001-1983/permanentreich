@@ -37,3 +37,21 @@ Originale bleiben unangetastet. Verarbeitete Versionen → `assets/graded/`, Web
 | `IMG_6698.mov` | Studio-Rundgang (iPhone, HLG/HDR, 2160×3840@60, 6,3 s): Liege → Sitzecke → Gold-Sessel | Mobiler Scrollytelling-Hero | `scripts/build-scrub.sh`: eq-Kompensation + Brand-LUT + 76 WebP-Frames → `public/media/hero/scrub/` ✓ Gate |
 | *(Logo-Derivat)* | Kern-Wortmarke „PERMANENT Reich" — farbsepariert aus dem Vektor (graue Subline entfernt, PDF-Rahmenlinie beschnitten) | Header, Preloader, Footer, Rechtsseiten, OG-Bild | `public/logo-wortmarke.png` |
 | *(Logo-Derivat)* | Gold-Script-„R" als Favicon/App-Icon | Browser-Tab, iOS-Homescreen | `app/icon.png`, `app/apple-icon.png` |
+
+## Nachtrag 2026-08-20 (Flyer-Fotos, Kundenwunsch Olga)
+
+Olgas Rückmeldung: die Männerbilder auf der Site zeigten Buzzcut statt SMP.
+Ersatz kommt aus derselben Foto-Serie wie der Flyer (`…11.43.00 (1).jpeg`).
+Originale liegen in `assets/candidates/flyer-2026-08/` (gitignored).
+
+| Original | Inhalt | Slot | Behandlung |
+|---|---|---|---|
+| `_ORIGINAL-smp-makro.jpeg` (1536×2048) | Oberkopf-Makro, SMP-Punkte + gezogener Haaransatz | SMP-Kachel `#leistungen` | `crop=1200:1500:230:400` → 1024×1280, Brand-LUT + `eq=saturation=0.82` + `colorbalance=rs=-0.03:rm=-0.04` |
+| `_ORIGINAL-smp-portrait.jpeg` (1152×1536) | 3/4-Portrait, gepflegte Stoppelglatze | Polaroid „SMP für Ihn" (Über Olga) | `crop=1152:1152:0:130` → 1200×1200, gleiches Grading |
+| `_ORIGINAL-pmu-frau.jpeg` (1638×2048) | Halbes Gesicht: Braue, Wimpernkranz, Lippen | PMU-Kachel `#leistungen` | nur `scale=1024:1280`, gleiches Grading |
+| `…13.46.30 (3).jpeg` (Projektordner) | Powderbrows-Ergebnis echte Kundin | Ergebnis-Karte `#ergebnisse` | `crop=600:800:130:300` → 900×1200, LUT + `eq=saturation=0.75` — **bewusst enger Brauen-Ausschnitt** (ohne Mund/Nase), solange keine schriftliche Einwilligung für eine Gesichtsaufnahme vorliegt |
+
+**Hover-Videos** (`tiles/smp.mp4`, `tiles/pmu.mp4`) sind kein i2v mehr, sondern ein
+nahtloser Ping-Pong-Push-in aus dem jeweils gegradeten Standbild:
+`zoompan` 1.00→1.10 auf 4×-Upscale → 720×900, vorwärts + `reverse` konkateniert.
+Dadurch zeigen Poster und Video garantiert dieselbe Person und exakt dieselbe Farbe.

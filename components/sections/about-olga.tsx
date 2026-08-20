@@ -75,7 +75,8 @@ export function AboutOlga() {
               <div className="relative aspect-square overflow-hidden">
                 <Image
                   src={media.olga.bts}
-                  alt={olga.bts}
+                  // Eigener Alt statt Caption-Recycling — die Caption benennt nur die Leistung
+                  alt="Mann mit gepflegter Stoppelglatze — natürlich wirkender Haaransatz nach Kopfhautpigmentierung"
                   fill
                   sizes="160px"
                   className="object-cover"

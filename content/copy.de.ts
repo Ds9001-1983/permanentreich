@@ -105,6 +105,23 @@ export const smp = {
   cta: 'Beratung für deine SMP',
 } as const;
 
+/**
+ * Beweis-Sektion #ergebnisse — bündelt alle Vorher/Nachher-Belege.
+ * Die Bild-Daten liegen in lib/media.ts (`ergebnisListe`).
+ */
+export const ergebnisse = {
+  eyebrow: 'Echte Ergebnisse',
+  script: 'ungeschönt',
+  headline: 'Vorher, nachher — sieh selbst.',
+  text: 'Alle Bilder stammen aus meinem Studio. Bearbeitet ist nur die Farbstimmung, sonst nichts. Zieh den Regler und schau dir das Ergebnis in Ruhe an.',
+  labelVorher: 'Vorher',
+  labelNachher: 'Nachher',
+  labelErgebnis: 'Ergebnis',
+  hinweis:
+    'Ergebnisse sind individuell — was bei dir möglich ist, klären wir in der kostenlosen Beratung.',
+  cta: 'Kostenlose Beratung',
+} as const;
+
 export const wellness = {
   eyebrow: 'Permanent Wellness',
   script: 'deine Auszeit',
@@ -143,7 +160,7 @@ export const olga = {
     'Ob Permanent Make-up, Kopfhautpigmentierung oder einfach eine Auszeit im Massagesessel: Bei mir bist du keine Nummer. Wir besprechen deine Wünsche in Ruhe — die Beratung ist immer kostenlos.',
   ],
   signatur: 'Deine Olga',
-  bts: 'Einblick ins Studio',
+  bts: 'SMP für Ihn',
 } as const;
 
 export const ablauf = {
@@ -219,6 +236,7 @@ export const nav = {
     { label: 'Leistungen', href: '#leistungen' },
     { label: 'Permanent Make-up', href: '#pmu' },
     { label: 'Kopfhaut', href: '#smp' },
+    { label: 'Ergebnisse', href: '#ergebnisse' },
     { label: 'Wellness', href: '#wellness' },
     { label: 'Über Olga', href: '#olga' },
   ],

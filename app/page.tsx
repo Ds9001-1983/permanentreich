@@ -6,6 +6,7 @@ import { HookStatement } from '@/components/sections/hook-statement';
 import { ServicesGrid } from '@/components/sections/services-grid';
 import { Pmu } from '@/components/sections/pmu';
 import { Smp } from '@/components/sections/smp';
+import { Ergebnisse } from '@/components/sections/ergebnisse';
 import { WellnessPin } from '@/components/sections/wellness-pin';
 import { AboutOlga } from '@/components/sections/about-olga';
 import { ProcessSteps } from '@/components/sections/process-steps';
@@ -23,6 +24,7 @@ export default function Home() {
         <HookStatement />
         <Pmu />
         <Smp />
+        <Ergebnisse />
         <WellnessPin />
         <AboutOlga />
         <ProcessSteps />

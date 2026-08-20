@@ -17,7 +17,7 @@
 - [x] SM-01 Split-Text-Reveal (Intl.Segmenter, ohne GSAP-Club)
 - [x] SM-09 WebGL „Liquid Gold Silk" (Hero-Overlay soft-light + CTA-Hintergrund, Maus-reaktiv)
 - [x] SM-03 Pin-Section-Scroll-Story (Wellness, 300 vh, 3 Kapitel) + Gold-Dust-Partikel
-- [x] Custom Micro: Vorher/Nachher-Drag-Slider mit Gold-Rauten-Griff (SMP; PMU als ehrliches Diptychon, da Aufnahmen nicht deckungsgleich)
+- [x] Custom Micro: Vorher/Nachher-Drag-Slider mit Gold-Rauten-Griff (SMP-Sektion + Beweis-Galerie `#ergebnisse`; PMU als ehrliches Diptychon, da Aufnahmen nicht deckungsgleich)
 - [x] SM-05/06 Custom + Magnetic Cursor mit Kontext-Labels („Entdecken/Ziehen/Buchen/Halten")
 - [x] SM-07 Marquee (Versprechen + Claim-Band)
 - Unterstützende Effekte (bewusst als Micro-Interactions klassifiziert, nicht als eigene Moves): SM-12 Mask-Reveal im Hook, SM-13 Parallax (Services/Olga), SM-14 Zähler (Ablauf), SM-10 Hover-Video-Tiles (Teil des Service-Grids lt. Raster)
