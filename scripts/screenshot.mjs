@@ -16,7 +16,7 @@ const url = arg('url', 'http://localhost:3311');
 const out = arg('out', 'assets/qa');
 await mkdir(out, { recursive: true });
 
-const anchors = ['start', 'reich', 'leistungen', 'pmu', 'smp', 'ergebnisse', 'wellness', 'olga', 'ablauf', 'termin'];
+const anchors = ['start', 'olga', 'leistungen', 'reich', 'pmu', 'smp', 'ergebnisse', 'wellness', 'ablauf', 'termin'];
 
 const browser = await chromium.launch();
 

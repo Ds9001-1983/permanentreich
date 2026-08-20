@@ -233,12 +233,12 @@ export const footer = {
 
 export const nav = {
   items: [
+    { label: 'Über Olga', href: '#olga' },
     { label: 'Leistungen', href: '#leistungen' },
     { label: 'Permanent Make-up', href: '#pmu' },
     { label: 'Kopfhaut', href: '#smp' },
     { label: 'Ergebnisse', href: '#ergebnisse' },
     { label: 'Wellness', href: '#wellness' },
-    { label: 'Über Olga', href: '#olga' },
   ],
   cta: 'Termin',
 } as const;

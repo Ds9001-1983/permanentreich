@@ -21,7 +21,7 @@ Primär: Gold `#bf885a` (exakt aus Logo, max. 10 % Fläche) · Neutral-Palette: 
 3. 14islands.com — helle, weiche Shader-Welt (Beweis: WebGL geht auch hell)
 
 **7. Inhalts-Inventar (One-Pager, nicht mehr, nicht weniger)**
-Preloader → Hero (Video) → Hook-Statement → Leistungen (3er-Grid) → PMU (mit Vorher/Nachher) → SMP Sie & Ihn (mit Vorher/Nachher) → Wellness (Pin-Story Sessel) → Über Olga → Ablauf/Beratung (3 Schritte) → Stimmen-Marquee → Termin-CTA (WhatsApp/Instagram/Tel) → Footer. Unterseiten: /impressum, /datenschutz.
+Preloader → Hero (Video) → Über Olga → Leistungen (3er-Grid) → Hook-Statement → PMU (mit Vorher/Nachher) → SMP Sie & Ihn (mit Vorher/Nachher) → Echte Ergebnisse (Beweis-Galerie) → Wellness (Pin-Story Sessel) → Ablauf/Beratung (3 Schritte) → Stimmen-Marquee → Termin-CTA (WhatsApp/Instagram/Tel) → Footer. *(Reihenfolge zuletzt 2026-08-20 auf Kundenwunsch: Angebot direkt unter den Hero, Olga davor als Gesicht.)* Unterseiten: /impressum, /datenschutz.
 
 **8. Technik-Rahmen**
 Next.js 14+ App Router (TypeScript, Tailwind), Lenis + GSAP + ScrollTrigger, Three.js/R3F (Silk-Shader + Gold-Partikel), Video-Hero via z-image-turbo→seedance (Higgsfield als Zweitquelle), Fonts self-hosted (DSGVO), statische Karte statt Google Maps. Performance-Budget: Lighthouse Mobile > 80, LCP < 2.5 s, CLS < 0.1, Hero-Video < 3 MB. Hosting-Ziel: Hetzner (lt. Skill), Domain permanentreich.info. Tonalität: durchgängig Du.
