@@ -19,7 +19,9 @@ export const media = {
   },
   tiles: {
     pmu: { poster: '/media/tiles/pmu.jpg', video: '/media/tiles/pmu.mp4' },
-    smp: { poster: '/media/tiles/smp.jpg', video: '/media/tiles/smp.mp4' },
+    /* Kein Hover-Video: das Vollgesicht-Foto trägt die Kachel allein
+       (der alte Clip stammte aus dem engen Makro-Crop). */
+    smp: { poster: '/media/tiles/smp.jpg', video: undefined },
     wellness: { poster: '/media/tiles/wellness.jpg', video: '/media/tiles/wellness.mp4' },
   },
   results: {
@@ -93,36 +95,6 @@ export type Ergebnis =
     };
 
 export const ergebnisListe: readonly Ergebnis[] = [
-  {
-    id: 'smp-mann',
-    kategorie: 'Kopfhautpigmentierung',
-    titel: 'Oberkopf & Tonsur',
-    text: 'Eine Sitzung, sichtbar dichter Oberkopf. Zieh den Regler und vergleiche selbst.',
-    modus: 'slider',
-    aspect: 'aspect-[3/4]',
-    ...media.results.smpMann,
-    nachherLabel: 'Nachher (1. Sitzung)',
-  },
-  {
-    id: 'smp-frau',
-    kategorie: 'Kopfhautpigmentierung',
-    titel: 'Lichter Scheitel',
-    text: 'Der Scheitel blitzt nicht mehr durch — und niemand sieht, warum.',
-    modus: 'slider',
-    aspect: 'aspect-[16/9]',
-    ...media.results.smpFrau,
-    nachherLabel: 'Nachher (1. Sitzung)',
-  },
-  {
-    id: 'pmu-brauen',
-    kategorie: 'Permanent Make-up',
-    titel: 'Powderbrows',
-    // Die beiden Aufnahmen sind nicht deckungsgleich — nebeneinander statt Slider.
-    text: 'Aus dünn und lückenhaft wird eine Braue mit Form. Zwei Aufnahmen, ehrlich nebeneinander.',
-    modus: 'diptychon',
-    aspect: 'aspect-[3/4]',
-    ...media.results.pmu,
-  },
   {
     id: 'pmu-frisch',
     kategorie: 'Permanent Make-up',

@@ -70,7 +70,7 @@ export const pmu = {
   eyebrow: 'Permanent Make-up',
   script: 'natürlich schön',
   headline: 'Wach aussehen — nicht geschminkt.',
-  text: 'Dein Permanent Make-up unterstreicht, was schon da ist: ausdrucksstarke Brauen, weiche Lippenkontur, ein offener Blick. Olga arbeitet fein, natürlich und pigmentschonend — damit es aussieht wie du, nur ausgeschlafener.',
+  text: 'Dein Permanent Make-up unterstreicht, was schon da ist: ausdrucksstarke Brauen, weiche Lippenkontur, ein offener Blick. Ich arbeite fein, natürlich und pigmentschonend — damit es aussieht wie du, nur ausgeschlafener.',
   details: [
     {
       titel: 'Powderbrows',
@@ -112,8 +112,8 @@ export const smp = {
 export const ergebnisse = {
   eyebrow: 'Echte Ergebnisse',
   script: 'ungeschönt',
-  headline: 'Vorher, nachher — sieh selbst.',
-  text: 'Alle Bilder stammen aus meinem Studio. Bearbeitet ist nur die Farbstimmung, sonst nichts. Zieh den Regler und schau dir das Ergebnis in Ruhe an.',
+  headline: 'Frisch aus dem Studio.',
+  text: 'Alle Bilder stammen aus meinem Studio. Bearbeitet ist nur die Farbstimmung, sonst nichts. Die Vorher/Nachher-Vergleiche findest du oben bei den Leistungen.',
   labelVorher: 'Vorher',
   labelNachher: 'Nachher',
   labelErgebnis: 'Ergebnis',
@@ -160,7 +160,7 @@ export const olga = {
     'Ob Permanent Make-up, Kopfhautpigmentierung oder einfach eine Auszeit im Massagesessel: Bei mir bist du keine Nummer. Wir besprechen deine Wünsche in Ruhe — die Beratung ist immer kostenlos.',
   ],
   signatur: 'Deine Olga',
-  bts: 'SMP für Ihn',
+  bts: 'Einblick ins Studio',
 } as const;
 
 export const ablauf = {

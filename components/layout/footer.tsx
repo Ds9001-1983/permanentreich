@@ -3,7 +3,9 @@
 import Image from 'next/image';
 import { useEffect, useRef } from 'react';
 import Link from 'next/link';
+import { CalendarHeart, Mail, MapPin, Phone } from 'lucide-react';
 import { gsap, prefersReducedMotion } from '@/lib/gsap';
+import { InstagramGlyph, WhatsappGlyph } from '@/components/ui/icons';
 import { cta, footer, kontakt } from '@/content/copy.de';
 import { media } from '@/lib/media';
 
@@ -51,7 +53,7 @@ export function Footer() {
           {footer.megaClaim}
         </p>
 
-        {/* Kontakt-Grid */}
+        {/* Kontakt-Grid — jeder Weg mit Icon: Ort, Termin, Direktkontakt */}
         <div className="mt-[clamp(32px,4vw,60px)] grid grid-cols-1 gap-12 border-t border-light/10 pt-[clamp(28px,3.5vw,52px)] md:grid-cols-3 md:gap-10">
           <address className="not-italic">
             {/* Original-Wortmarke (CI) — Grau/Gold funktioniert auch auf Umber */}
@@ -66,11 +68,14 @@ export function Footer() {
               href={kontakt.mapsLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="link-line mt-4 inline-flex min-h-11 items-center text-[17px] leading-relaxed text-light/80"
+              className="link-line mt-4 inline-flex min-h-11 items-start gap-3 text-[17px] leading-relaxed text-light/80"
             >
-              {kontakt.strasse}
-              <br />
-              {kontakt.ort}
+              <MapPin aria-hidden className="mt-1 h-5 w-5 shrink-0 text-gold" />
+              <span>
+                {kontakt.strasse}
+                <br />
+                {kontakt.ort}
+              </span>
             </a>
           </address>
 
@@ -80,26 +85,46 @@ export function Footer() {
               href={kontakt.booking}
               target="_blank"
               rel="noopener noreferrer"
-              className="link-line font-display inline-flex min-h-11 items-center text-[clamp(1.375rem,2vw,1.75rem)] text-gold"
+              className="link-line font-display inline-flex min-h-11 items-center gap-3 text-[clamp(1.375rem,2vw,1.75rem)] text-gold"
             >
+              <CalendarHeart aria-hidden className="h-5 w-5 shrink-0" />
               {cta.bookingLabel}
             </a>
             <a
               href={kontakt.telefonLink}
-              className="link-line font-display inline-flex min-h-11 items-center text-[clamp(1.375rem,2vw,1.75rem)] text-light"
+              className="link-line font-display inline-flex min-h-11 items-center gap-3 text-[clamp(1.375rem,2vw,1.75rem)] text-light"
             >
+              <Phone aria-hidden className="h-5 w-5 shrink-0 text-gold" />
               {kontakt.telefon}
             </a>
           </div>
 
-          <div>
+          {/* Direkter Draht: WhatsApp, Instagram, E-Mail */}
+          <div className="flex flex-col items-start gap-2">
+            <a
+              href={kontakt.whatsapp}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="link-line font-display inline-flex min-h-11 items-center gap-3 text-[clamp(1.375rem,2vw,1.75rem)] text-light"
+            >
+              <WhatsappGlyph className="h-5 w-5 shrink-0 text-gold" />
+              WhatsApp
+            </a>
             <a
               href={kontakt.instagram}
               target="_blank"
               rel="noopener noreferrer"
-              className="link-line font-display inline-flex min-h-11 items-center text-[clamp(1.375rem,2vw,1.75rem)] text-light"
+              className="link-line font-display inline-flex min-h-11 items-center gap-3 text-[clamp(1.375rem,2vw,1.75rem)] text-light"
             >
+              <InstagramGlyph className="h-5 w-5 shrink-0 text-gold" />
               {kontakt.instagramHandle}
+            </a>
+            <a
+              href={kontakt.emailLink}
+              className="link-line inline-flex min-h-11 items-center gap-3 text-[17px] text-light/80"
+            >
+              <Mail aria-hidden className="h-5 w-5 shrink-0 text-gold" />
+              {kontakt.email}
             </a>
           </div>
         </div>

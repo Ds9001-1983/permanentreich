@@ -1,5 +1,6 @@
 import Image from 'next/image';
-import { CalendarHeart, MessageCircle } from 'lucide-react';
+import { CalendarHeart } from 'lucide-react';
+import { WhatsappGlyph } from '@/components/ui/icons';
 import { Magnetic } from '@/components/ui/magnetic';
 import { SectionHeading } from '@/components/ui/section-heading';
 import { Sparkles } from '@/components/ui/sparkles';
@@ -65,7 +66,7 @@ export function BookingCta() {
                 rel="noopener noreferrer"
                 className="flex h-14 w-full items-center justify-center gap-3 rounded-full border border-umber text-umber transition-colors duration-300 hover:bg-umber hover:text-light"
               >
-                <MessageCircle aria-hidden className="h-5 w-5" />
+                <WhatsappGlyph className="h-5 w-5" />
                 {cta.whatsappLabel}
               </a>
             </Magnetic>

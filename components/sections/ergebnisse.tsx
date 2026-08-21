@@ -56,12 +56,17 @@ export function Ergebnisse() {
           {ergebnisse.text}
         </p>
 
-        {/* Masonry über CSS-Spalten: die Belege haben sehr verschiedene
-            Seitenverhältnisse (Hochformat, 16/9-Streifen, Diptychon) — ein
-            Zeilenraster würde dazwischen Löcher reißen. */}
+        {/* Ein einzelner Beleg steht mittig als Karte. Kommen weitere dazu,
+            greift wieder das Masonry über CSS-Spalten — die Belege haben sehr
+            verschiedene Seitenverhältnisse (Hochformat, 16/9-Streifen,
+            Diptychon), ein Zeilenraster würde dazwischen Löcher reißen. */}
         <div
           data-ergebnis-grid
-          className="mt-12 columns-1 lg:mt-16 lg:columns-2 lg:gap-x-12"
+          className={
+            ergebnisListe.length > 1
+              ? 'mt-12 columns-1 lg:mt-16 lg:columns-2 lg:gap-x-12'
+              : 'mx-auto mt-12 max-w-md lg:mt-16'
+          }
         >
           {ergebnisListe.map((eintrag) => (
             <article
