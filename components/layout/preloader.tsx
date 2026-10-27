@@ -39,6 +39,8 @@ export function Preloader() {
     // Reduced Motion: sofort weg, ohne jede Animation
     if (prefersReducedMotion()) {
       sessionStorage.setItem(SESSION_KEY, '1');
+      // Bewusst nach dem Mount: prefers-reduced-motion kennt nur der Browser.
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setSichtbar(false);
       return;
     }

@@ -20,6 +20,8 @@ export function useWebglCapable(): boolean {
       const canvas = document.createElement('canvas');
       const gl = canvas.getContext('webgl2') ?? canvas.getContext('webgl');
       if (!gl) return;
+      // Bewusst nach dem Mount: WebGL lässt sich nur im Browser prüfen.
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setCapable(true);
     } catch {
       /* Fallback bleibt aktiv */

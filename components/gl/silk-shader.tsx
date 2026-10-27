@@ -87,6 +87,7 @@ const vertexShader = /* glsl */ `
 
 function SilkPlane({ intensity }: { intensity: number }) {
   const mesh = useRef<THREE.Mesh>(null);
+  const material = useRef<THREE.ShaderMaterial>(null);
   const mouse = useRef(new THREE.Vector2(0.5, 0.5));
 
   const uniforms = useMemo(
@@ -98,10 +99,13 @@ function SilkPlane({ intensity }: { intensity: number }) {
     [intensity],
   );
 
+  // Über die Material-Ref schreiben (dasselbe Uniform-Objekt), nicht über den useMemo-Wert
   useFrame((state) => {
-    uniforms.uTime.value = state.clock.elapsedTime;
+    const u = material.current?.uniforms;
+    if (!u) return;
+    u.uTime.value = state.clock.elapsedTime;
     // Maus sanft nachziehen (Luftzug, kein Wobble)
-    uniforms.uMouse.value.lerp(mouse.current, 0.06);
+    u.uMouse.value.lerp(mouse.current, 0.06);
   });
 
   // Maus global lesen — Canvas ist pointer-events-none
@@ -117,6 +121,7 @@ function SilkPlane({ intensity }: { intensity: number }) {
     <mesh ref={mesh}>
       <planeGeometry args={[2, 2]} />
       <shaderMaterial
+        ref={material}
         vertexShader={vertexShader}
         fragmentShader={fragmentShader}
         uniforms={uniforms}
@@ -148,6 +153,8 @@ export function SilkCanvas({
   const [phone, setPhone] = useState(false);
 
   useEffect(() => {
+    // Bewusst nach dem Mount: die Bildschirmbreite kennt nur der Browser.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setPhone(window.matchMedia('(max-width: 767px)').matches);
   }, []);
 

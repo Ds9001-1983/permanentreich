@@ -35,6 +35,8 @@ export function SmoothScrollProvider({ children }: { children: React.ReactNode }
     };
     gsap.ticker.add(raf);
     gsap.ticker.lagSmoothing(0);
+    // Bewusst im Effect: Die Lenis-Instanz entsteht erst im Browser und wird per Context weitergegeben.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setLenis(instance);
 
     return () => {

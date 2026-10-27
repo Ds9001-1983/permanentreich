@@ -1,6 +1,6 @@
 'use client';
 
-import { createElement, useEffect, useRef, type ElementType } from 'react';
+import { useEffect, useRef, type ElementType, type HTMLAttributes, type RefAttributes } from 'react';
 import { gsap, ScrollTrigger, prefersReducedMotion } from '@/lib/gsap';
 
 type Props = {
@@ -76,23 +76,24 @@ export function SplitReveal({
   }
   if (buffer) words.push(buffer);
 
-  return createElement(
-    as,
-    { ref: root, className },
-    <span key="sr" className="sr-only">
-      {children}
-    </span>,
-    words.map((word, i) => (
-      <span
-        key={`${word}-${i}`}
-        aria-hidden
-        className="inline-block overflow-hidden pb-[0.08em] mb-[-0.08em] align-baseline"
-      >
-        <span data-word-inner className="inline-block will-change-transform">
-          {word}
-        </span>
-        {i < words.length - 1 ? ' ' : ''}
+  const Tag = as as ElementType<HTMLAttributes<HTMLElement> & RefAttributes<HTMLElement>>;
+  return (
+    <Tag ref={root} className={className}>
+      <span key="sr" className="sr-only">
+        {children}
       </span>
-    )),
+      {words.map((word, i) => (
+        <span
+          key={`${word}-${i}`}
+          aria-hidden
+          className="inline-block overflow-hidden pb-[0.08em] mb-[-0.08em] align-baseline"
+        >
+          <span data-word-inner className="inline-block will-change-transform">
+            {word}
+          </span>
+          {i < words.length - 1 ? ' ' : ''}
+        </span>
+      ))}
+    </Tag>
   );
 }
